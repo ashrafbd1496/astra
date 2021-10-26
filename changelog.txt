@@ -1,22 +1,24 @@
-v3.7.4 (Unreleased)
-- New: Breadcrumb compatibility with SEOPress. ( https://wpastra.com/docs/add-breadcrumbs-with-astra/#support-for-third-party-plugins )
+v3.8.0 (woocomerce-improvements) (Unreleased)
 - New: WooCommerce - Added cart icon hover color option.
 - New: WooCommerce - Added cart Margin and Padding spacing option.
 - New: WooCommerce - Added store notice color & background-color options.
 - New: WooCommerce - Added store notice position option.
+
+v3.7.4
+- New: Breadcrumb compatibility with SEOPress plugin. ( https://wpastra.com/docs/add-breadcrumbs-with-astra/#support-for-third-party-plugins )
 - Improvement: Gutenberg editor core blocks UI/UX improvement. ( Needs Doc )
 - Improvement: Code refactor – Some filters, functions, hooks are deprecated and replaced with astra_ prefix NamingConvention. ( Needs Doc )
-- Improvement: Gutenberg frontend blocks UI improvement.
+- Improvement: Gutenberg frontend blocks UI improvement. ( Needs Doc )
 - Improvement: Global – Typography – Heading presets value should also retain in H1 to H6.
-- Improvement: Moved Astra meta settings into a separate Gutenberg sidebar panel.
-- Fix: W3C HTML validation - Getting duplicate H1 tag for site-title.
-- Fix: Gutenberg Editor content area showing white background color when Full screen mode is active.
-- Fix: Color picker tooltip appear on hover of selection area & it's palette.
-- Fix: W3C HTML validation - Duplicate ID: ast-hf-mobile-menu. This change may break CSS if you have used custom CSS on ast-hf-mobile-menu HTML ID.
-- Fix: W3C HTML validation - Duplicate ID: Layer_1. This change may break CSS if you have used custom CSS on Layer_1 HTML ID.
-- Fix: The default "Add Widget" text alignment issue in header.
-- Fix: W3 validator - Duplicate HTML id 'site-navigation' if there are multiple menus on a single page.
-- Fix: W3 validator - CSS parse error for '.menu-link' & '.wp-block-button__link'.
+- Improvement: Moved Astra meta settings into a separate Gutenberg sidebar panel. ( Blog Link )
+- Fix: W3 validation - Getting duplicate H1 tag for site-title.
+- Fix: W3 validation - Duplicate HTML id '#site-navigation' if there are multiple menus on a single page.
+- Fix: W3 validation - CSS parse error for '.menu-link' & '.wp-block-button__link'.
+- Fix: W3 validation - Duplicate ID: '#ast-hf-mobile-menu'. This change may break CSS if you have used custom CSS on '#ast-hf-mobile-menu' HTML ID.
+- Fix: W3 validation - Duplicate ID: '#Layer_1'. This change may break CSS if you have used custom CSS on '#Layer_1' HTML ID.
+- Fix: Gutenberg Editor content area showing white background color when Full-screen mode is active.
+- Fix: Color picker tooltip appears on hover of selection area & its palette.
+- Fix: The default "Add Widget" text alignment issue in the header.
 - Fix: Image and Text blocks alignment not working properly with Image size - Medium in the editor.
 - Fix: Alignwide blocks getting horizontal scrollbar on tablet breakpoint & 1400px between devices. (Props - https://github.com/ZebulanStanphill)
 - Fix: Inner container Gutenberg block's content width not affected by "Container Width" option. (Props - https://github.com/ZebulanStanphill)

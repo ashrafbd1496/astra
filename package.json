@@ -15,10 +15,10 @@
   "license": "ISC",
   "devDependencies": {
     "@lodder/grunt-postcss": "^3.0.1",
-    "@wordpress/api-fetch": "^5.2.1",
+    "@wordpress/api-fetch": "^5.2.3",
     "@wordpress/e2e-test-utils": "^5.4.4",
-    "@wordpress/env": "^4.1.0",
-    "@wordpress/eslint-plugin": "^9.1.1",
+    "@wordpress/env": "^4.1.2",
+    "@wordpress/eslint-plugin": "^9.2.0",
     "@wordpress/jest-puppeteer-axe": "^3.1.0",
     "@wordpress/scripts": "^18.1.0",
     "autoprefixer": "^10.3.7",
@@ -40,7 +40,7 @@
     "grunt-sass": "^3.0.2",
     "grunt-text-replace": "^0.4.0",
     "grunt-wp-i18n": "^1.0.3",
-    "grunt-wp-readme-to-markdown": "^2.0.1",
+    "grunt-wp-readme-to-markdown": "^2.1.0",
     "jest-silent-reporter": "^0.5.0",
     "kind-of": ">=6.0.3",
     "lodash": "^4.17.21",
@@ -50,7 +50,7 @@
     "puppeteer": "^10.4.0"
   },
   "scripts": {
-    "pree2etests": "cross-env sh ./bin/scripts/pre-e2e-tests.sh",
+    "pree2etests": "npm run env run cli rewrite structure '%postname%' --hard --quiet",
     "test:e2e": "npm run pree2etests && cross-env WP_BASE_URL=http://localhost:8888 wp-scripts test-e2e --config=tests/e2e/jest.config.js",
     "test:e2e:interactive": "npm run test:e2e -- --puppeteer-interactive",
     "test:e2e:ci": "npm run test:e2e -- --runInBand",
