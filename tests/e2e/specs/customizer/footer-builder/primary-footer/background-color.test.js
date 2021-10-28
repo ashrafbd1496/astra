@@ -17,6 +17,13 @@ describe( 'primary footer background color settings in the customizer', () => {
 					'background-color': 'rgb(210, 248, 249)',
 				},
 			},
+			'footer-desktop-items': {
+				primary: {
+					primary_1: {
+						0: 'social-icons-1',
+					},
+				},
+			},
 		};
 		await setCustomize( backgroundcolor );
 		await page.goto( createURL( '/' ), {
@@ -25,6 +32,7 @@ describe( 'primary footer background color settings in the customizer', () => {
 		await page.waitForSelector( '.site-primary-footer-wrap[data-section="section-primary-footer-builder"]' );
 		await setBrowserViewport( 'large' );
 		await scrollToElement( '#colophon' );
+
 		await expect( {
 			selector: '.site-primary-footer-wrap[data-section="section-primary-footer-builder"]',
 			property: 'background-color',
