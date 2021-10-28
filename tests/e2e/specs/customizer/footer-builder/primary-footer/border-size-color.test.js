@@ -2,8 +2,8 @@ import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 import { scrollToElement } from '../../../../utils/scroll-to-element';
-describe( 'Below footer border size setting in customizer', () => {
-	it( 'top border size should apply correctly', async () => {
+describe( 'Primary footer border size setting in customizer', () => {
+	it( 'border size should apply correctly', async () => {
 		const borderSizeColor = {
 			'hb-footer-main-sep': '50',
 			'hb-footer-main-sep-color': 'rgb(255, 79, 88)',
