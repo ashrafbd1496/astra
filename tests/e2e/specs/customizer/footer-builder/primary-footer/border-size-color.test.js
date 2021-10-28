@@ -7,6 +7,13 @@ describe( 'Below footer border size setting in customizer', () => {
 		const borderSizeColor = {
 			'hb-footer-main-sep': '50',
 			'hb-footer-main-sep-color': 'rgb(255, 79, 88)',
+			'footer-desktop-items': {
+				primary: {
+					primary_1: {
+						0: 'social-icons-1',
+					},
+				},
+			},
 		};
 		await setCustomize( borderSizeColor );
 		await page.goto( createURL( '/' ), {
