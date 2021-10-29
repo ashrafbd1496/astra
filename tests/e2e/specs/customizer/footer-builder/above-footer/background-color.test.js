@@ -3,18 +3,18 @@ import { setCustomize } from '../../../../utils/customize';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 import { scrollToElement } from '../../../../utils/scroll-to-element';
 
-describe( 'primary footer background color settings in the customizer', () => {
+describe( 'above footer background color settings in the customizer', () => {
 	it( 'background color should apply correctly', async () => {
 		const backgroundcolor = {
-			'hb-footer-bg-obj-responsive': {
+			'hba-footer-bg-obj-responsive': {
 				desktop: {
-					'background-color': 'rgb(238, 238, 238)',
+					'background-color': 'rgb(242, 206, 206)',
 				},
 				tablet: {
-					'background-color': 'rgb(238, 238, 238)',
+					'background-color': 'rgb(242, 206, 206)',
 				},
 				mobile: {
-					'background-color': 'rgb(238, 238, 238)',
+					'background-color': 'rgb(242, 206, 206)',
 				},
 			},
 			'footer-desktop-items': {
@@ -36,7 +36,7 @@ describe( 'primary footer background color settings in the customizer', () => {
 		await expect( {
 			selector: '.site-above-footer-wrap[data-section="section-above-footer-builder"]',
 			property: 'background-color',
-		} ).cssValueToBe( `${ backgroundcolor[ 'hb-footer-bg-obj-responsive' ].desktop[ 'background-color' ] }` );
+		} ).cssValueToBe( `${ backgroundcolor[ 'hba-footer-bg-obj-responsive' ].desktop[ 'background-color' ] }` );
 
 		await page.waitForSelector( '.site-above-footer-wrap[data-section="section-above-footer-builder"]' );
 		await setBrowserViewport( 'medium' );
@@ -44,7 +44,7 @@ describe( 'primary footer background color settings in the customizer', () => {
 		await expect( {
 			selector: '.site-above-footer-wrap[data-section="section-above-footer-builder"]',
 			property: 'background-color',
-		} ).cssValueToBe( `${ backgroundcolor[ 'hb-footer-bg-obj-responsive' ].tablet[ 'background-color' ] }` );
+		} ).cssValueToBe( `${ backgroundcolor[ 'hba-footer-bg-obj-responsive' ].tablet[ 'background-color' ] }` );
 
 		await page.waitForSelector( '.site-above-footer-wrap[data-section="section-above-footer-builder"]' );
 		await setBrowserViewport( 'small' );
@@ -52,6 +52,6 @@ describe( 'primary footer background color settings in the customizer', () => {
 		await expect( {
 			selector: '.site-above-footer-wrap[data-section="section-above-footer-builder"]',
 			property: 'background-color',
-		} ).cssValueToBe( `${ backgroundcolor[ 'hb-footer-bg-obj-responsive' ].mobile[ 'background-color' ] }` );
+		} ).cssValueToBe( `${ backgroundcolor[ 'hba-footer-bg-obj-responsive' ].mobile[ 'background-color' ] }` );
 	} );
 } );
