@@ -2,7 +2,7 @@ import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 import { scrollToElement } from '../../../../utils/scroll-to-element';
-describe( 'Primary footer inner column spacing setting in customizer', () => {
+describe( 'Above footer inner column spacing setting in customizer', () => {
 	it( 'spacing should apply correctly', async () => {
 		const innercolumnSpacing = {
 			'hba-inner-spacing':
