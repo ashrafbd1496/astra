@@ -7,12 +7,12 @@ describe( 'Above footer inner column spacing setting in customizer', () => {
 		const innercolumnSpacing = {
 			'hba-inner-spacing':
             {
-            	desktop: '50',
-            	tablet: '50',
-            	mobile: '50',
-            	'desktop-unit': 'px',
-            	'tablet-unit': 'px',
-            	'mobile-unit': 'px',
+				desktop: '50',
+				tablet: '50',
+				mobile: '50',
+				'desktop-unit': 'px',
+				'tablet-unit': 'px',
+				'mobile-unit': 'px',
             },
 			'footer-desktop-items': {
 				above: {
