@@ -8,7 +8,9 @@ v3.8.0 (woocomerce-improvements) (Unreleased)
 
 v3.7.5
 - Improvement: Added compatibility for Elementor Pro v3.5.0 WooCommerce widgets.
+- Fix: WPForms submit button not inheriting global button text color.
 - Fix: 'Disable Below Header' option is not visible in Astra meta settings.
+- Fix: LearnDash - Astra meta settings are not getting saved for the course page.
 
 v3.7.4
 - New: Breadcrumb compatibility with SEOPress plugin. ( https://wpastra.com/docs/add-breadcrumbs-with-astra/#support-for-third-party-plugins )

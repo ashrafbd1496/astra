@@ -136,7 +136,7 @@ html {
 
 .edit-post-visual-editor .ast-button,
 .edit-post-visual-editor .button,
-.edit-post-visual-editor button:not(.components-button),
+.edit-post-visual-editor button,
 .edit-post-visual-editor input,
 .edit-post-visual-editor select,
 .edit-post-visual-editor textarea {
@@ -779,11 +779,11 @@ h6 {
   box-shadow: none;
 }
 
-.components-button {
+.edit-post-visual-editor .components-button {
   color: #1e1e1e;
 }
 
-.components-button.is-pressed {
+.edit-post-visual-editor .components-button.is-pressed {
   color: #ffffff;
 }
 

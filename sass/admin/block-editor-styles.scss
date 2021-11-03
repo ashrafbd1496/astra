@@ -397,10 +397,10 @@ h6{
 .block-editor-block-list__layout .wp-block.block-editor-block-list__block:not([contenteditable]):focus {
 	box-shadow: none;
 }
-.components-button {
+.edit-post-visual-editor .components-button {
 	color: #1e1e1e;
 }
-.components-button.is-pressed {
+.edit-post-visual-editor .components-button.is-pressed {
 	color: #ffffff;
 }
 .components-dropdown__content .components-popover__content {

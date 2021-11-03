@@ -58,6 +58,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			add_action( 'load-post.php', array( $this, 'init_metabox' ) );
 			add_action( 'load-post-new.php', array( $this, 'init_metabox' ) );
 			add_action( 'do_meta_boxes', array( $this, 'remove_metabox' ) );
+			add_filter( 'register_post_type_args', array( $this, 'custom_fields_support' ), 10, 2 );
 
 			add_action( 'init', array( $this, 'register_script' ) );
 			add_action( 'init', array( $this, 'register_meta_settings' ) );
@@ -65,6 +66,21 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			if ( 'widgets.php' !== $pagenow && ! is_customize_preview() ) {
 				add_action( 'enqueue_block_editor_assets', array( $this, 'load_scripts' ) );
 			}
+		}
+
+		/**
+		 * Register Post Meta options support.
+		 *
+		 * @since 3.7.5
+		 * @param array|mixed $args the post type args.
+		 * @param string      $post_type the post type.
+		 */
+		public function custom_fields_support( $args, $post_type ) {
+			if ( is_array( $args ) && isset( $args['public'] ) && $args['public'] && isset( $args['supports'] ) && is_array( $args['supports'] ) && ! in_array( 'custom-fields', $args['supports'], true ) ) {
+				$args['supports'][] = 'custom-fields';
+			}
+
+			return $args;
 		}
 
 		/**
