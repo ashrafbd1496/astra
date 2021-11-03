@@ -5597,7 +5597,7 @@ return array(
 	),
 	array(
 		'Open Sans' => array(
-			'variants' => array( '300', '300italic', 'regular', 'italic', '600', '600italic', '700', '700italic', '800', '800italic' ), 
+			'variants' => array( '300', 'regular', '500', '600', '700', '800', '300italic', 'italic', '500italic', '600italic', '700italic', '800italic' ), 
 			'category' => 'sans-serif', 
 		),
 	),
@@ -7678,15 +7678,57 @@ return array(
 		),
 	),
 	array(
+		'Zen Antique' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'serif', 
+		),
+	),
+	array(
+		'Zen Antique Soft' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'serif', 
+		),
+	),
+	array(
 		'Zen Dots' => array(
 			'variants' => array( 'regular' ), 
 			'category' => 'display', 
 		),
 	),
 	array(
+		'Zen Kaku Gothic Antique' => array(
+			'variants' => array( '300', 'regular', '500', '700', '900' ), 
+			'category' => 'sans-serif', 
+		),
+	),
+	array(
+		'Zen Kaku Gothic New' => array(
+			'variants' => array( '300', 'regular', '500', '700', '900' ), 
+			'category' => 'sans-serif', 
+		),
+	),
+	array(
+		'Zen Kurenaido' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'sans-serif', 
+		),
+	),
+	array(
 		'Zen Loop' => array(
 			'variants' => array( 'regular', 'italic' ), 
 			'category' => 'display', 
+		),
+	),
+	array(
+		'Zen Maru Gothic' => array(
+			'variants' => array( '300', 'regular', '500', '700', '900' ), 
+			'category' => 'sans-serif', 
+		),
+	),
+	array(
+		'Zen Old Mincho' => array(
+			'variants' => array( 'regular', '700', '900' ), 
+			'category' => 'serif', 
 		),
 	),
 	array(

@@ -1,10 +1,16 @@
-v3.7.4 (Unreleased)
+v3.7.5
+- Improvement: Added compatibility for Elementor Pro v3.5.0 WooCommerce widgets.
+- Fix: WPForms submit button not inheriting global button text color.
+- Fix: 'Disable Below Header' option is not visible in Astra meta settings.
+- Fix: LearnDash - Astra meta settings are not getting saved for the course page.
+
+v3.7.4
 - New: Breadcrumb compatibility with SEOPress plugin. ( https://wpastra.com/docs/add-breadcrumbs-with-astra/#support-for-third-party-plugins )
-- Improvement: Gutenberg editor core blocks UI/UX improvement. ( Needs Doc )
-- Improvement: Code refactor – Some filters, functions, hooks are deprecated and replaced with astra_ prefix NamingConvention. ( Needs Doc )
-- Improvement: Gutenberg frontend blocks UI improvement. ( Needs Doc )
+- Improvement: Gutenberg editor core blocks UI/UX improvement. ( https://wpastra.com/docs/gutenberg-ui-improvements-with-astra/ )
+- Improvement: Code refactor – Some filters, functions, hooks are deprecated and replaced with astra_ prefix NamingConvention. ( https://wpastra.com/docs/deprecated-astra-hooks/ )
+- Improvement: Gutenberg frontend blocks UI improvement. ( https://wpastra.com/docs/gutenberg-ui-improvements-with-astra/ )
 - Improvement: Global – Typography – Heading presets value should also retain in H1 to H6.
-- Improvement: Moved Astra meta settings into a separate Gutenberg sidebar panel. ( Blog Link )
+- Improvement: Moved Astra meta settings into a separate Gutenberg sidebar panel. ( https://wpastra.com/astra-3-7-4/ )
 - Fix: W3 validation - Getting duplicate H1 tag for site-title.
 - Fix: W3 validation - Duplicate HTML id '#site-navigation' if there are multiple menus on a single page.
 - Fix: W3 validation - CSS parse error for '.menu-link' & '.wp-block-button__link'.
