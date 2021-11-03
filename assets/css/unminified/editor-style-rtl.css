@@ -1408,7 +1408,7 @@ hr {
 
 .ast-button,
 .button,
-button:not(.components-button),
+button,
 input,
 select,
 textarea {

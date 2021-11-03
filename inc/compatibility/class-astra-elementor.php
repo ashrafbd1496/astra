@@ -241,6 +241,9 @@ if ( ! class_exists( 'Astra_Elementor' ) ) :
 				.elementor-editor-active .elementor-element > .elementor-element-overlay {
 					z-index: 9999;
 				}
+				.elementor-element .elementor-widget-woocommerce-checkout-page #customer_details {
+					background: var(--checkout-sections-background-color, #ffffff);
+				}
 			</style>
 
 			<?php

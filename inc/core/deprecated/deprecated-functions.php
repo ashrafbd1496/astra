@@ -149,8 +149,8 @@ function astra_is_emp_endpoint() {
  *
  * Footer menu specific static CSS function.
  *
- * @since x.x.x
- * @deprecated x.x.x Use astra_footer_menu_static_css()
+ * @since 3.7.4
+ * @deprecated footer_menu_static_css() Use astra_footer_menu_static_css()
  * @see astra_footer_menu_static_css()
  *
  * @return string Parsed CSS
@@ -165,8 +165,8 @@ function footer_menu_static_css() {
  *
  * Backward managing function based on flag - 'support-footer-widget-right-margin' which fixes right margin issue in builder widgets.
  *
- * @since x.x.x
- * @deprecated x.x.x Use astra_support_footer_widget_right_margin()
+ * @since 3.7.4
+ * @deprecated is_support_footer_widget_right_margin() Use astra_support_footer_widget_right_margin()
  * @see astra_support_footer_widget_right_margin()
  *
  * @return bool true|false
@@ -181,8 +181,8 @@ function is_support_footer_widget_right_margin() {
  *
  * Checking if Astra Addon is of v3.5.0 or on higher version.
  *
- * @since x.x.x
- * @deprecated x.x.x Use astra_addon_has_3_5_0_version()
+ * @since 3.7.4
+ * @deprecated is_astra_addon_3_5_0_version() Use astra_addon_has_3_5_0_version()
  * @see astra_addon_has_3_5_0_version()
  *
  * @return bool true|false based on version_compare of ASTRA_EXT_VER
@@ -197,8 +197,8 @@ function is_astra_addon_3_5_0_version() {
  *
  * Default configurations for builder button components.
  *
- * @since x.x.x
- * @deprecated x.x.x Use astra_prepare_button_defaults()
+ * @since 3.7.4
+ * @deprecated prepare_button_defaults() Use astra_prepare_button_defaults()
  * @param array  $defaults Button default configs.
  * @param string $index builder button component index.
  * @see astra_prepare_button_defaults()
@@ -215,8 +215,8 @@ function prepare_button_defaults( $defaults, $index ) {
  *
  * Default configurations for builder HTML components.
  *
- * @since x.x.x
- * @deprecated x.x.x Use astra_prepare_html_defaults()
+ * @since 3.7.4
+ * @deprecated prepare_html_defaults() Use astra_prepare_html_defaults()
  * @param array  $defaults HTML default configs.
  * @param string $index builder HTML component index.
  * @see astra_prepare_html_defaults()
@@ -233,8 +233,8 @@ function prepare_html_defaults( $defaults, $index ) {
  *
  * Default configurations for builder Social Icon components.
  *
- * @since x.x.x
- * @deprecated x.x.x Use astra_prepare_social_icon_defaults()
+ * @since 3.7.4
+ * @deprecated prepare_social_icon_defaults() Use astra_prepare_social_icon_defaults()
  * @param array  $defaults Social Icon default configs.
  * @param string $index builder Social Icon component index.
  * @see astra_prepare_social_icon_defaults()
@@ -251,8 +251,8 @@ function prepare_social_icon_defaults( $defaults, $index ) {
  *
  * Default configurations for builder Widget components.
  *
- * @since x.x.x
- * @deprecated x.x.x Use astra_prepare_widget_defaults()
+ * @since 3.7.4
+ * @deprecated prepare_widget_defaults() Use astra_prepare_widget_defaults()
  * @param array  $defaults Widget default configs.
  * @param string $index builder Widget component index.
  * @see astra_prepare_widget_defaults()
@@ -269,8 +269,8 @@ function prepare_widget_defaults( $defaults, $index ) {
  *
  * Default configurations for builder Menu components.
  *
- * @since x.x.x
- * @deprecated x.x.x Use astra_prepare_menu_defaults()
+ * @since 3.7.4
+ * @deprecated prepare_menu_defaults() Use astra_prepare_menu_defaults()
  * @param array  $defaults Menu default configs.
  * @param string $index builder Menu component index.
  * @see astra_prepare_menu_defaults()
@@ -287,8 +287,8 @@ function prepare_menu_defaults( $defaults, $index ) {
  *
  * Default configurations for builder Divider components.
  *
- * @since x.x.x
- * @deprecated x.x.x Use astra_prepare_divider_defaults()
+ * @since 3.7.4
+ * @deprecated prepare_divider_defaults() Use astra_prepare_divider_defaults()
  * @param array  $defaults Divider default configs.
  * @param string $index builder Divider component index.
  * @see astra_prepare_divider_defaults()
@@ -305,8 +305,8 @@ function prepare_divider_defaults( $defaults, $index ) {
  *
  * Checking if Astra's pagination enabled.
  *
- * @since x.x.x
- * @deprecated x.x.x Use astra_check_pagination_enabled()
+ * @since 3.7.4
+ * @deprecated is_astra_pagination_enabled() Use astra_check_pagination_enabled()
  * @see astra_check_pagination_enabled()
  *
  * @return bool true|false
@@ -321,8 +321,8 @@ function is_astra_pagination_enabled() {
  *
  * Checking if current post's comment enabled and comment section is open.
  *
- * @since x.x.x
- * @deprecated x.x.x Use astra_check_current_post_comment_enabled()
+ * @since 3.7.4
+ * @deprecated is_current_post_comment_enabled() Use astra_check_current_post_comment_enabled()
  * @see astra_check_current_post_comment_enabled()
  *
  * @return bool true|false
@@ -337,8 +337,8 @@ function is_current_post_comment_enabled() {
  *
  * Preload Google Fonts - Feature of self-hosting font.
  *
- * @since x.x.x
- * @deprecated x.x.x Use astra_load_preload_local_fonts()
+ * @since 3.7.4
+ * @deprecated ast_load_preload_local_fonts() Use astra_load_preload_local_fonts()
  * @param string $google_font_url Google Font URL generated by customizer config.
  * @see astra_load_preload_local_fonts()
  *
@@ -354,8 +354,8 @@ function ast_load_preload_local_fonts( $google_font_url ) {
  *
  * Getting webfont based Google font URL.
  *
- * @since x.x.x
- * @deprecated x.x.x Use astra_get_webfont_url()
+ * @since 3.7.4
+ * @deprecated ast_get_webfont_url() Use astra_get_webfont_url()
  * @param string $google_font_url Google Font URL generated by customizer config.
  * @see astra_get_webfont_url()
  *
