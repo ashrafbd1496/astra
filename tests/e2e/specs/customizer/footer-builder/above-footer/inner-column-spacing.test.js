@@ -3,17 +3,17 @@ import { setCustomize } from '../../../../utils/customize';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 import { scrollToElement } from '../../../../utils/scroll-to-element';
 describe( 'Primary footer inner column spacing setting in customizer', () => {
-	it( 'spacing should apply correctly', async () => {
+	it( 'inner column spacing should apply correctly', async () => {
 		const innercolumnSpacing = {
 			'hba-inner-spacing':
-            {
-            	desktop: '50',
-            	tablet: '50',
-            	mobile: '50',
-            	'desktop-unit': 'px',
-            	'tablet-unit': 'px',
-            	'mobile-unit': 'px',
-            },
+			{
+				desktop: '50',
+				tablet: '50',
+				mobile: '50',
+				'desktop-unit': 'px',
+				'tablet-unit': 'px',
+				'mobile-unit': 'px',
+			},
 			'footer-desktop-items': {
 				above: {
 					above_1: {
@@ -22,6 +22,7 @@ describe( 'Primary footer inner column spacing setting in customizer', () => {
 				},
 			},
 		};
+
 		await setCustomize( innercolumnSpacing );
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
