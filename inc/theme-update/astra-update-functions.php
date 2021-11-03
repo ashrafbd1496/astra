@@ -3263,7 +3263,7 @@ function astra_global_color_compatibility() {
 /**
  * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
  *
- * @since x.x.x
+ * @since 3.7.4
  * @return void
  */
 function astra_improve_gutenberg_editor_ui() {

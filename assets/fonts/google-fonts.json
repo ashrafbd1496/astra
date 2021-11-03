@@ -9837,14 +9837,16 @@
         "Open Sans": {
             "variants": [
                 "300",
-                "300italic",
                 "regular",
-                "italic",
+                "500",
                 "600",
-                "600italic",
                 "700",
-                "700italic",
                 "800",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
                 "800italic"
             ],
             "category": "sans-serif"
@@ -13435,11 +13437,59 @@
         }
     },
     {
+        "Zen Antique": {
+            "variants": [
+                "regular"
+            ],
+            "category": "serif"
+        }
+    },
+    {
+        "Zen Antique Soft": {
+            "variants": [
+                "regular"
+            ],
+            "category": "serif"
+        }
+    },
+    {
         "Zen Dots": {
             "variants": [
                 "regular"
             ],
             "category": "display"
+        }
+    },
+    {
+        "Zen Kaku Gothic Antique": {
+            "variants": [
+                "300",
+                "regular",
+                "500",
+                "700",
+                "900"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
+        "Zen Kaku Gothic New": {
+            "variants": [
+                "300",
+                "regular",
+                "500",
+                "700",
+                "900"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
+        "Zen Kurenaido": {
+            "variants": [
+                "regular"
+            ],
+            "category": "sans-serif"
         }
     },
     {
@@ -13449,6 +13499,28 @@
                 "italic"
             ],
             "category": "display"
+        }
+    },
+    {
+        "Zen Maru Gothic": {
+            "variants": [
+                "300",
+                "regular",
+                "500",
+                "700",
+                "900"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
+        "Zen Old Mincho": {
+            "variants": [
+                "regular",
+                "700",
+                "900"
+            ],
+            "category": "serif"
         }
     },
     {

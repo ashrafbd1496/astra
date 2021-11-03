@@ -2306,13 +2306,6 @@ p.demo_store a,
   padding: 0;
 }
 
-.woocommerce ul#shipping_method li {
-  margin: 0;
-  padding: 0.25em 0 0.25em 22px;
-  text-indent: -22px;
-  list-style: none outside;
-}
-
 .woocommerce ul#shipping_method li input {
   margin: 3px 0.5ex;
 }
@@ -3975,32 +3968,6 @@ button.pswp__button--zoom:hover {
 .woocommerce-page.woocommerce-checkout table.shop_table td,
 .woocommerce-page.woocommerce-checkout table.shop_table th {
   border-bottom-width: 1px;
-}
-
-.woocommerce.woocommerce-checkout #customer_details h3,
-.woocommerce-page.woocommerce-checkout #customer_details h3 {
-  font-size: 1.2rem;
-  padding: 20px 0 14px;
-  margin: 0 0 20px;
-  border-bottom: 1px solid #ebebeb;
-}
-
-.woocommerce.woocommerce-checkout form #order_review_heading,
-.woocommerce-page.woocommerce-checkout form #order_review_heading {
-  border-width: 2px 2px 0 2px;
-  border-style: solid;
-  font-size: 1.2rem;
-  margin: 0;
-  padding: 1.5em 1.5em 1em;
-  border-color: #ebebeb;
-}
-
-.woocommerce.woocommerce-checkout form #order_review,
-.woocommerce-page.woocommerce-checkout form #order_review {
-  padding: 0 2em;
-  border-width: 0 2px 2px;
-  border-style: solid;
-  border-color: #ebebeb;
 }
 
 .woocommerce.woocommerce-checkout form #order_review table,

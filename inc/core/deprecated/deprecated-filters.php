@@ -92,12 +92,12 @@ add_filter( 'astra_footer_bar_display', 'astra_deprecated_ast_footer_bar_display
 /**
  * Display footer builder markup.
  *
- * @since x.x.x
+ * @since 3.7.4
  * @param boolean $display_footer true | false.
  * @return boolean true for enabled | false for disable.
  */
 function astra_deprecated_ast_footer_bar_display_filter( $display_footer ) {
-	return astra_apply_filters_deprecated( 'ast_footer_bar_display', array( $display_footer ), 'x.x.x', 'astra_footer_bar_display', '' );
+	return astra_apply_filters_deprecated( 'ast_footer_bar_display', array( $display_footer ), '3.7.4', 'astra_footer_bar_display', '' );
 }
 
 // Deprecating ast_main_header_display filter.
@@ -106,13 +106,13 @@ add_filter( 'astra_main_header_display', 'astra_deprecated_ast_main_header_displ
 /**
  * Display header builder markup.
  *
- * @since x.x.x
+ * @since 3.7.4
  * @param boolean $display_header true | false.
  * @return boolean true for enabled | false for disable.
  */
 function astra_deprecated_ast_main_header_display_filter( $display_header ) {
 
-	return astra_apply_filters_deprecated( 'ast_main_header_display', array( $display_header ), 'x.x.x', 'astra_main_header_display', '' );
+	return astra_apply_filters_deprecated( 'ast_main_header_display', array( $display_header ), '3.7.4', 'astra_main_header_display', '' );
 }
 
 // Deprecating secondary_submenu_border_class filter.
@@ -121,13 +121,13 @@ add_filter( 'astra_secondary_submenu_border_class', 'astra_deprecated_secondary_
 /**
  * Border class to secondary submenu
  *
- * @since x.x.x
+ * @since 3.7.4
  * @param string $class_selector custom class assigned to secondary submenu.
  * @return string  $class_selector updated class selector.
  */
 function astra_deprecated_secondary_submenu_border_class_filter( $class_selector ) {
 
-	$class_selector = astra_apply_filters_deprecated( 'secondary_submenu_border_class', array( $class_selector ), 'x.x.x', 'astra_secondary_submenu_border_class', '' );
+	$class_selector = astra_apply_filters_deprecated( 'secondary_submenu_border_class', array( $class_selector ), '3.7.4', 'astra_secondary_submenu_border_class', '' );
 
 	return $class_selector;
 }
@@ -138,13 +138,13 @@ add_filter( 'astra_gutenberg_image_group_style_support', 'astra_deprecated_gtn_i
 /**
  * Image, group compatibility support released in v2.4.4.
  *
- * @since x.x.x
+ * @since 3.7.4
  * @param boolean $block_support true | false.
  * @return boolean true for enabled | false for disable.
  */
 function astra_deprecated_gtn_image_group_css_comp_filter( $block_support ) {
 
-	return astra_apply_filters_deprecated( 'gtn_image_group_css_comp', array( $block_support ), 'x.x.x', 'astra_gutenberg_image_group_style_support', '' );
+	return astra_apply_filters_deprecated( 'gtn_image_group_css_comp', array( $block_support ), '3.7.4', 'astra_gutenberg_image_group_style_support', '' );
 }
 
 // Deprecating ast_footer_sml_layout filter.
@@ -153,13 +153,13 @@ add_filter( 'astra_footer_sml_layout', 'astra_deprecated_ast_footer_sml_layout_f
 /**
  * Footer bar meta setting option.
  *
- * @since x.x.x
+ * @since 3.7.4
  * @param boolean $display_footer_bar true | false.
  * @return boolean true for enabled | false for disable.
  */
 function astra_deprecated_ast_footer_sml_layout_filter( $display_footer_bar ) {
 
-	return astra_apply_filters_deprecated( 'ast_footer_sml_layout', array( $display_footer_bar ), 'x.x.x', 'astra_footer_sml_layout', '' );
+	return astra_apply_filters_deprecated( 'ast_footer_sml_layout', array( $display_footer_bar ), '3.7.4', 'astra_footer_sml_layout', '' );
 }
 
 // Deprecating primary_submenu_border_class filter.
@@ -168,13 +168,13 @@ add_filter( 'astra_primary_submenu_border_class', 'astra_deprecated_primary_subm
 /**
  * Border class to primary submenu
  *
- * @since x.x.x
+ * @since 3.7.4
  * @param string $class_selector custom class assigned to primary submenu.
  * @return string  $class_selector updated class selector.
  */
 function astra_deprecated_primary_submenu_border_class_filter( $class_selector ) {
 
-	$class_selector = astra_apply_filters_deprecated( 'primary_submenu_border_class', array( $class_selector ), 'x.x.x', 'astra_primary_submenu_border_class', '' );
+	$class_selector = astra_apply_filters_deprecated( 'primary_submenu_border_class', array( $class_selector ), '3.7.4', 'astra_primary_submenu_border_class', '' );
 
 	return $class_selector;
 }
