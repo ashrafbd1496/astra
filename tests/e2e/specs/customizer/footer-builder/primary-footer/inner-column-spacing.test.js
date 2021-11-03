@@ -6,14 +6,14 @@ describe( 'Primary footer inner column spacing setting in customizer', () => {
 	it( 'spacing should apply correctly', async () => {
 		const innercolumnSpacing = {
 			'hb-inner-spacing':
-            {
-            	desktop: '50',
-            	tablet: '50',
-            	mobile: '50',
-            	'desktop-unit': 'px',
-            	'tablet-unit': 'px',
-            	'mobile-unit': 'px',
-            },
+			{
+				desktop: '50',
+				tablet: '50',
+				mobile: '50',
+				'desktop-unit': 'px',
+				'tablet-unit': 'px',
+				'mobile-unit': 'px',
+			},
 			'footer-desktop-items': {
 				primary: {
 					primary_1: {
@@ -22,6 +22,7 @@ describe( 'Primary footer inner column spacing setting in customizer', () => {
 				},
 			},
 		};
+
 		await setCustomize( innercolumnSpacing );
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
