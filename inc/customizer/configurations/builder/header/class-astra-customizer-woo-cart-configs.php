@@ -56,20 +56,21 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 			 * Option: Cart Label
 			 */
 			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[woo-header-cart-label-display]',
-				'default'   => astra_get_option( 'woo-header-cart-label-display' ),
-				'type'      => 'control',
-				'section'   => $_section,
-				'transport' => 'postMessage',
-				'partial'   => array(
+				'name'              => ASTRA_THEME_SETTINGS . '[woo-header-cart-label-display]',
+				'default'           => astra_get_option( 'woo-header-cart-label-display' ),
+				'type'              => 'control',
+				'section'           => $_section,
+				'transport'         => 'postMessage',
+				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_html' ),
+				'partial'           => array(
 					'selector'            => '.ast-header-woo-cart',
 					'container_inclusive' => false,
 					'render_callback'     => array( 'Astra_Builder_Header', 'header_woo_cart' ),
 				),
-				'priority'  => 50,
-				'title'     => __( 'Cart Label', 'astra' ),
-				'control'   => 'text',
-				'context'   => Astra_Builder_Helper::$general_tab,
+				'priority'          => 50,
+				'title'             => __( 'Cart Label', 'astra' ),
+				'control'           => 'text',
+				'context'           => Astra_Builder_Helper::$general_tab,
 			),
 
 			/**
