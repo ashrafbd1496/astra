@@ -35,39 +35,6 @@ describe( 'Social Icons in the customizer', () => {
 		} ).cssValueToBe( `${ socialiconSize[ 'footer-social-1-size' ].desktop }` );
 	} );
 
-	// it( 'footer social icon size for tablet should apply correctly', async () => {
-	// 	const socialiconSize = {
-	// 		'footer-mobile-1-size': {
-	// 			tablet: '30',
-	// 		},
-	// 		'footer-desktop-items': {
-	// 			primary: {
-	// 				primary_2: {
-	// 					0: 'social-icons-1',
-
-	// 				},
-	// 			},
-	// 		},
-	// 	};
-	// 	await setCustomize( socialiconSize );
-
-	// 	await page.goto( createURL( '/' ), {
-	// 		waitUntil: 'networkidle0',
-	// 	} );
-	// 	await page.waitForSelector( '.ast-footer-social-1-wrap .footer-social-inner-wrap .ast-builder-social-element svg' );
-	// 	await setBrowserViewport( 'medium' );
-	// 	await scrollToElement( '#colophon' );
-	// 	await expect( {
-	// 		selector: '.ast-footer-social-1-wrap .footer-social-inner-wrap .ast-builder-social-element svg',
-	// 		property: 'width',
-	// 	} ).cssValueToBe( `${ socialiconSize[ 'footer-social-1-size' ].tablet }` );
-
-	// 	await expect( {
-	// 		selector: '.ast-footer-social-1-wrap .footer-social-inner-wrap .ast-builder-social-element svg',
-	// 		property: 'height',
-	// 	} ).cssValueToBe( `${ socialiconSize[ 'footer-social-1-size' ].tablet }` );
-	// } );
-
 	it( 'footer social icon size for mobile should apply correctly', async () => {
 		const socialiconSize = {
 			'footer-social-1-size': {
