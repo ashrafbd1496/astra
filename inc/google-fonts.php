@@ -395,7 +395,7 @@ return array(
 	),
 	array(
 		'Archivo Narrow' => array(
-			'variants' => array( 'regular', 'italic', '500', '500italic', '600', '600italic', '700', '700italic' ), 
+			'variants' => array( 'regular', '500', '600', '700', 'italic', '500italic', '600italic', '700italic' ), 
 			'category' => 'sans-serif', 
 		),
 	),
@@ -640,6 +640,12 @@ return array(
 		),
 	),
 	array(
+		'Baloo Bhaijaan 2' => array(
+			'variants' => array( 'regular', '500', '600', '700', '800' ), 
+			'category' => 'display', 
+		),
+	),
+	array(
 		'Baloo Bhaina 2' => array(
 			'variants' => array( 'regular', '500', '600', '700', '800' ), 
 			'category' => 'display', 
@@ -756,12 +762,6 @@ return array(
 	array(
 		'Bayon' => array(
 			'variants' => array( 'regular' ), 
-			'category' => 'sans-serif', 
-		),
-	),
-	array(
-		'Be Vietnam' => array(
-			'variants' => array( '100', '100italic', '300', '300italic', 'regular', 'italic', '500', '500italic', '600', '600italic', '700', '700italic', '800', '800italic' ), 
 			'category' => 'sans-serif', 
 		),
 	),
@@ -1133,7 +1133,7 @@ return array(
 	),
 	array(
 		'Cairo' => array(
-			'variants' => array( '200', '300', 'regular', '600', '700', '900' ), 
+			'variants' => array( '200', '300', 'regular', '500', '600', '700', '800', '900' ), 
 			'category' => 'sans-serif', 
 		),
 	),
@@ -1450,6 +1450,18 @@ return array(
 		),
 	),
 	array(
+		'Comforter' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'handwriting', 
+		),
+	),
+	array(
+		'Comforter Brush' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'handwriting', 
+		),
+	),
+	array(
 		'Comic Neue' => array(
 			'variants' => array( '300', '300italic', 'regular', 'italic', '700', '700italic' ), 
 			'category' => 'handwriting', 
@@ -1513,6 +1525,12 @@ return array(
 		'Corben' => array(
 			'variants' => array( 'regular', '700' ), 
 			'category' => 'display', 
+		),
+	),
+	array(
+		'Corinthia' => array(
+			'variants' => array( 'regular', '700' ), 
+			'category' => 'handwriting', 
 		),
 	),
 	array(
@@ -1602,12 +1620,6 @@ return array(
 	array(
 		'Crimson Pro' => array(
 			'variants' => array( '200', '300', 'regular', '500', '600', '700', '800', '900', '200italic', '300italic', 'italic', '500italic', '600italic', '700italic', '800italic', '900italic' ), 
-			'category' => 'serif', 
-		),
-	),
-	array(
-		'Crimson Text' => array(
-			'variants' => array( 'regular', 'italic', '600', '600italic', '700', '700italic' ), 
 			'category' => 'serif', 
 		),
 	),
@@ -1810,6 +1822,12 @@ return array(
 		),
 	),
 	array(
+		'Dongle' => array(
+			'variants' => array( '300', 'regular', '700' ), 
+			'category' => 'sans-serif', 
+		),
+	),
+	array(
 		'Doppio One' => array(
 			'variants' => array( 'regular' ), 
 			'category' => 'sans-serif', 
@@ -2002,6 +2020,12 @@ return array(
 		),
 	),
 	array(
+		'Estonia' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'handwriting', 
+		),
+	),
+	array(
 		'Euphoria Script' => array(
 			'variants' => array( 'regular' ), 
 			'category' => 'handwriting', 
@@ -2093,7 +2117,7 @@ return array(
 	),
 	array(
 		'Faustina' => array(
-			'variants' => array( 'regular', '500', '600', '700', 'italic', '500italic', '600italic', '700italic' ), 
+			'variants' => array( '300', 'regular', '500', '600', '700', '800', '300italic', 'italic', '500italic', '600italic', '700italic', '800italic' ), 
 			'category' => 'serif', 
 		),
 	),
@@ -2194,6 +2218,24 @@ return array(
 		),
 	),
 	array(
+		'Flow Block' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'display', 
+		),
+	),
+	array(
+		'Flow Circular' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'display', 
+		),
+	),
+	array(
+		'Flow Rounded' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'display', 
+		),
+	),
+	array(
 		'Fondamento' => array(
 			'variants' => array( 'regular', 'italic' ), 
 			'category' => 'handwriting', 
@@ -2284,6 +2326,12 @@ return array(
 		),
 	),
 	array(
+		'Fuzzy Bubbles' => array(
+			'variants' => array( 'regular', '700' ), 
+			'category' => 'handwriting', 
+		),
+	),
+	array(
 		'GFS Didot' => array(
 			'variants' => array( 'regular' ), 
 			'category' => 'serif', 
@@ -2352,6 +2400,12 @@ return array(
 	array(
 		'Gemunu Libre' => array(
 			'variants' => array( '200', '300', 'regular', '500', '600', '700', '800' ), 
+			'category' => 'sans-serif', 
+		),
+	),
+	array(
+		'Genos' => array(
+			'variants' => array( '100', '200', '300', 'regular', '500', '600', '700', '800', '900', '100italic', '200italic', '300italic', 'italic', '500italic', '600italic', '700italic', '800italic', '900italic' ), 
 			'category' => 'sans-serif', 
 		),
 	),
@@ -2602,6 +2656,12 @@ return array(
 		),
 	),
 	array(
+		'Gwendolyn' => array(
+			'variants' => array( 'regular', '700' ), 
+			'category' => 'handwriting', 
+		),
+	),
+	array(
 		'Habibi' => array(
 			'variants' => array( 'regular' ), 
 			'category' => 'serif', 
@@ -2755,6 +2815,12 @@ return array(
 		'Homenaje' => array(
 			'variants' => array( 'regular' ), 
 			'category' => 'sans-serif', 
+		),
+	),
+	array(
+		'Hurricane' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'handwriting', 
 		),
 	),
 	array(
@@ -3256,6 +3322,12 @@ return array(
 		),
 	),
 	array(
+		'Kings' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'handwriting', 
+		),
+	),
+	array(
 		'Kirang Haerang' => array(
 			'variants' => array( 'regular' ), 
 			'category' => 'display', 
@@ -3730,8 +3802,38 @@ return array(
 		),
 	),
 	array(
+		'Luxurious Script' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'handwriting', 
+		),
+	),
+	array(
+		'M PLUS 1' => array(
+			'variants' => array( '100', '200', '300', 'regular', '500', '600', '700', '800', '900' ), 
+			'category' => 'sans-serif', 
+		),
+	),
+	array(
+		'M PLUS 1 Code' => array(
+			'variants' => array( '100', '200', '300', 'regular', '500', '600', '700' ), 
+			'category' => 'sans-serif', 
+		),
+	),
+	array(
 		'M PLUS 1p' => array(
 			'variants' => array( '100', '300', 'regular', '500', '700', '800', '900' ), 
+			'category' => 'sans-serif', 
+		),
+	),
+	array(
+		'M PLUS 2' => array(
+			'variants' => array( '100', '200', '300', 'regular', '500', '600', '700', '800', '900' ), 
+			'category' => 'sans-serif', 
+		),
+	),
+	array(
+		'M PLUS Code Latin' => array(
+			'variants' => array( '100', '200', '300', 'regular', '500', '600', '700' ), 
 			'category' => 'sans-serif', 
 		),
 	),
@@ -3958,6 +4060,12 @@ return array(
 		),
 	),
 	array(
+		'Meow Script' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'handwriting', 
+		),
+	),
+	array(
 		'Merienda' => array(
 			'variants' => array( 'regular', '700' ), 
 			'category' => 'handwriting', 
@@ -4066,6 +4174,18 @@ return array(
 		),
 	),
 	array(
+		'Mochiy Pop One' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'sans-serif', 
+		),
+	),
+	array(
+		'Mochiy Pop P One' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'sans-serif', 
+		),
+	),
+	array(
 		'Modak' => array(
 			'variants' => array( 'regular' ), 
 			'category' => 'display', 
@@ -4081,6 +4201,12 @@ return array(
 		'Mogra' => array(
 			'variants' => array( 'regular' ), 
 			'category' => 'display', 
+		),
+	),
+	array(
+		'Mohave' => array(
+			'variants' => array( '300', 'regular', '500', '600', '700', '300italic', 'italic', '500italic', '600italic', '700italic' ), 
+			'category' => 'sans-serif', 
 		),
 	),
 	array(
@@ -4122,6 +4248,12 @@ return array(
 	array(
 		'Montaga' => array(
 			'variants' => array( 'regular' ), 
+			'category' => 'serif', 
+		),
+	),
+	array(
+		'Montagu Slab' => array(
+			'variants' => array( '100', '200', '300', 'regular', '500', '600', '700' ), 
 			'category' => 'serif', 
 		),
 	),
@@ -4236,6 +4368,12 @@ return array(
 	array(
 		'Mulish' => array(
 			'variants' => array( '200', '300', 'regular', '500', '600', '700', '800', '900', '200italic', '300italic', 'italic', '500italic', '600italic', '700italic', '800italic', '900italic' ), 
+			'category' => 'sans-serif', 
+		),
+	),
+	array(
+		'Murecho' => array(
+			'variants' => array( '100', '200', '300', 'regular', '500', '600', '700', '800', '900' ), 
 			'category' => 'sans-serif', 
 		),
 	),
@@ -4355,8 +4493,8 @@ return array(
 	),
 	array(
 		'Nokora' => array(
-			'variants' => array( 'regular', '700' ), 
-			'category' => 'serif', 
+			'variants' => array( '100', '300', 'regular', '700', '900' ), 
+			'category' => 'sans-serif', 
 		),
 	),
 	array(
@@ -4866,6 +5004,12 @@ return array(
 	array(
 		'Noto Sans Medefaidrin' => array(
 			'variants' => array( 'regular', '500', '600', '700' ), 
+			'category' => 'sans-serif', 
+		),
+	),
+	array(
+		'Noto Sans Meetei Mayek' => array(
+			'variants' => array( '100', '200', '300', 'regular', '500', '600', '700', '800', '900' ), 
 			'category' => 'sans-serif', 
 		),
 	),
@@ -5537,7 +5681,7 @@ return array(
 	),
 	array(
 		'Nunito' => array(
-			'variants' => array( '200', '200italic', '300', '300italic', 'regular', 'italic', '600', '600italic', '700', '700italic', '800', '800italic', '900', '900italic' ), 
+			'variants' => array( '200', '300', 'regular', '500', '600', '700', '800', '900', '200italic', '300italic', 'italic', '500italic', '600italic', '700italic', '800italic', '900italic' ), 
 			'category' => 'sans-serif', 
 		),
 	),
@@ -5656,6 +5800,12 @@ return array(
 		),
 	),
 	array(
+		'Outfit' => array(
+			'variants' => array( '100', '200', '300', 'regular', '500', '600', '700', '800', '900' ), 
+			'category' => 'sans-serif', 
+		),
+	),
+	array(
 		'Over the Rainbow' => array(
 			'variants' => array( 'regular' ), 
 			'category' => 'handwriting', 
@@ -5675,13 +5825,13 @@ return array(
 	),
 	array(
 		'Overpass' => array(
-			'variants' => array( '100', '100italic', '200', '200italic', '300', '300italic', 'regular', 'italic', '600', '600italic', '700', '700italic', '800', '800italic', '900', '900italic' ), 
+			'variants' => array( '100', '200', '300', 'regular', '500', '600', '700', '800', '900', '100italic', '200italic', '300italic', 'italic', '500italic', '600italic', '700italic', '800italic', '900italic' ), 
 			'category' => 'sans-serif', 
 		),
 	),
 	array(
 		'Overpass Mono' => array(
-			'variants' => array( '300', 'regular', '600', '700' ), 
+			'variants' => array( '300', 'regular', '500', '600', '700' ), 
 			'category' => 'monospace', 
 		),
 	),
@@ -5806,6 +5956,12 @@ return array(
 		),
 	),
 	array(
+		'Passions Conflict' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'handwriting', 
+		),
+	),
+	array(
 		'Pathway Gothic One' => array(
 			'variants' => array( 'regular' ), 
 			'category' => 'sans-serif', 
@@ -5861,6 +6017,12 @@ return array(
 	),
 	array(
 		'Permanent Marker' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'handwriting', 
+		),
+	),
+	array(
+		'Petemoss' => array(
 			'variants' => array( 'regular' ), 
 			'category' => 'handwriting', 
 		),
@@ -6010,6 +6172,12 @@ return array(
 		),
 	),
 	array(
+		'Praise' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'handwriting', 
+		),
+	),
+	array(
 		'Prata' => array(
 			'variants' => array( 'regular' ), 
 			'category' => 'serif', 
@@ -6067,6 +6235,12 @@ return array(
 		'Public Sans' => array(
 			'variants' => array( '100', '200', '300', 'regular', '500', '600', '700', '800', '900', '100italic', '200italic', '300italic', 'italic', '500italic', '600italic', '700italic', '800italic', '900italic' ), 
 			'category' => 'sans-serif', 
+		),
+	),
+	array(
+		'Puppies Play' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'handwriting', 
 		),
 	),
 	array(
@@ -6238,6 +6412,12 @@ return array(
 		),
 	),
 	array(
+		'Readex Pro' => array(
+			'variants' => array( '200', '300', 'regular', '500', '600', '700' ), 
+			'category' => 'sans-serif', 
+		),
+	),
+	array(
 		'Recursive' => array(
 			'variants' => array( '300', 'regular', '500', '600', '700', '800', '900' ), 
 			'category' => 'sans-serif', 
@@ -6250,6 +6430,12 @@ return array(
 		),
 	),
 	array(
+		'Red Hat Mono' => array(
+			'variants' => array( '300', 'regular', '500', '600', '700', '300italic', 'italic', '500italic', '600italic', '700italic' ), 
+			'category' => 'monospace', 
+		),
+	),
+	array(
 		'Red Hat Text' => array(
 			'variants' => array( '300', 'regular', '500', '600', '700', '300italic', 'italic', '500italic', '600italic', '700italic' ), 
 			'category' => 'sans-serif', 
@@ -6258,6 +6444,18 @@ return array(
 	array(
 		'Red Rose' => array(
 			'variants' => array( '300', 'regular', '500', '600', '700' ), 
+			'category' => 'display', 
+		),
+	),
+	array(
+		'Redacted' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'display', 
+		),
+	),
+	array(
+		'Redacted Script' => array(
+			'variants' => array( '300', 'regular', '700' ), 
 			'category' => 'display', 
 		),
 	),
@@ -6317,6 +6515,12 @@ return array(
 	),
 	array(
 		'Risque' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'display', 
+		),
+	),
+	array(
+		'Road Rage' => array(
 			'variants' => array( 'regular' ), 
 			'category' => 'display', 
 		),
@@ -6592,6 +6796,12 @@ return array(
 		),
 	),
 	array(
+		'Sassy Frass' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'handwriting', 
+		),
+	),
+	array(
 		'Satisfy' => array(
 			'variants' => array( 'regular' ), 
 			'category' => 'handwriting', 
@@ -6613,12 +6823,6 @@ return array(
 		'Scada' => array(
 			'variants' => array( 'regular', 'italic', '700', '700italic' ), 
 			'category' => 'sans-serif', 
-		),
-	),
-	array(
-		'Scheherazade' => array(
-			'variants' => array( 'regular', '700' ), 
-			'category' => 'serif', 
 		),
 	),
 	array(
@@ -6694,6 +6898,12 @@ return array(
 		),
 	),
 	array(
+		'Shalimar' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'handwriting', 
+		),
+	),
+	array(
 		'Shanti' => array(
 			'variants' => array( 'regular' ), 
 			'category' => 'sans-serif', 
@@ -6715,6 +6925,18 @@ return array(
 		'Share Tech Mono' => array(
 			'variants' => array( 'regular' ), 
 			'category' => 'monospace', 
+		),
+	),
+	array(
+		'Shippori Antique' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'sans-serif', 
+		),
+	),
+	array(
+		'Shippori Antique B1' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'sans-serif', 
 		),
 	),
 	array(
@@ -6767,7 +6989,7 @@ return array(
 	),
 	array(
 		'Signika Negative' => array(
-			'variants' => array( '300', 'regular', '600', '700' ), 
+			'variants' => array( '300', 'regular', '500', '600', '700' ), 
 			'category' => 'sans-serif', 
 		),
 	),
@@ -6829,6 +7051,12 @@ return array(
 		'Smokum' => array(
 			'variants' => array( 'regular' ), 
 			'category' => 'display', 
+		),
+	),
+	array(
+		'Smooch' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'handwriting', 
 		),
 	),
 	array(
@@ -6899,8 +7127,14 @@ return array(
 	),
 	array(
 		'Source Code Pro' => array(
-			'variants' => array( '200', '200italic', '300', '300italic', 'regular', 'italic', '500', '500italic', '600', '600italic', '700', '700italic', '900', '900italic' ), 
+			'variants' => array( '200', '300', 'regular', '500', '600', '700', '800', '900', '200italic', '300italic', 'italic', '500italic', '600italic', '700italic', '800italic', '900italic' ), 
 			'category' => 'monospace', 
+		),
+	),
+	array(
+		'Source Sans 3' => array(
+			'variants' => array( '200', '300', 'regular', '500', '600', '700', '800', '900', '200italic', '300italic', 'italic', '500italic', '600italic', '700italic', '800italic', '900italic' ), 
+			'category' => 'sans-serif', 
 		),
 	),
 	array(
@@ -7650,6 +7884,24 @@ return array(
 	array(
 		'Yrsa' => array(
 			'variants' => array( '300', 'regular', '500', '600', '700', '300italic', 'italic', '500italic', '600italic', '700italic' ), 
+			'category' => 'serif', 
+		),
+	),
+	array(
+		'Yuji Boku' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'serif', 
+		),
+	),
+	array(
+		'Yuji Mai' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'serif', 
+		),
+	),
+	array(
+		'Yuji Syuku' => array(
+			'variants' => array( 'regular' ), 
 			'category' => 'serif', 
 		),
 	),
