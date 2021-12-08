@@ -71,7 +71,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 		/**
 		 * Register Post Meta options support.
 		 *
-		 * @since 3.7.5
+		 * @since 3.7.6
 		 * @param array|mixed $args the post type args.
 		 * @param string      $post_type the post type.
 		 */
@@ -481,7 +481,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			if ( defined( 'ASTRA_ADVANCED_HOOKS_POST_TYPE' ) && ASTRA_ADVANCED_HOOKS_POST_TYPE === $post_type ) {
 				return;
 			}
-			
+
 			$metabox_name = sprintf(
 				// Translators: %s is the theme name.
 				__( '%s Settings', 'astra' ),
