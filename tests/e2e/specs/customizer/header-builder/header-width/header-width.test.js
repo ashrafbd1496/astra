@@ -28,6 +28,18 @@ describe( 'Header width settings in the customizer', () => {
 			property: 'width',
 		} ).cssValueToBe( `1240px`,
 		);
+		await setBrowserViewport( 'medium' );
+		await expect( {
+			selector: '.ast-container',
+			property: 'width',
+		} ).cssValueToBe( `auto`,
+		);
+		await setBrowserViewport( 'small' );
+		await expect( {
+			selector: '.ast-container',
+			property: 'width',
+		} ).cssValueToBe( `auto`,
+		);
 	} );
 	it( 'header full width should be applied correctly in desktop view', async () => {
 		const headerWidth = {
@@ -39,6 +51,18 @@ describe( 'Header width settings in the customizer', () => {
 			waitUntil: 'networkidle0',
 		} );
 		await page.waitForSelector( '#page' );
+		await expect( {
+			selector: '.ast-container',
+			property: 'max-width',
+		} ).cssValueToBe( `100%`,
+		);
+		await setBrowserViewport( 'medium' );
+		await expect( {
+			selector: '.ast-container',
+			property: 'max-width',
+		} ).cssValueToBe( `100%`,
+		);
+		await setBrowserViewport( 'small' );
 		await expect( {
 			selector: '.ast-container',
 			property: 'max-width',
