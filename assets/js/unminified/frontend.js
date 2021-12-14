@@ -476,8 +476,11 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		} else {
 			containerButton = document.getElementById( 'ast-desktop-header' );
 		}
-		var containerMenu = containerButton.querySelector( '.navigation-accessibility' );
-		navigation_accessibility( containerMenu, containerButton );
+
+		if( null !== containerButton ) {
+			var containerMenu = containerButton.querySelector( '.navigation-accessibility' );
+			navigation_accessibility( containerMenu, containerButton );
+		}
 	});
 
 	var get_window_width = function () {
