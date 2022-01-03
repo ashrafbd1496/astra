@@ -50,7 +50,7 @@ jobs:
           fi
 
     - name: Rsync Deployment
-      uses: burnett01/rsync-deployments@5.1
+      uses: burnett01/rsync-deployments@5.2
       with:
         switches: -avzr --delete
         path: astra/
