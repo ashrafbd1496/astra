@@ -1,4 +1,9 @@
-import { createURL, createNewPost, publishPost, insertBlock } from '@wordpress/e2e-test-utils';
+import {
+	createURL,
+	createNewPost,
+	publishPost,
+	insertBlock,
+} from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
 describe( 'Underline content links option under the customizer', () => {
 	it( 'underline content links option should apply correctly', async () => {
@@ -23,7 +28,6 @@ describe( 'Underline content links option under the customizer', () => {
 		await expect( {
 			selector: '.ast-single-post .entry-content a',
 			property: 'text-decoration-line',
-		} ).cssValueToBe( `${ underlineLinks[ 'underline-content-links' ] }`,
-		);
+		} ).cssValueToBe( `${ underlineLinks[ 'underline-content-links' ] }` );
 	} );
 } );

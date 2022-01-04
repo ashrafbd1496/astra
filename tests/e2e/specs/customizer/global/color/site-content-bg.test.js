@@ -1,5 +1,9 @@
 import { setCustomize } from '../../../../utils/customize';
-import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
+import {
+	createURL,
+	createNewPost,
+	publishPost,
+} from '@wordpress/e2e-test-utils';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 describe( 'Testing site background and content background color setting under the customizer', () => {
 	it( 'site background color should apply correctly', async () => {
@@ -67,7 +71,9 @@ describe( 'Testing site background and content background color setting under th
 		await page.goto( createURL( 'background-color-test' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( '.ast-article-single:not(.ast-related-post)' );
+		await page.waitForSelector(
+			'.ast-article-single:not(.ast-related-post)',
+		);
 		await expect( {
 			selector: '.ast-article-single:not(.ast-related-post)',
 			property: 'background-color',

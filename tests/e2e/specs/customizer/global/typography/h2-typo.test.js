@@ -26,7 +26,10 @@ describe( 'H2 global typography settings in the customizer', () => {
 
 		await setCustomize( h2Typography );
 
-		await createNewPost( { postType: 'post', title: 'heading-2-typography-test' } );
+		await createNewPost( {
+			postType: 'post',
+			title: 'heading-2-typography-test',
+		} );
 		await setPostContent( TPOGRAPHY_TEST_POST_CONTENT );
 		await publishPost();
 		await page.goto( createURL( 'heading-2-typography-test' ), {

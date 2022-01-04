@@ -1,4 +1,8 @@
-import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
+import {
+	createURL,
+	createNewPost,
+	publishPost,
+} from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
 describe( 'Custom content width setting for blog/Archive in customizer', () => {
 	it( 'width should apply correctly', async () => {

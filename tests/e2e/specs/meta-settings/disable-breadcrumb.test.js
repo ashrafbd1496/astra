@@ -15,7 +15,15 @@ describe( 'Astra meta setting', () => {
 		await openAstraMetaSettings();
 		//breadcrumb disabled
 		await page.evaluate( () => {
-			[ ...document.querySelectorAll( '.ast-sidebar-layout-meta-wrap .components-toggle-control__label' ) ].find( ( element ) => element.textContent === 'Disable Breadcrumb' ).click();
+			[
+				...document.querySelectorAll(
+					'.ast-sidebar-layout-meta-wrap .components-toggle-control__label',
+				),
+			]
+				.find(
+					( element ) => element.textContent === 'Disable Breadcrumb',
+				)
+				.click();
 		} );
 		await publishPost();
 		await page.goto( createURL( 'meta' ), {
@@ -28,6 +36,6 @@ describe( 'Astra meta setting', () => {
 		if ( breadcrumb ) {
 			result = ' ';
 		}
-		await expect( result ).toBeNull( );
+		await expect( result ).toBeNull();
 	} );
 } );

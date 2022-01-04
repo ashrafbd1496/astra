@@ -1,6 +1,4 @@
-import { createURL,
-	publishPost,
-} from '@wordpress/e2e-test-utils';
+import { createURL, publishPost } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../utils/customize';
 import { openAstraMetaSettings } from '../../utils/open-astra-meta-setting';
 
@@ -13,7 +11,13 @@ describe( 'site layout meta setting', () => {
 		await openAstraMetaSettings();
 		//title disable
 		await page.evaluate( () => {
-			[ ...document.querySelectorAll( '.ast-sidebar-layout-meta-wrap .components-toggle-control__label' ) ].find( ( element ) => element.textContent === 'Disable Title' ).click();
+			[
+				...document.querySelectorAll(
+					'.ast-sidebar-layout-meta-wrap .components-toggle-control__label',
+				),
+			]
+				.find( ( element ) => element.textContent === 'Disable Title' )
+				.click();
 		} );
 		await publishPost();
 		await page.goto( createURL( '/meta' ), {
@@ -21,7 +25,10 @@ describe( 'site layout meta setting', () => {
 		} );
 
 		await page.waitForSelector( '.page .entry-header' );
-		const disableTitle = await page.$eval( '.page .entry-header', ( element ) => element.getAttribute( 'entry-title' ) );
-		await expect( disableTitle ).toBeNull( );
+		const disableTitle = await page.$eval(
+			'.page .entry-header',
+			( element ) => element.getAttribute( 'entry-title' ),
+		);
+		await expect( disableTitle ).toBeNull();
 	} );
 } );

@@ -1,4 +1,9 @@
-import { createNewPost, createURL, publishPost, setBrowserViewport } from '@wordpress/e2e-test-utils';
+import {
+	createNewPost,
+	createURL,
+	publishPost,
+	setBrowserViewport,
+} from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
 describe( 'transparent header enable setting in the customizer', () => {
 	it( 'transparent header should be enabled on desktop', async () => {
@@ -12,9 +17,7 @@ describe( 'transparent header enable setting in the customizer', () => {
 		await page.goto( createURL( '/transparent page' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector(
-			'.ast-theme-transparent-header #masthead',
-		);
+		await page.waitForSelector( '.ast-theme-transparent-header #masthead' );
 		await expect( {
 			selector: '.ast-theme-transparent-header #masthead',
 			property: 'position',
@@ -30,9 +33,7 @@ describe( 'transparent header enable setting in the customizer', () => {
 			waitUntil: 'networkidle0',
 		} );
 		await setBrowserViewport( 'medium' );
-		await page.waitForSelector(
-			'.ast-theme-transparent-header #masthead',
-		);
+		await page.waitForSelector( '.ast-theme-transparent-header #masthead' );
 		await expect( {
 			selector: '.ast-theme-transparent-header #masthead',
 			property: 'position',
@@ -48,9 +49,7 @@ describe( 'transparent header enable setting in the customizer', () => {
 			waitUntil: 'networkidle0',
 		} );
 		await setBrowserViewport( 'small' );
-		await page.waitForSelector(
-			'.ast-theme-transparent-header #masthead',
-		);
+		await page.waitForSelector( '.ast-theme-transparent-header #masthead' );
 		await expect( {
 			selector: '.ast-theme-transparent-header #masthead',
 			property: 'position',

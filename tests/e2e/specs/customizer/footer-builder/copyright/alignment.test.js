@@ -23,19 +23,25 @@ describe( 'copyright alignment settings in the customizer', () => {
 		await expect( {
 			selector: '.ast-footer-copyright',
 			property: 'text-align',
-		} ).cssValueToBe( `${ copyrightAlignment[ 'footer-copyright-alignment' ].desktop }` );
+		} ).cssValueToBe(
+			`${ copyrightAlignment[ 'footer-copyright-alignment' ].desktop }`,
+		);
 
 		await setBrowserViewport( 'medium' );
 		await expect( {
 			selector: '.ast-footer-copyright',
 			property: 'text-align',
-		} ).cssValueToBe( `${ copyrightAlignment[ 'footer-copyright-alignment' ].tablet }` );
+		} ).cssValueToBe(
+			`${ copyrightAlignment[ 'footer-copyright-alignment' ].tablet }`,
+		);
 
 		await setBrowserViewport( 'small' );
 		await expect( {
 			selector: '.ast-footer-copyright',
 			property: 'text-align',
-		} ).cssValueToBe( `${ copyrightAlignment[ 'footer-copyright-alignment' ].mobile }` );
+		} ).cssValueToBe(
+			`${ copyrightAlignment[ 'footer-copyright-alignment' ].mobile }`,
+		);
 	} );
 
 	it( 'copyright center alignment should apply correctly', async () => {
@@ -62,19 +68,25 @@ describe( 'copyright alignment settings in the customizer', () => {
 		await expect( {
 			selector: '.ast-footer-copyright',
 			property: 'text-align',
-		} ).cssValueToBe( `${ copyrightAlignment[ 'footer-copyright-alignment' ].desktop }` );
+		} ).cssValueToBe(
+			`${ copyrightAlignment[ 'footer-copyright-alignment' ].desktop }`,
+		);
 
 		await setBrowserViewport( 'medium' );
 		await expect( {
 			selector: '.ast-footer-copyright',
 			property: 'text-align',
-		} ).cssValueToBe( `${ copyrightAlignment[ 'footer-copyright-alignment' ].tablet }` );
+		} ).cssValueToBe(
+			`${ copyrightAlignment[ 'footer-copyright-alignment' ].tablet }`,
+		);
 
 		await setBrowserViewport( 'small' );
 		await expect( {
 			selector: '.ast-footer-copyright',
 			property: 'text-align',
-		} ).cssValueToBe( `${ copyrightAlignment[ 'footer-copyright-alignment' ].mobile }` );
+		} ).cssValueToBe(
+			`${ copyrightAlignment[ 'footer-copyright-alignment' ].mobile }`,
+		);
 	} );
 
 	it( 'copyright right alignment should apply correctly', async () => {
@@ -101,18 +113,24 @@ describe( 'copyright alignment settings in the customizer', () => {
 		await expect( {
 			selector: '.ast-footer-copyright',
 			property: 'text-align',
-		} ).cssValueToBe( `${ copyrightAlignment[ 'footer-copyright-alignment' ].desktop }` );
+		} ).cssValueToBe(
+			`${ copyrightAlignment[ 'footer-copyright-alignment' ].desktop }`,
+		);
 
 		await setBrowserViewport( 'medium' );
 		await expect( {
 			selector: '.ast-footer-copyright',
 			property: 'text-align',
-		} ).cssValueToBe( `${ copyrightAlignment[ 'footer-copyright-alignment' ].tablet }` );
+		} ).cssValueToBe(
+			`${ copyrightAlignment[ 'footer-copyright-alignment' ].tablet }`,
+		);
 
 		await setBrowserViewport( 'small' );
 		await expect( {
 			selector: '.ast-footer-copyright',
 			property: 'text-align',
-		} ).cssValueToBe( `${ copyrightAlignment[ 'footer-copyright-alignment' ].mobile }` );
+		} ).cssValueToBe(
+			`${ copyrightAlignment[ 'footer-copyright-alignment' ].mobile }`,
+		);
 	} );
 } );

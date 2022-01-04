@@ -28,7 +28,10 @@ describe( 'Global typography heading 5 settings in the customizer', () => {
 
 		await setCustomize( heading5Font );
 
-		await createNewPost( { postType: 'post', title: 'heading-5-typography-test' } );
+		await createNewPost( {
+			postType: 'post',
+			title: 'heading-5-typography-test',
+		} );
 		await setPostContent( TPOGRAPHY_TEST_POST_CONTENT );
 		await publishPost();
 		await page.goto( createURL( 'heading-5-typography-test' ), {
@@ -64,9 +67,7 @@ describe( 'Global typography heading 5 settings in the customizer', () => {
 		} ).cssValueToBe(
 			`${ await responsiveFontSize(
 				heading5Font[ 'font-size-h5' ].tablet,
-			) }${
-				heading5Font[ 'font-size-h5' ][ 'tablet-unit' ]
-			}`,
+			) }${ heading5Font[ 'font-size-h5' ][ 'tablet-unit' ] }`,
 		);
 		await setBrowserViewport( 'small' );
 
@@ -76,9 +77,7 @@ describe( 'Global typography heading 5 settings in the customizer', () => {
 		} ).cssValueToBe(
 			`${ await responsiveFontSize(
 				heading5Font[ 'font-size-h5' ].mobile,
-			) }${
-				heading5Font[ 'font-size-h5' ][ 'mobile-unit' ]
-			}`,
+			) }${ heading5Font[ 'font-size-h5' ][ 'mobile-unit' ] }`,
 		);
 
 		await expect( {

@@ -1,4 +1,8 @@
-import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
+import {
+	createURL,
+	createNewPost,
+	publishPost,
+} from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../utils/customize';
 import { responsiveFontSize } from '../../../utils/responsive-utils';
 import { setBrowserViewport } from '../../../utils/set-browser-viewport';
@@ -77,7 +81,9 @@ describe( 'breadcrumb Typography settings in the customizer', () => {
 		await page.goto( createURL( '/breadcrumb' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( '.ast-breadcrumbs .trail-browse, .ast-breadcrumbs .trail-items, .ast-breadcrumbs .trail-items li' );
+		await page.waitForSelector(
+			'.ast-breadcrumbs .trail-browse, .ast-breadcrumbs .trail-items, .ast-breadcrumbs .trail-items li',
+		);
 
 		await setBrowserViewport( 'medium' );
 		await expect( {
@@ -86,7 +92,9 @@ describe( 'breadcrumb Typography settings in the customizer', () => {
 		} ).cssValueToBe(
 			`${ await responsiveFontSize(
 				aftbreadcrumbFont[ 'breadcrumb-font-size' ].tablet,
-			) }${ aftbreadcrumbFont[ 'breadcrumb-font-size' ][ 'tablet-unit' ] }`,
+			) }${
+				aftbreadcrumbFont[ 'breadcrumb-font-size' ][ 'tablet-unit' ]
+			}`,
 		);
 		await setBrowserViewport( 'small' );
 		await expect( {
@@ -95,7 +103,9 @@ describe( 'breadcrumb Typography settings in the customizer', () => {
 		} ).cssValueToBe(
 			`${ await responsiveFontSize(
 				aftbreadcrumbFont[ 'breadcrumb-font-size' ].mobile,
-			) }${ aftbreadcrumbFont[ 'breadcrumb-font-size' ][ 'mobile-unit' ] }`,
+			) }${
+				aftbreadcrumbFont[ 'breadcrumb-font-size' ][ 'mobile-unit' ]
+			}`,
 		);
 
 		await setBrowserViewport( 'large' );
@@ -137,7 +147,8 @@ describe( 'breadcrumb Typography settings in the customizer', () => {
 		await expect( {
 			selector: '.ast-breadcrumbs-wrapper .trail-items .trail-end',
 			property: 'color',
-		} ).cssValueToBe( `${ aftbreadcrumbFont[ 'breadcrumb-active-color-responsive' ].desktop }`,
+		} ).cssValueToBe(
+			`${ aftbreadcrumbFont[ 'breadcrumb-active-color-responsive' ].desktop }`,
 		);
 		await setBrowserViewport( 'medium' );
 		await expect( {
@@ -158,7 +169,8 @@ describe( 'breadcrumb Typography settings in the customizer', () => {
 		await expect( {
 			selector: '.ast-breadcrumbs-wrapper',
 			property: 'background-color',
-		} ).cssValueToBe( `${ aftbreadcrumbFont[ 'breadcrumb-bg-color' ].desktop }`,
+		} ).cssValueToBe(
+			`${ aftbreadcrumbFont[ 'breadcrumb-bg-color' ].desktop }`,
 		);
 		await setBrowserViewport( 'medium' );
 		await expect( {
@@ -179,19 +191,22 @@ describe( 'breadcrumb Typography settings in the customizer', () => {
 		await expect( {
 			selector: '.ast-breadcrumbs-wrapper .trail-items a',
 			property: 'color',
-		} ).cssValueToBe( `${ aftbreadcrumbFont[ 'breadcrumb-text-color-responsive' ].desktop }`,
+		} ).cssValueToBe(
+			`${ aftbreadcrumbFont[ 'breadcrumb-text-color-responsive' ].desktop }`,
 		);
 		await setBrowserViewport( 'medium' );
 		await expect( {
 			selector: '.ast-breadcrumbs-wrapper .trail-items a',
 			property: 'color',
-		} ).cssValueToBe( `${ aftbreadcrumbFont[ 'breadcrumb-text-color-responsive' ].tablet }`,
+		} ).cssValueToBe(
+			`${ aftbreadcrumbFont[ 'breadcrumb-text-color-responsive' ].tablet }`,
 		);
 		await setBrowserViewport( 'small' );
 		await expect( {
 			selector: '.ast-breadcrumbs-wrapper .trail-items a',
 			property: 'color',
-		} ).cssValueToBe( `${ aftbreadcrumbFont[ 'breadcrumb-text-color-responsive' ].mobile }`,
+		} ).cssValueToBe(
+			`${ aftbreadcrumbFont[ 'breadcrumb-text-color-responsive' ].mobile }`,
 		);
 		// GitHub action E2E fail case
 		//to test content link hover color

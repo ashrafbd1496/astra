@@ -6,6 +6,10 @@ export const openAstraMetaSettings = async () => {
 		title: 'meta',
 		content: 'Test Meta Settings',
 	} );
-	await page.waitForSelector( '.interface-pinned-items .components-button:not(:first-child)' );
-	await page.click( '.interface-pinned-items .components-button:not(:first-child)' );
+	await page.waitForSelector(
+		'.interface-pinned-items .components-button:not(:first-child)',
+	);
+	await page.click(
+		'.interface-pinned-items .components-button:not(:first-child)',
+	);
 };
