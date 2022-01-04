@@ -622,6 +622,12 @@ return array(
 		),
 	),
 	array(
+		'Bakbak One' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'display', 
+		),
+	),
+	array(
 		'Ballet' => array(
 			'variants' => array( 'regular' ), 
 			'category' => 'handwriting', 

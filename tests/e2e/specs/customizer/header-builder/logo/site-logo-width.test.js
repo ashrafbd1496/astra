@@ -12,7 +12,7 @@ describe( 'Site logo settings in the customizer', () => {
 		await page.goto( createURL( '/wp-admin/upload.php' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await setLogo( imageId.attachmentID );
+		await setLogo( imageId.attachedMedia );
 		const sitelogoWidth = {
 			'ast-header-responsive-logo-width': {
 				desktop: '305',
@@ -38,7 +38,7 @@ describe( 'Site logo settings in the customizer', () => {
 
 		await setBrowserViewport( 'small' );
 		await expect( {
-			selector: 'header .custom-logo-link img',
+			selector: 'header .custom-logo-link img, .ast-header-break-point .site-branding img, .ast-header-break-point .custom-logo-link img',
 			property: 'max-width',
 		} ).cssValueToBe( `${ sitelogoWidth[ 'ast-header-responsive-logo-width' ].mobile }px` );
 	} );

@@ -755,6 +755,11 @@ function hasWordPressWidgetBlockEditor() {
 			astra_apply_responsive_background_css( 'astra-settings[content-bg-obj-responsive]', dynamicSelector, 'desktop' );
 			astra_apply_responsive_background_css( 'astra-settings[content-bg-obj-responsive]', dynamicSelector, 'tablet' );
 			astra_apply_responsive_background_css( 'astra-settings[content-bg-obj-responsive]', dynamicSelector, 'mobile' );
+		} else if ( astraCustomizer.apply_content_bg_fullwidth_layouts && ( 'ast-box-layout' == site_layout || 'ast-padded-layout' == site_layout ) && ( 'plain-container' == content_layout || 'page-builder' == content_layout ) ) {
+			var fullWidthLayoutSelector   = '.ast-plain-container, .ast-page-builder-template';
+			astra_apply_responsive_background_css( 'astra-settings[content-bg-obj-responsive]', fullWidthLayoutSelector, 'desktop' );
+			astra_apply_responsive_background_css( 'astra-settings[content-bg-obj-responsive]', fullWidthLayoutSelector, 'tablet' );
+			astra_apply_responsive_background_css( 'astra-settings[content-bg-obj-responsive]', fullWidthLayoutSelector, 'mobile' );
 		}
 		else if ( 'plain-container' == content_layout && ( 'ast-box-layout' == site_layout || 'ast-padded-layout' == site_layout ) ) {
 			dynamicSelector   += ', .ast-box-layout.ast-plain-container .site-content, .ast-padded-layout.ast-plain-container .site-content';
@@ -1708,7 +1713,7 @@ function hasWordPressWidgetBlockEditor() {
 
 					} else {
 
-						// Set background color for button to theme color when value is empty. 
+						// Set background color for button to theme color when value is empty.
 						buttonBGColor = ( '' != buttonBGColor ) ? buttonBGColor : themeColor;
 
 						// Theme Button - Background Color
@@ -1721,7 +1726,7 @@ function hasWordPressWidgetBlockEditor() {
 
 					if( '' === buttonTextColor ) {
 
-						// Set button text color to white when value is empty. 
+						// Set button text color to white when value is empty.
 						jQuery( 'head' ).append(
 							'<style id="astra-settings-button-outline-preset-color">'
 							+ btnSelector + '	{ color: #FFFFFF; }'
@@ -1820,7 +1825,7 @@ function hasWordPressWidgetBlockEditor() {
 					jQuery( 'style#astra-settings-button-bg-color-background-color' ).remove();
 					jQuery( 'style#astra-settings-button-outline-preset-color' ).remove();
 
-					// Set background color for button to theme color when value is empty. 
+					// Set background color for button to theme color when value is empty.
 					value = ( '' != value ) ? value : themeColor;
 
 					if( '' === buttonTextColor ) {

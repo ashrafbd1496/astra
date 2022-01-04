@@ -251,6 +251,11 @@ function astra_comments_css( $dynamic_css ) {
 
       .comment-content a {
         word-wrap: break-word;
+      }
+      
+      .comment-form-legend {
+        margin-bottom: unset;
+        padding: 0 0.5em;
       }';
 
 		if ( $is_site_rtl ) {

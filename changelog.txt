@@ -1,5 +1,14 @@
+v3.8.0(Unreleased)
+- Fix: W3 validation - Removed an element with the attribute tabindex for dropdown menu toggle.
+- Improvement: Site Background will be applied as background CSS for Full-Width Contained/Stretched layouts instead of Content Background.
+- Fix: W3 validation - legend HTML tag missing as fieldset tag is being used for comment section.
+- Fix: Related Posts - Post Query - Order by Random option not working as expected.
+- Fix: W3 validation - aria-label attribute is missing for cart offcanvas drawer.
+- Fix: Off-canvas - Dropdown menu displayed when flyout/fullscreen header type is selected in mobile/tablet customizer.
+- Fix: W3 validation - Builder - Account - Duplicate IDs for account icons.
+
 v3.7.6
-- Improvement: Added a new filter 'astra_web_stories_position' to change the position of web stories.
+- Improvement: Added a new filter 'astra_web_stories_position' to change the position of web stories. ( https://wpastra.com/docs/change-web-stories-position/ )
 - Improvement: Builder - Button - Added typography options from Astra Pro to free theme.
 - Fix: Mobile menu does not close when you click a one page navigation link inside them.
 - Fix: Responsive color options from 'color-group-control' are hiding when trying to set them in responsive devices.

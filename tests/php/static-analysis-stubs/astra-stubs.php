@@ -1741,6 +1741,14 @@ namespace {
         {
         }
         /**
+         * Add Font Family Callback
+         *
+         * @return void
+         */
+        public function add_fonts()
+        {
+        }
+        /**
          * Customizer Preview
          *
          * @since 3.0.0
@@ -2136,6 +2144,14 @@ namespace {
          * @since 3.0.0
          */
         public function __construct()
+        {
+        }
+        /**
+         * Add Font Family Callback
+         *
+         * @return void
+         */
+        public function add_fonts()
         {
         }
         /**
@@ -3943,6 +3959,17 @@ namespace ElementorPro\Modules\ThemeBuilder\ThemeSupport {
          * @since 1.2.7
          */
         public function __construct()
+        {
+        }
+        /**
+         * Compatibility CSS for Elementor Pro's WooCommerce widgets releasing in their v3.6.0
+         *
+         * @param  string $css_output CSS stylesheet.
+         * @return string $css_output CSS stylesheet.
+         *
+         * @since  3.7.5
+         */
+        public function elementor_wc_widgets_compatibility_styles($css_output)
         {
         }
         /**
@@ -10572,6 +10599,16 @@ namespace {
         {
         }
         /**
+         * Register Post Meta options support.
+         *
+         * @since 3.7.6
+         * @param array|mixed $args the post type args.
+         * @param string      $post_type the post type.
+         */
+        public function custom_fields_support($args, $post_type)
+        {
+        }
+        /**
          * Check if layout is bb themer's layout
          */
         public static function is_bb_themer_layout()
@@ -10675,6 +10712,64 @@ namespace {
          * @since 3.7.4
          */
         public function register_meta_settings()
+        {
+        }
+    }
+    /*!
+     * ISC License
+     * 
+     * Copyright (c) 2018-2021, Andrea Giammarchi, @WebReflection
+     *
+     * Permission to use, copy, modify, and/or distribute this software for any
+     * purpose with or without fee is hereby granted, provided that the above
+     * copyright notice and this permission notice appear in all copies.
+     *
+     * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+     * REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+     * AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+     * INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+     * LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE
+     * OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+     * PERFORMANCE OF THIS SOFTWARE.
+     */
+    class FlattedString
+    {
+        public function __construct($value)
+        {
+        }
+    }
+    class Flatted
+    {
+        // public utilities
+        public static function parse($json, $assoc = \false, $depth = 512, $options = 0)
+        {
+        }
+        public static function stringify($value, $options = 0, $depth = 512)
+        {
+        }
+        // private helpers
+        private static function asString($value)
+        {
+        }
+        private static function index(&$known, &$input, &$value)
+        {
+        }
+        private static function keys(&$value)
+        {
+        }
+        private static function loop($obj, $keys, &$input, &$set, &$output)
+        {
+        }
+        private static function relate(&$known, &$input, &$value)
+        {
+        }
+        private static function ref($obj, &$key, &$value, &$input, &$set, &$output)
+        {
+        }
+        private static function transform(&$known, &$input, &$value)
+        {
+        }
+        private static function wrap($value)
         {
         }
     }
@@ -11496,7 +11591,7 @@ namespace {
          *
          * @var array
          */
-        private static $db_updates = array('2.1.3' => array('astra_submenu_below_header'), '2.2.0' => array('astra_page_builder_button_color_compatibility', 'astra_vertical_horizontal_padding_migration'), '2.3.0' => array('astra_header_button_new_options'), '2.3.3' => array('astra_elementor_default_color_typo_comp'), '2.3.4' => array('astra_breadcrumb_separator_fix'), '2.4.0' => array('astra_responsive_base_background_option', 'astra_update_theme_tablet_breakpoint'), '2.4.4' => array('astra_gtn_full_wide_image_group_css'), '2.5.0' => array('astra_global_button_woo_css', 'astra_gtn_full_wide_group_cover_css'), '2.5.2' => array('astra_footer_widget_bg'), '2.6.0' => array('astra_bg_control_migration', 'astra_bg_responsive_control_migration', 'astra_gutenberg_core_blocks_design_compatibility'), '2.6.1' => array('astra_gutenberg_media_text_block_css_compatibility'), '3.0.0' => array('astra_header_builder_compatibility'), '3.0.1' => array('astra_clear_assets_cache'), '3.3.0' => array('astra_gutenberg_pattern_compatibility', 'astra_icons_svg_compatibility', 'astra_check_flex_based_css'), '3.4.0' => array('astra_update_cart_style'), '3.5.0' => array('astra_update_related_posts_grid_layout', 'astra_site_title_tagline_responsive_control_migration'), '3.6.0' => array('astra_headings_font_support', 'astra_remove_logo_max_width', 'astra_transparent_header_default_value'), '3.6.3' => array('astra_button_default_values_updated'), '3.6.4' => array('astra_update_underline_link_setting'), '3.6.5' => array('astra_support_block_editor'), '3.6.7' => array('astra_fix_footer_widget_right_margin_case', 'astra_remove_elementor_toc_margin'), '3.6.8' => array('astra_set_removal_widget_design_options_flag'), '3.6.9' => array('astra_zero_font_size_comp', 'astra_unset_builder_elements_underline', 'astra_remove_responsive_account_menu_colors_support'), '3.7.0' => array('astra_global_color_compatibility'), '3.7.4' => array('astra_improve_gutenberg_editor_ui'));
+        private static $db_updates = array('2.1.3' => array('astra_submenu_below_header'), '2.2.0' => array('astra_page_builder_button_color_compatibility', 'astra_vertical_horizontal_padding_migration'), '2.3.0' => array('astra_header_button_new_options'), '2.3.3' => array('astra_elementor_default_color_typo_comp'), '2.3.4' => array('astra_breadcrumb_separator_fix'), '2.4.0' => array('astra_responsive_base_background_option', 'astra_update_theme_tablet_breakpoint'), '2.4.4' => array('astra_gtn_full_wide_image_group_css'), '2.5.0' => array('astra_global_button_woo_css', 'astra_gtn_full_wide_group_cover_css'), '2.5.2' => array('astra_footer_widget_bg'), '2.6.0' => array('astra_bg_control_migration', 'astra_bg_responsive_control_migration', 'astra_gutenberg_core_blocks_design_compatibility'), '2.6.1' => array('astra_gutenberg_media_text_block_css_compatibility'), '3.0.0' => array('astra_header_builder_compatibility'), '3.0.1' => array('astra_clear_assets_cache'), '3.3.0' => array('astra_gutenberg_pattern_compatibility', 'astra_icons_svg_compatibility', 'astra_check_flex_based_css'), '3.4.0' => array('astra_update_cart_style'), '3.5.0' => array('astra_update_related_posts_grid_layout', 'astra_site_title_tagline_responsive_control_migration'), '3.6.0' => array('astra_headings_font_support', 'astra_remove_logo_max_width', 'astra_transparent_header_default_value'), '3.6.3' => array('astra_button_default_values_updated'), '3.6.4' => array('astra_update_underline_link_setting'), '3.6.5' => array('astra_support_block_editor'), '3.6.7' => array('astra_fix_footer_widget_right_margin_case', 'astra_remove_elementor_toc_margin'), '3.6.8' => array('astra_set_removal_widget_design_options_flag'), '3.6.9' => array('astra_zero_font_size_comp', 'astra_unset_builder_elements_underline', 'astra_remove_responsive_account_menu_colors_support'), '3.7.0' => array('astra_global_color_compatibility'), '3.7.4' => array('astra_improve_gutenberg_editor_ui'), '3.8.0' => array('astra_fullwidth_layouts_apply_content_background'));
         /**
          *  Constructor
          */
@@ -14572,6 +14667,29 @@ namespace {
     {
     }
     /**
+     * Check is Elementor Pro version is greater than or equal to beta 3.5 version.
+     *
+     * @since 3.7.5
+     * @return boolean
+     */
+    function astra_check_elementor_pro_3_5_version()
+    {
+    }
+    /**
+     * Is Content BG settings need to apply on Fullwidth Contained/Stretched layout or not?
+     *
+     * Do not apply content background to fullwidth layouts in following cases -
+     * 1. For backward compatibility.
+     * 2. When site layout is Max-width.
+     * 3. When site layout is Padded.
+     *
+     * @since x.x.x
+     * @return boolean
+     */
+    function astra_apply_content_background_fullwidth_layouts()
+    {
+    }
+    /**
      * Create instance of Astra_WebFont_Loader class.
      *
      * @param string $font_url Google font URL to set data.
@@ -15601,6 +15719,17 @@ namespace {
      * @return void
      */
     function astra_improve_gutenberg_editor_ui()
+    {
+    }
+    /**
+     * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
+     *
+     * Starting supporting content-background color for Full Width Contained & Full Width Stretched layouts.
+     *
+     * @since x.x.x
+     * @return void
+     */
+    function astra_fullwidth_layouts_apply_content_background()
     {
     }
     /**

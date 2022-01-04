@@ -142,10 +142,19 @@ function rest_route() : void {
 
 					$attach_id = wp_insert_attachment( $attachment, $uploadfile );
 
+					if ( isset( $response['settings']['returnURL'] ) && true === $response['settings']['returnURL'] ) {
+						return rest_ensure_response(
+							array(
+								'success'      => true,
+								'attachedMedia' => wp_get_attachment_image_url( $attach_id ),
+							)
+						);
+					}
+
 					return rest_ensure_response(
 						array(
 							'success'      => true,
-							'attachmentID' => $attach_id,
+							'attachedMedia' => $attach_id,
 						)
 					);
 				},
@@ -173,7 +182,7 @@ function rest_route() : void {
 					update_option( 'theme_mods_astra', $current_options );
 					return rest_ensure_response(
 						array(
-							'success'     => true,
+							'success' => true,
 						)
 					);
 
