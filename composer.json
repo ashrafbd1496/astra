@@ -9,7 +9,7 @@
     "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
     "humanmade/psalm-plugin-wordpress": "^2.0",
     "php-stubs/generator": "^0.8.0",
-    "php-stubs/woocommerce-stubs": "^5.2",
+    "php-stubs/woocommerce-stubs": "^6.0",
     "phpcompatibility/phpcompatibility-wp": "*",
     "wp-coding-standards/wpcs": "^2.1.0",
     "wptrt/wpthemereview": "^0.2.0"
