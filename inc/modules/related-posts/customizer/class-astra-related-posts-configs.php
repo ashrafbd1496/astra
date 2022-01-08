@@ -358,9 +358,9 @@ class Astra_Related_Posts_Configs extends Astra_Customizer_Config_Base {
 				'choices'   => array(
 					'date'          => __( 'Date', 'astra' ),
 					'title'         => __( 'Title', 'astra' ),
-					'post-order'    => __( 'Post Order', 'astra' ),
-					'random'        => __( 'Random', 'astra' ),
-					'comment-count' => __( 'Comment Counts', 'astra' ),
+					'menu_order'    => __( 'Post Order', 'astra' ),
+					'rand'          => __( 'Random', 'astra' ),
+					'comment_count' => __( 'Comment Counts', 'astra' ),
 				),
 			),
 

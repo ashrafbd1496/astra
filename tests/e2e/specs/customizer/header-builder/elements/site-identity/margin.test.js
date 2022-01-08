@@ -1,5 +1,5 @@
 import { createURL } from '@wordpress/e2e-test-utils';
-import { setCustomize } from '../../../../utils/customize';
+import { setCustomize } from '../../../../../utils/customize';
 
 describe( 'Site Identity margin settings in the customizer', () => {
 	it( 'spacing should apply corectly', async () => {
@@ -35,7 +35,9 @@ describe( 'Site Identity margin settings in the customizer', () => {
 			waitUntil: 'networkidle0',
 		} );
 
-		await page.waitForSelector( '.ast-builder-layout-element .ast-site-identity' );
+		await page.waitForSelector(
+			'.ast-builder-layout-element .ast-site-identity',
+		);
 
 		await expect( {
 			selector: '.ast-builder-layout-element .ast-site-identity',

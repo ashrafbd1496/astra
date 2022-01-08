@@ -1,3 +1,27 @@
+v3.8.0(Unreleased)
+- Fix: W3 validation - Removed an element with the attribute tabindex for dropdown menu toggle.
+- Improvement: Site Background will be applied as background CSS for Full-Width Contained/Stretched layouts instead of Content Background.
+- Fix: W3 validation - legend HTML tag missing as fieldset tag is being used for comment section.
+- Fix: Related Posts - Post Query - Order by Random option not working as expected.
+- Fix: W3 validation - aria-label attribute is missing for cart offcanvas drawer.
+- Fix: Off-canvas - Dropdown menu displayed when flyout/fullscreen header type is selected in mobile/tablet customizer.
+- Fix: W3 validation - Builder - Account - Duplicate IDs for account icons.
+- Fix: Elementor Pro - WooCommerce Grid layout support in WooCommerce Products Archive widget.
+
+v3.7.7(Unreleased)
+
+v3.7.6
+- Improvement: Added a new filter 'astra_web_stories_position' to change the position of web stories. ( https://wpastra.com/docs/change-web-stories-position/ )
+- Improvement: Builder - Button - Added typography options from Astra Pro to free theme.
+- Fix: Mobile menu does not close when you click a one page navigation link inside them.
+- Fix: Responsive color options from 'color-group-control' are hiding when trying to set them in responsive devices.
+- Fix: Removed unwanted title and desc tag present for search icon.
+- Fix: WooCommerce Pagination markup misaligned on mobile devices.
+- Fix: Gutenberg separator dots not appearing properly on frontend.
+- Fix: JS console error when Custom Layout is added for header.
+- Fix: Accessibility - Tab navigation does not highlight menu with submenus.
+- Fix: Filter to disable all Meta Settings of Page/Post by default is not working in Gutenberg based metabox. ( https://wpastra.com/docs/disable-all-meta-settings-of-page-post-by-default/ )
+
 v3.7.5
 - Improvement: Added compatibility for Elementor Pro v3.5.0 WooCommerce widgets.
 - Fix: WPForms submit button not inheriting global button text color.

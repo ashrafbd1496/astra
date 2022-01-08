@@ -6,8 +6,5 @@
  */
 export const scrollToElement = async ( element ) => {
 	const selectedElement = await page.$( element );
-	await page.evaluate(
-		( el ) => el.scrollIntoView(),
-		selectedElement,
-	);
+	await page.evaluate( ( el ) => el.scrollIntoView(), selectedElement );
 };
