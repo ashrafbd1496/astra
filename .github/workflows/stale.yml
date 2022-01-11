@@ -16,3 +16,4 @@ jobs:
           days-before-close: 5
           days-before-issue-stale: -1
           days-before-issue-close: -1
+          exempt-pr-labels: 'e2e-tests'

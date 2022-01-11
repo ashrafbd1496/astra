@@ -46,7 +46,7 @@
     "lodash": "^4.17.21",
     "minimist": ">=1.2.3",
     "node-sass": "^7.0.0",
-    "postcss-flexibility": "git://github.com/Nikschavan/postcss-flexibility.git#fix-145-build",
+    "postcss-flexibility": "https://github.com/Nikschavan/postcss-flexibility.git#fix-145-build",
     "puppeteer": "^10.4.0"
   },
   "scripts": {
