@@ -7,7 +7,7 @@ import { MediaUpload } from '@wordpress/media-utils';
 const maybeGetColorForVariable = ( color, palette ) => {
 	const paletteColors = palette.palette;
 
-	if ( color.includes('var') ) {
+	if ( undefined !== color && color.includes('var') ) {
 
 		// Get color index from palette for color variable.
 		const colorIndex = color.charAt(color.length - 2);

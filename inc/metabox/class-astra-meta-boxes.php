@@ -54,63 +54,6 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			/** @psalm-suppress InvalidGlobal */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			global $pagenow;
 			/** @psalm-suppress InvalidGlobal */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			
-			add_action( 'load-post.php', array( $this, 'init_metabox' ) );
-			add_action( 'load-post-new.php', array( $this, 'init_metabox' ) );
-			add_action( 'do_meta_boxes', array( $this, 'remove_metabox' ) );
-
-			add_action( 'init', array( $this, 'register_script' ) );
-			add_action( 'init', array( $this, 'register_meta_settings' ) );
-
-			if ( 'widgets.php' !== $pagenow && ! is_customize_preview() ) {
-				add_action( 'enqueue_block_editor_assets', array( $this, 'load_scripts' ) );
-			}
-		}
-
-		/**
-		 * Check if layout is bb themer's layout
-		 */
-		public static function is_bb_themer_layout() {
-
-			$is_layout = false;
-
-			$post_type = get_post_type();
-			$post_id   = get_the_ID();
-
-			if ( 'fl-theme-layout' === $post_type && $post_id ) {
-
-				$is_layout = true;
-			}
-
-			return $is_layout;
-		}
-
-		/**
-		 *  Remove Metabox for beaver themer specific layouts
-		 */
-		public function remove_metabox() {
-
-			$post_type = get_post_type();
-			$post_id   = get_the_ID();
-
-			if ( 'fl-theme-layout' === $post_type && $post_id ) {
-
-				$template_type = get_post_meta( $post_id, '_fl_theme_layout_type', true );
-
-				if ( ! ( 'archive' === $template_type || 'singular' === $template_type || '404' === $template_type ) ) {
-
-					remove_meta_box( 'astra_settings_meta_box', 'fl-theme-layout', 'side' );
-				}
-			}
-		}
-
-		/**
-		 *  Init Metabox
-		 */
-		public function init_metabox() {
-
-			add_action( 'add_meta_boxes', array( $this, 'setup_meta_box' ) );
-			add_action( 'save_post', array( $this, 'save_meta_box' ) );
 
 			/**
 			 * Set metabox options
@@ -157,6 +100,79 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 					),
 				)
 			);
+
+			add_action( 'load-post.php', array( $this, 'init_metabox' ) );
+			add_action( 'load-post-new.php', array( $this, 'init_metabox' ) );
+			add_action( 'do_meta_boxes', array( $this, 'remove_metabox' ) );
+			add_filter( 'register_post_type_args', array( $this, 'custom_fields_support' ), 10, 2 );
+
+			add_action( 'init', array( $this, 'register_script' ) );
+			add_action( 'init', array( $this, 'register_meta_settings' ) );
+
+			if ( 'widgets.php' !== $pagenow && ! is_customize_preview() ) {
+				add_action( 'enqueue_block_editor_assets', array( $this, 'load_scripts' ) );
+			}
+		}
+
+		/**
+		 * Register Post Meta options support.
+		 *
+		 * @since 3.7.6
+		 * @param array|mixed $args the post type args.
+		 * @param string      $post_type the post type.
+		 */
+		public function custom_fields_support( $args, $post_type ) {
+			if ( is_array( $args ) && isset( $args['public'] ) && $args['public'] && isset( $args['supports'] ) && is_array( $args['supports'] ) && ! in_array( 'custom-fields', $args['supports'], true ) ) {
+				$args['supports'][] = 'custom-fields';
+			}
+
+			return $args;
+		}
+
+		/**
+		 * Check if layout is bb themer's layout
+		 */
+		public static function is_bb_themer_layout() {
+
+			$is_layout = false;
+
+			$post_type = get_post_type();
+			$post_id   = get_the_ID();
+
+			if ( 'fl-theme-layout' === $post_type && $post_id ) {
+
+				$is_layout = true;
+			}
+
+			return $is_layout;
+		}
+
+		/**
+		 *  Remove Metabox for beaver themer specific layouts
+		 */
+		public function remove_metabox() {
+
+			$post_type = get_post_type();
+			$post_id   = get_the_ID();
+
+			if ( 'fl-theme-layout' === $post_type && $post_id ) {
+
+				$template_type = get_post_meta( $post_id, '_fl_theme_layout_type', true );
+
+				if ( ! ( 'archive' === $template_type || 'singular' === $template_type || '404' === $template_type ) ) {
+
+					remove_meta_box( 'astra_settings_meta_box', 'fl-theme-layout', 'side' );
+				}
+			}
+		}
+
+		/**
+		 *  Init Metabox
+		 */
+		public function init_metabox() {
+
+			add_action( 'add_meta_boxes', array( $this, 'setup_meta_box' ) );
+			add_action( 'save_post', array( $this, 'save_meta_box' ) );
 		}
 
 		/**
@@ -460,7 +476,12 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 		 * @return void
 		 */
 		public function load_scripts() {
-			$post_type    = get_post_type();
+			$post_type = get_post_type();
+
+			if ( defined( 'ASTRA_ADVANCED_HOOKS_POST_TYPE' ) && ASTRA_ADVANCED_HOOKS_POST_TYPE === $post_type ) {
+				return;
+			}
+
 			$metabox_name = sprintf(
 				// Translators: %s is the theme name.
 				__( '%s Settings', 'astra' ),
@@ -539,6 +560,10 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 					'label' => __( 'Disable Primary Header', 'astra' ),
 				),
 				array(
+					'key'   => 'ast-hfb-below-header-display',
+					'label' => __( 'Disable Below Header', 'astra' ),
+				),
+				array(
 					'key'   => 'ast-hfb-mobile-header-display',
 					'label' => __( 'Disable Mobile Header', 'astra' ),
 				),
@@ -615,15 +640,18 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 		/**
 		 * Register Post Meta options for react based fields.
 		 *
-		 * @since x.x.x
+		 * @since 3.7.4
 		 */
 		public function register_meta_settings() {
+			$meta = self::get_meta_option();
+
 			register_post_meta(
 				'', // Pass an empty string to register the meta key across all existing post types.
 				'site-sidebar-layout',
 				array(
 					'show_in_rest'  => true,
 					'single'        => true,
+					'default'       => isset( $meta['site-sidebar-layout']['default'] ) ? $meta['site-sidebar-layout']['default'] : '',
 					'type'          => 'string',
 					'auth_callback' => '__return_true',
 				)
@@ -634,6 +662,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				array(
 					'show_in_rest'  => true,
 					'single'        => true,
+					'default'       => isset( $meta['site-content-layout']['default'] ) ? $meta['site-content-layout']['default'] : '',
 					'type'          => 'string',
 					'auth_callback' => '__return_true',
 				)
@@ -644,6 +673,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				array(
 					'show_in_rest'  => true,
 					'single'        => true,
+					'default'       => isset( $meta['ast-main-header-display']['default'] ) ? $meta['ast-main-header-display']['default'] : '',
 					'type'          => 'string',
 					'auth_callback' => '__return_true',
 				)
@@ -654,6 +684,18 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				array(
 					'show_in_rest'  => true,
 					'single'        => true,
+					'default'       => isset( $meta['ast-hfb-above-header-display']['default'] ) ? $meta['ast-hfb-above-header-display']['default'] : '',
+					'type'          => 'string',
+					'auth_callback' => '__return_true',
+				)
+			);
+			register_post_meta(
+				'',
+				'ast-hfb-below-header-display',
+				array(
+					'show_in_rest'  => true,
+					'single'        => true,
+					'default'       => isset( $meta['ast-hfb-below-header-display']['default'] ) ? $meta['ast-hfb-below-header-display']['default'] : '',
 					'type'          => 'string',
 					'auth_callback' => '__return_true',
 				)
@@ -664,6 +706,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				array(
 					'show_in_rest'  => true,
 					'single'        => true,
+					'default'       => isset( $meta['ast-hfb-mobile-header-display']['default'] ) ? $meta['ast-hfb-mobile-header-display']['default'] : '',
 					'type'          => 'string',
 					'auth_callback' => '__return_true',
 				)
@@ -674,6 +717,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				array(
 					'show_in_rest'  => true,
 					'single'        => true,
+					'default'       => isset( $meta['site-post-title']['default'] ) ? $meta['site-post-title']['default'] : '',
 					'type'          => 'string',
 					'auth_callback' => '__return_true',
 				)
@@ -684,6 +728,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				array(
 					'show_in_rest'  => true,
 					'single'        => true,
+					'default'       => isset( $meta['ast-breadcrumbs-content']['default'] ) ? $meta['ast-breadcrumbs-content']['default'] : '',
 					'type'          => 'string',
 					'auth_callback' => '__return_true',
 				)
@@ -694,6 +739,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				array(
 					'show_in_rest'  => true,
 					'single'        => true,
+					'default'       => isset( $meta['ast-featured-img']['default'] ) ? $meta['ast-featured-img']['default'] : '',
 					'type'          => 'string',
 					'auth_callback' => '__return_true',
 				)
@@ -704,6 +750,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				array(
 					'show_in_rest'  => true,
 					'single'        => true,
+					'default'       => isset( $meta['footer-sml-layout']['default'] ) ? $meta['footer-sml-layout']['default'] : '',
 					'type'          => 'string',
 					'auth_callback' => '__return_true',
 				)
@@ -745,6 +792,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				array(
 					'show_in_rest'  => true,
 					'single'        => true,
+					'default'       => isset( $meta['header-above-stick-meta']['default'] ) ? $meta['header-above-stick-meta']['default'] : '',
 					'type'          => 'string',
 					'auth_callback' => '__return_true',
 				)
@@ -756,6 +804,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				array(
 					'show_in_rest'  => true,
 					'single'        => true,
+					'default'       => isset( $meta['header-main-stick-meta']['default'] ) ? $meta['header-main-stick-meta']['default'] : '',
 					'type'          => 'string',
 					'auth_callback' => '__return_true',
 				)
@@ -767,6 +816,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				array(
 					'show_in_rest'  => true,
 					'single'        => true,
+					'default'       => isset( $meta['header-below-stick-meta']['default'] ) ? $meta['header-below-stick-meta']['default'] : '',
 					'type'          => 'string',
 					'auth_callback' => '__return_true',
 				)

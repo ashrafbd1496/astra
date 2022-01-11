@@ -45,8 +45,8 @@ add_action( 'astra_register_admin_menu', 'astra_deprecated_asta_register_admin_m
  * @param string   $page_menu_slug     The slug name to refer to this menu by (should be unique for this menu).
  * @param callable $page_menu_func     The function to be called to output the content for this page.
  *
- * @since x.x.x
+ * @since 3.7.4
  */
 function astra_deprecated_asta_register_admin_menu_hook( $parent_page, $page_title, $capability, $page_menu_slug, $page_menu_func ) {
-	astra_do_action_deprecated( 'asta_register_admin_menu', array( $parent_page, $page_title, $capability, $page_menu_slug, $page_menu_func ), 'x.x.x', 'astra_register_admin_menu' );
+	astra_do_action_deprecated( 'asta_register_admin_menu', array( $parent_page, $page_title, $capability, $page_menu_slug, $page_menu_func ), '3.7.4', 'astra_register_admin_menu' );
 }

@@ -26,7 +26,7 @@ import { waitForWindowDimensions } from '@wordpress/e2e-test-utils';
 export const PREDEFINED_DIMENSIONS = {
 	large: { width: 960, height: 700 },
 	medium: { width: 920, height: 700 },
-	small: { width: 544, height: 700 },
+	small: { width: 540, height: 700 },
 };
 
 /**

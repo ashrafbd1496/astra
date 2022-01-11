@@ -210,6 +210,11 @@ function astra_comments_css( $dynamic_css ) {
           }
           .comment-content a {
             word-wrap: break-word;
+          }
+          
+          .comment-form-legend {
+            margin-bottom: unset;
+            padding: 0 0.5em;
           }';
 		if ( 'page-builder' == astra_get_content_layout() || 'plain-container' == astra_get_content_layout() ) {
 			$single_post_comment_css .= '

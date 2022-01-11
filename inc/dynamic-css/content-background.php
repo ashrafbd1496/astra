@@ -85,5 +85,23 @@ function astra_content_background_css( $dynamic_css ) {
 	/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	$dynamic_css .= astra_parse_css( $separate_container_css_mobile, '', astra_get_mobile_breakpoint() );
 
+	if ( astra_apply_content_background_fullwidth_layouts() ) {
+		$fullwidth_layout        = array(
+			'.ast-plain-container, .ast-page-builder-template' => astra_get_responsive_background_obj( $content_bg_obj, 'desktop' ),
+		);
+		$fullwidth_layout_tablet = array(
+			'.ast-plain-container, .ast-page-builder-template' => astra_get_responsive_background_obj( $content_bg_obj, 'tablet' ),
+		);
+		$fullwidth_layout_mobile = array(
+			'.ast-plain-container, .ast-page-builder-template' => astra_get_responsive_background_obj( $content_bg_obj, 'mobile' ),
+		);
+
+		$dynamic_css .= astra_parse_css( $fullwidth_layout );
+		/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+		$dynamic_css .= astra_parse_css( $fullwidth_layout_tablet, '', astra_get_tablet_breakpoint() );
+		/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+		$dynamic_css .= astra_parse_css( $fullwidth_layout_mobile, '', astra_get_mobile_breakpoint() );
+	}
+
 	return $dynamic_css;
 }
