@@ -4,7 +4,7 @@
         "color": "EEEEEE"
     },
     "CHECKS": {
-      "regexp": "AST-[0-9]+ - ",
-      "ignoreLabels" : ["meta", "dependencies"]
+      "regexp": "AST-[0-9]+ - |QAE-[0-9]+ - ",
+      "ignoreLabels" : ["meta", "dependencies", "skip-title-validation"]
     }
 }

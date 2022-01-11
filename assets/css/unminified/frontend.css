@@ -709,7 +709,7 @@ hr {
 
 .ast-button,
 .button,
-button:not(.components-button),
+button,
 input,
 select,
 textarea {
@@ -1860,7 +1860,7 @@ body {
   max-width: 100px;
 }
 
-.wp-block-separator.is-style-wide {
+.wp-block-separator.is-style-wide, .wp-block-separator.is-style-dots {
   max-width: none;
 }
 
