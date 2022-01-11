@@ -1,7 +1,7 @@
 import { createURL } from '@wordpress/e2e-test-utils';
-import { setCustomize } from '../../../utils/customize';
-import { setBrowserViewport } from '../../../utils/set-browser-viewport';
-import { scrollToElement } from '../../../utils/scroll-to-element';
+import { setCustomize } from '../../../../utils/customize';
+import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
+import { scrollToElement } from '../../../../utils/scroll-to-element';
 
 describe( 'copyright color settings in the customizer', () => {
 	it( 'copyright text color should apply correctly', async () => {
