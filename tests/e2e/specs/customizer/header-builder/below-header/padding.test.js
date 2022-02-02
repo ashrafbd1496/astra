@@ -52,66 +52,86 @@ describe( 'Below header padding setting in customizer', () => {
 		await expect( {
 			selector: '.ast-below-header-bar.ast-below-header',
 			property: 'padding-top',
-		} ).cssValueToBe( `${ belowHeaderPadding[ 'section-below-header-builder-padding' ].desktop.top }${ belowHeaderPadding[ 'section-below-header-builder-padding' ][ 'desktop-unit' ] }`,
+		} ).cssValueToBe(
+			`${ belowHeaderPadding[ 'section-below-header-builder-padding' ].desktop.top }${ belowHeaderPadding[ 'section-below-header-builder-padding' ][ 'desktop-unit' ] }`,
 		);
 		await expect( {
 			selector: '.ast-below-header-bar.ast-below-header',
 			property: 'padding-right',
-		} ).cssValueToBe( `${ belowHeaderPadding[ 'section-below-header-builder-padding' ].desktop.right }${ belowHeaderPadding[ 'section-below-header-builder-padding' ][ 'desktop-unit' ] }`,
+		} ).cssValueToBe(
+			`${ belowHeaderPadding[ 'section-below-header-builder-padding' ].desktop.right }${ belowHeaderPadding[ 'section-below-header-builder-padding' ][ 'desktop-unit' ] }`,
 		);
 		await expect( {
 			selector: '.ast-below-header-bar.ast-below-header',
 			property: 'padding-bottom',
-		} ).cssValueToBe( `${ belowHeaderPadding[ 'section-below-header-builder-padding' ].desktop.bottom }${ belowHeaderPadding[ 'section-below-header-builder-padding' ][ 'desktop-unit' ] }`,
+		} ).cssValueToBe(
+			`${ belowHeaderPadding[ 'section-below-header-builder-padding' ].desktop.bottom }${ belowHeaderPadding[ 'section-below-header-builder-padding' ][ 'desktop-unit' ] }`,
 		);
 		await expect( {
 			selector: '.ast-below-header-bar.ast-below-header',
 			property: 'padding-left',
-		} ).cssValueToBe( `${ belowHeaderPadding[ 'section-below-header-builder-padding' ].desktop.left }${ belowHeaderPadding[ 'section-below-header-builder-padding' ][ 'desktop-unit' ] }`,
+		} ).cssValueToBe(
+			`${ belowHeaderPadding[ 'section-below-header-builder-padding' ].desktop.left }${ belowHeaderPadding[ 'section-below-header-builder-padding' ][ 'desktop-unit' ] }`,
 		);
 
 		await setBrowserViewport( 'medium' );
 		await expect( {
-			selector: '.ast-below-header-bar.ast-below-header, .ast-header-break-point .ast-below-header-bar.ast-below-header',
+			selector:
+				'.ast-below-header-bar.ast-below-header, .ast-header-break-point .ast-below-header-bar.ast-below-header',
 			property: 'padding-top',
-		} ).cssValueToBe( `${ belowHeaderPadding[ 'section-below-header-builder-padding' ].tablet.top }${ belowHeaderPadding[ 'section-below-header-builder-padding' ][ 'tablet-unit' ] }`,
+		} ).cssValueToBe(
+			`${ belowHeaderPadding[ 'section-below-header-builder-padding' ].tablet.top }${ belowHeaderPadding[ 'section-below-header-builder-padding' ][ 'tablet-unit' ] }`,
 		);
 		await expect( {
-			selector: '.ast-below-header-bar.ast-below-header, .ast-header-break-point .ast-below-header-bar.ast-below-header',
+			selector:
+				'.ast-below-header-bar.ast-below-header, .ast-header-break-point .ast-below-header-bar.ast-below-header',
 			property: 'padding-right',
-		} ).cssValueToBe( `${ belowHeaderPadding[ 'section-below-header-builder-padding' ].tablet.right }${ belowHeaderPadding[ 'section-below-header-builder-padding' ][ 'tablet-unit' ] }`,
+		} ).cssValueToBe(
+			`${ belowHeaderPadding[ 'section-below-header-builder-padding' ].tablet.right }${ belowHeaderPadding[ 'section-below-header-builder-padding' ][ 'tablet-unit' ] }`,
 		);
 		await expect( {
-			selector: '.ast-below-header-bar.ast-below-header, .ast-header-break-point .ast-below-header-bar.ast-below-header',
+			selector:
+				'.ast-below-header-bar.ast-below-header, .ast-header-break-point .ast-below-header-bar.ast-below-header',
 			property: 'padding-bottom',
-		} ).cssValueToBe( `${ belowHeaderPadding[ 'section-below-header-builder-padding' ].tablet.bottom }${ belowHeaderPadding[ 'section-below-header-builder-padding' ][ 'tablet-unit' ] }`,
+		} ).cssValueToBe(
+			`${ belowHeaderPadding[ 'section-below-header-builder-padding' ].tablet.bottom }${ belowHeaderPadding[ 'section-below-header-builder-padding' ][ 'tablet-unit' ] }`,
 		);
 		await expect( {
-			selector: '.ast-below-header-bar.ast-below-header, .ast-header-break-point .ast-below-header-bar.ast-below-header',
+			selector:
+				'.ast-below-header-bar.ast-below-header, .ast-header-break-point .ast-below-header-bar.ast-below-header',
 			property: 'padding-left',
-		} ).cssValueToBe( `${ belowHeaderPadding[ 'section-below-header-builder-padding' ].tablet.left }${ belowHeaderPadding[ 'section-below-header-builder-padding' ][ 'tablet-unit' ] }`,
+		} ).cssValueToBe(
+			`${ belowHeaderPadding[ 'section-below-header-builder-padding' ].tablet.left }${ belowHeaderPadding[ 'section-below-header-builder-padding' ][ 'tablet-unit' ] }`,
 		);
 
 		await setBrowserViewport( 'small' );
 		await expect( {
-			selector: '.ast-below-header-bar.ast-below-header, .ast-header-break-point .ast-below-header-bar.ast-below-header',
+			selector:
+				'.ast-below-header-bar.ast-below-header, .ast-header-break-point .ast-below-header-bar.ast-below-header',
 			property: 'padding-top',
-		} ).cssValueToBe( `${ belowHeaderPadding[ 'section-below-header-builder-padding' ].mobile.top }${ belowHeaderPadding[ 'section-below-header-builder-padding' ][ 'mobile-unit' ] }`,
+		} ).cssValueToBe(
+			`${ belowHeaderPadding[ 'section-below-header-builder-padding' ].mobile.top }${ belowHeaderPadding[ 'section-below-header-builder-padding' ][ 'mobile-unit' ] }`,
 		);
 		await expect( {
-			selector: '.ast-below-header-bar.ast-below-header, .ast-header-break-point .ast-below-header-bar.ast-below-header',
+			selector:
+				'.ast-below-header-bar.ast-below-header, .ast-header-break-point .ast-below-header-bar.ast-below-header',
 			property: 'padding-right',
-		} ).cssValueToBe( `${ belowHeaderPadding[ 'section-below-header-builder-padding' ].mobile.right }${ belowHeaderPadding[ 'section-below-header-builder-padding' ][ 'mobile-unit' ] }`,
+		} ).cssValueToBe(
+			`${ belowHeaderPadding[ 'section-below-header-builder-padding' ].mobile.right }${ belowHeaderPadding[ 'section-below-header-builder-padding' ][ 'mobile-unit' ] }`,
 		);
 		await expect( {
-			selector: '.ast-below-header-bar.ast-below-header, .ast-header-break-point .ast-below-header-bar.ast-below-header',
+			selector:
+				'.ast-below-header-bar.ast-below-header, .ast-header-break-point .ast-below-header-bar.ast-below-header',
 			property: 'padding-bottom',
-		} ).cssValueToBe( `${ belowHeaderPadding[ 'section-below-header-builder-padding' ].mobile.bottom }${ belowHeaderPadding[ 'section-below-header-builder-padding' ][ 'mobile-unit' ] }`,
+		} ).cssValueToBe(
+			`${ belowHeaderPadding[ 'section-below-header-builder-padding' ].mobile.bottom }${ belowHeaderPadding[ 'section-below-header-builder-padding' ][ 'mobile-unit' ] }`,
 		);
 		await expect( {
-			selector: '.ast-below-header-bar.ast-below-header, .ast-header-break-point .ast-below-header-bar.ast-below-header',
+			selector:
+				'.ast-below-header-bar.ast-below-header, .ast-header-break-point .ast-below-header-bar.ast-below-header',
 			property: 'padding-left',
-		} ).cssValueToBe( `${ belowHeaderPadding[ 'section-below-header-builder-padding' ].mobile.left }${ belowHeaderPadding[ 'section-below-header-builder-padding' ][ 'mobile-unit' ] }`,
+		} ).cssValueToBe(
+			`${ belowHeaderPadding[ 'section-below-header-builder-padding' ].mobile.left }${ belowHeaderPadding[ 'section-below-header-builder-padding' ][ 'mobile-unit' ] }`,
 		);
 	} );
 } );

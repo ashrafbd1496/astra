@@ -33,7 +33,9 @@ describe( 'copyright font size settings in the customizer', () => {
 		await expect( {
 			selector: '.ast-footer-copyright',
 			property: 'font-size',
-		} ).cssValueToBe( `${ copyrightfontsize[ 'font-size-section-footer-copyright' ].desktop }${ copyrightfontsize[ 'font-size-section-footer-copyright' ][ 'desktop-unit' ] }` );
+		} ).cssValueToBe(
+			`${ copyrightfontsize[ 'font-size-section-footer-copyright' ].desktop }${ copyrightfontsize[ 'font-size-section-footer-copyright' ][ 'desktop-unit' ] }`,
+		);
 
 		await setBrowserViewport( 'medium' );
 
@@ -44,7 +46,9 @@ describe( 'copyright font size settings in the customizer', () => {
 			`${ await responsiveFontSize(
 				copyrightfontsize[ 'font-size-section-footer-copyright' ].tablet,
 			) }${
-				copyrightfontsize[ 'font-size-section-footer-copyright' ][ 'tablet-unit' ]
+				copyrightfontsize[ 'font-size-section-footer-copyright' ][
+					'tablet-unit'
+				]
 			}`,
 		);
 
@@ -57,7 +61,9 @@ describe( 'copyright font size settings in the customizer', () => {
 			`${ await responsiveFontSize(
 				copyrightfontsize[ 'font-size-section-footer-copyright' ].mobile,
 			) }${
-				copyrightfontsize[ 'font-size-section-footer-copyright' ][ 'mobile-unit' ]
+				copyrightfontsize[ 'font-size-section-footer-copyright' ][
+					'mobile-unit'
+				]
 			}`,
 		);
 	} );

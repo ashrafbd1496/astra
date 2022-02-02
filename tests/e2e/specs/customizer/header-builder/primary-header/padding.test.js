@@ -34,71 +34,92 @@ describe( 'Primary header padding setting in customizer', () => {
 			waitUntil: 'networkidle0',
 		} );
 
-		await page.waitForSelector( '.ast-desktop .ast-primary-header-bar.main-header-bar' );
+		await page.waitForSelector(
+			'.ast-desktop .ast-primary-header-bar.main-header-bar',
+		);
 		await expect( {
 			selector: '.ast-desktop .ast-primary-header-bar.main-header-bar',
 			property: 'padding-top',
-		} ).cssValueToBe( `${ primaryheaderpadding[ 'section-primary-header-builder-padding' ].desktop.top }${ primaryheaderpadding[ 'section-primary-header-builder-padding' ][ 'desktop-unit' ] }`,
+		} ).cssValueToBe(
+			`${ primaryheaderpadding[ 'section-primary-header-builder-padding' ].desktop.top }${ primaryheaderpadding[ 'section-primary-header-builder-padding' ][ 'desktop-unit' ] }`,
 		);
 		await expect( {
 			selector: '.ast-desktop .ast-primary-header-bar.main-header-bar',
 			property: 'padding-right',
-		} ).cssValueToBe( `${ primaryheaderpadding[ 'section-primary-header-builder-padding' ].desktop.right }${ primaryheaderpadding[ 'section-primary-header-builder-padding' ][ 'desktop-unit' ] }`,
+		} ).cssValueToBe(
+			`${ primaryheaderpadding[ 'section-primary-header-builder-padding' ].desktop.right }${ primaryheaderpadding[ 'section-primary-header-builder-padding' ][ 'desktop-unit' ] }`,
 		);
 		await expect( {
 			selector: '.ast-desktop .ast-primary-header-bar.main-header-bar',
 			property: 'padding-bottom',
-		} ).cssValueToBe( `${ primaryheaderpadding[ 'section-primary-header-builder-padding' ].desktop.bottom }${ primaryheaderpadding[ 'section-primary-header-builder-padding' ][ 'desktop-unit' ] }`,
+		} ).cssValueToBe(
+			`${ primaryheaderpadding[ 'section-primary-header-builder-padding' ].desktop.bottom }${ primaryheaderpadding[ 'section-primary-header-builder-padding' ][ 'desktop-unit' ] }`,
 		);
 		await expect( {
 			selector: '.ast-desktop .ast-primary-header-bar.main-header-bar',
 			property: 'padding-left',
-		} ).cssValueToBe( `${ primaryheaderpadding[ 'section-primary-header-builder-padding' ].desktop.left }${ primaryheaderpadding[ 'section-primary-header-builder-padding' ][ 'desktop-unit' ] }`,
+		} ).cssValueToBe(
+			`${ primaryheaderpadding[ 'section-primary-header-builder-padding' ].desktop.left }${ primaryheaderpadding[ 'section-primary-header-builder-padding' ][ 'desktop-unit' ] }`,
 		);
 
 		await setBrowserViewport( 'medium' );
 		await expect( {
-			selector: '.ast-header-break-point #masthead .ast-primary-header-bar.main-header-bar',
+			selector:
+				'.ast-header-break-point #masthead .ast-primary-header-bar.main-header-bar',
 			property: 'padding-top',
-		} ).cssValueToBe( `${ primaryheaderpadding[ 'section-primary-header-builder-padding' ].tablet.top }${ primaryheaderpadding[ 'section-primary-header-builder-padding' ][ 'tablet-unit' ] }`,
+		} ).cssValueToBe(
+			`${ primaryheaderpadding[ 'section-primary-header-builder-padding' ].tablet.top }${ primaryheaderpadding[ 'section-primary-header-builder-padding' ][ 'tablet-unit' ] }`,
 		);
 		await expect( {
-			selector: '.ast-header-break-point #masthead .ast-primary-header-bar.main-header-bar',
+			selector:
+				'.ast-header-break-point #masthead .ast-primary-header-bar.main-header-bar',
 			property: 'padding-right',
-		} ).cssValueToBe( `${ primaryheaderpadding[ 'section-primary-header-builder-padding' ].tablet.right }${ primaryheaderpadding[ 'section-primary-header-builder-padding' ][ 'tablet-unit' ] }`,
+		} ).cssValueToBe(
+			`${ primaryheaderpadding[ 'section-primary-header-builder-padding' ].tablet.right }${ primaryheaderpadding[ 'section-primary-header-builder-padding' ][ 'tablet-unit' ] }`,
 		);
 		await expect( {
-			selector: '.ast-header-break-point #masthead .ast-primary-header-bar.main-header-bar',
+			selector:
+				'.ast-header-break-point #masthead .ast-primary-header-bar.main-header-bar',
 			property: 'padding-bottom',
-		} ).cssValueToBe( `${ primaryheaderpadding[ 'section-primary-header-builder-padding' ].tablet.bottom }${ primaryheaderpadding[ 'section-primary-header-builder-padding' ][ 'tablet-unit' ] }`,
+		} ).cssValueToBe(
+			`${ primaryheaderpadding[ 'section-primary-header-builder-padding' ].tablet.bottom }${ primaryheaderpadding[ 'section-primary-header-builder-padding' ][ 'tablet-unit' ] }`,
 		);
 		await expect( {
-			selector: '.ast-header-break-point #masthead .ast-primary-header-bar.main-header-bar',
+			selector:
+				'.ast-header-break-point #masthead .ast-primary-header-bar.main-header-bar',
 			property: 'padding-left',
-		} ).cssValueToBe( `${ primaryheaderpadding[ 'section-primary-header-builder-padding' ].tablet.left }${ primaryheaderpadding[ 'section-primary-header-builder-padding' ][ 'tablet-unit' ] }`,
+		} ).cssValueToBe(
+			`${ primaryheaderpadding[ 'section-primary-header-builder-padding' ].tablet.left }${ primaryheaderpadding[ 'section-primary-header-builder-padding' ][ 'tablet-unit' ] }`,
 		);
 
 		await setBrowserViewport( 'small' );
 		await expect( {
-			selector: '.ast-header-break-point #masthead .ast-primary-header-bar.main-header-bar',
+			selector:
+				'.ast-header-break-point #masthead .ast-primary-header-bar.main-header-bar',
 			property: 'padding-top',
-		} ).cssValueToBe( `${ primaryheaderpadding[ 'section-primary-header-builder-padding' ].mobile.top }${ primaryheaderpadding[ 'section-primary-header-builder-padding' ][ 'mobile-unit' ] }`,
+		} ).cssValueToBe(
+			`${ primaryheaderpadding[ 'section-primary-header-builder-padding' ].mobile.top }${ primaryheaderpadding[ 'section-primary-header-builder-padding' ][ 'mobile-unit' ] }`,
 		);
 		await expect( {
-			selector: '.ast-header-break-point #masthead .ast-primary-header-bar.main-header-bar',
+			selector:
+				'.ast-header-break-point #masthead .ast-primary-header-bar.main-header-bar',
 			property: 'padding-right',
-		} ).cssValueToBe( `${ primaryheaderpadding[ 'section-primary-header-builder-padding' ].mobile.right }${ primaryheaderpadding[ 'section-primary-header-builder-padding' ][ 'mobile-unit' ] }`,
+		} ).cssValueToBe(
+			`${ primaryheaderpadding[ 'section-primary-header-builder-padding' ].mobile.right }${ primaryheaderpadding[ 'section-primary-header-builder-padding' ][ 'mobile-unit' ] }`,
 		);
 		await expect( {
-			selector: '.ast-header-break-point #masthead .ast-primary-header-bar.main-header-bar',
+			selector:
+				'.ast-header-break-point #masthead .ast-primary-header-bar.main-header-bar',
 			property: 'padding-bottom',
-		} ).cssValueToBe( `${ primaryheaderpadding[ 'section-primary-header-builder-padding' ].mobile.bottom }${ primaryheaderpadding[ 'section-primary-header-builder-padding' ][ 'mobile-unit' ] }`,
+		} ).cssValueToBe(
+			`${ primaryheaderpadding[ 'section-primary-header-builder-padding' ].mobile.bottom }${ primaryheaderpadding[ 'section-primary-header-builder-padding' ][ 'mobile-unit' ] }`,
 		);
 		await expect( {
-			selector: '.ast-header-break-point #masthead .ast-primary-header-bar.main-header-bar',
+			selector:
+				'.ast-header-break-point #masthead .ast-primary-header-bar.main-header-bar',
 			property: 'padding-left',
-		} ).cssValueToBe( `${ primaryheaderpadding[ 'section-primary-header-builder-padding' ].mobile.left }${ primaryheaderpadding[ 'section-primary-header-builder-padding' ][ 'mobile-unit' ] }`,
+		} ).cssValueToBe(
+			`${ primaryheaderpadding[ 'section-primary-header-builder-padding' ].mobile.left }${ primaryheaderpadding[ 'section-primary-header-builder-padding' ][ 'mobile-unit' ] }`,
 		);
 	} );
 } );
-

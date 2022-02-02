@@ -150,12 +150,15 @@ function astra_search_static_css() {
 		z-index: 4;
 		position: relative;
 	}
-	  
+	.ast-search-icon .ast-icon {
+		z-index: 4;
+	}
 	.ast-search-icon {
 		z-index: 4;
 		position: relative;
 		line-height: normal;
 	}
+	
 	.main-header-bar .ast-search-menu-icon .search-form {
 		background-color: #ffffff;
 	}

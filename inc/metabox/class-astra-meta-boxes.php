@@ -517,6 +517,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 					'page_header_options'      => $this->get_page_header_options(),
 					'is_bb_themer_layout'      => ! astra_check_is_bb_themer_layout(), // Show page header option only when bb is not activated.
 					'is_addon_activated'       => defined( 'ASTRA_EXT_VER' ) ? true : false,
+					'register_astra_metabox'   => apply_filters( 'astra_settings_metabox_register', true ),
 				)
 			);
 		}

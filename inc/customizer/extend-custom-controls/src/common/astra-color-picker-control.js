@@ -1,8 +1,10 @@
 import PropTypes from 'prop-types';
 import { __ } from '@wordpress/i18n';
 import { Component } from '@wordpress/element';
-import { Dashicon, Button, ColorIndicator, TabPanel, __experimentalGradientPicker, ColorPicker, SelectControl, ColorPalette } from '@wordpress/components';
+import { Dashicon, Button, ColorIndicator, TabPanel, GradientPicker, __experimentalGradientPicker, ColorPicker, SelectControl, ColorPalette } from '@wordpress/components';
 import { MediaUpload } from '@wordpress/media-utils';
+
+const AstraGradientPicker = AstraBuilderCustomizerData.isWP_5_9 ? GradientPicker : __experimentalGradientPicker;
 
 const maybeGetColorForVariable = ( color, palette ) => {
 	const paletteColors = palette.palette;
@@ -55,7 +57,7 @@ class AstraColorPickerControl extends Component {
 			color: this.props.color,
 			modalCanClose: true,
 			backgroundType: this.props.backgroundType,
-			supportGradient: ( undefined === __experimentalGradientPicker ? false : true ),
+			supportGradient: ( undefined === AstraGradientPicker ? false : true ),
 		};
 	}
 
@@ -180,8 +182,8 @@ class AstraColorPickerControl extends Component {
 												if ( 'gradient' === tab.name ) {
 													tabout = (
 														<>
-															<__experimentalGradientPicker
-																className="ast-gradient-color-picker"
+															<AstraGradientPicker
+																className={`ast-gradient-color-picker ${ AstraBuilderCustomizerData.isWP_5_9 ? 'ast-gradient-ui': '' }`}
 																value={ this.props.color && this.props.color.includes( 'gradient' ) ? this.props.color : '' }
 																onChange={ ( gradient ) => this.onChangeGradientComplete( gradient ) }
 															/>

@@ -36,23 +36,26 @@ describe( 'Copyright Margin setting in customizer', () => {
 		await expect( {
 			selector: '.ast-footer-copyright',
 			property: 'margin-top',
-		} ).cssValueToBe( `${ copyrightmargin[ 'section-footer-copyright-margin' ].desktop.top }${ copyrightmargin[ 'section-footer-copyright-margin' ][ 'desktop-unit' ] }`,
+		} ).cssValueToBe(
+			`${ copyrightmargin[ 'section-footer-copyright-margin' ].desktop.top }${ copyrightmargin[ 'section-footer-copyright-margin' ][ 'desktop-unit' ] }`,
 		);
 		await expect( {
 			selector: '.ast-footer-copyright',
 			property: 'margin-right',
-		} ).cssValueToBe( `${ copyrightmargin[ 'section-footer-copyright-margin' ].desktop.right }${ copyrightmargin[ 'section-footer-copyright-margin' ][ 'desktop-unit' ] }`,
+		} ).cssValueToBe(
+			`${ copyrightmargin[ 'section-footer-copyright-margin' ].desktop.right }${ copyrightmargin[ 'section-footer-copyright-margin' ][ 'desktop-unit' ] }`,
 		);
 		await expect( {
 			selector: '.ast-footer-copyright',
 			property: 'margin-bottom',
-		} ).cssValueToBe( `${ copyrightmargin[ 'section-footer-copyright-margin' ].desktop.bottom
-		}${ copyrightmargin[ 'section-footer-copyright-margin' ][ 'desktop-unit' ] }`,
+		} ).cssValueToBe(
+			`${ copyrightmargin[ 'section-footer-copyright-margin' ].desktop.bottom }${ copyrightmargin[ 'section-footer-copyright-margin' ][ 'desktop-unit' ] }`,
 		);
 		await expect( {
 			selector: '.ast-footer-copyright',
 			property: 'margin-left',
-		} ).cssValueToBe( `${ copyrightmargin[ 'section-footer-copyright-margin' ].desktop.left }${ copyrightmargin[ 'section-footer-copyright-margin' ][ 'desktop-unit' ] }`,
+		} ).cssValueToBe(
+			`${ copyrightmargin[ 'section-footer-copyright-margin' ].desktop.left }${ copyrightmargin[ 'section-footer-copyright-margin' ][ 'desktop-unit' ] }`,
 		);
 	} );
 
@@ -89,22 +92,26 @@ describe( 'Copyright Margin setting in customizer', () => {
 		await expect( {
 			selector: '.ast-footer-copyright',
 			property: 'margin-top',
-		} ).cssValueToBe( `${ copyrightmargin[ 'section-footer-copyright-margin' ].tablet.top }${ copyrightmargin[ 'section-footer-copyright-margin' ][ 'tablet-unit' ] }`,
+		} ).cssValueToBe(
+			`${ copyrightmargin[ 'section-footer-copyright-margin' ].tablet.top }${ copyrightmargin[ 'section-footer-copyright-margin' ][ 'tablet-unit' ] }`,
 		);
 		await expect( {
 			selector: '.ast-footer-copyright',
 			property: 'margin-right',
-		} ).cssValueToBe( `${ copyrightmargin[ 'section-footer-copyright-margin' ].tablet.right }${ copyrightmargin[ 'section-footer-copyright-margin' ][ 'tablet-unit' ] }`,
+		} ).cssValueToBe(
+			`${ copyrightmargin[ 'section-footer-copyright-margin' ].tablet.right }${ copyrightmargin[ 'section-footer-copyright-margin' ][ 'tablet-unit' ] }`,
 		);
 		await expect( {
 			selector: '.ast-footer-copyright',
 			property: 'margin-bottom',
-		} ).cssValueToBe( `${ copyrightmargin[ 'section-footer-copyright-margin' ].tablet.bottom }${ copyrightmargin[ 'section-footer-copyright-margin' ][ 'tablet-unit' ] }`,
+		} ).cssValueToBe(
+			`${ copyrightmargin[ 'section-footer-copyright-margin' ].tablet.bottom }${ copyrightmargin[ 'section-footer-copyright-margin' ][ 'tablet-unit' ] }`,
 		);
 		await expect( {
 			selector: '.ast-footer-copyright',
 			property: 'margin-left',
-		} ).cssValueToBe( `${ copyrightmargin[ 'section-footer-copyright-margin' ].tablet.left }${ copyrightmargin[ 'section-footer-copyright-margin' ][ 'tablet-unit' ] }`,
+		} ).cssValueToBe(
+			`${ copyrightmargin[ 'section-footer-copyright-margin' ].tablet.left }${ copyrightmargin[ 'section-footer-copyright-margin' ][ 'tablet-unit' ] }`,
 		);
 	} );
 	it( 'copyright margin for mobile should apply correctly', async () => {
@@ -139,22 +146,26 @@ describe( 'Copyright Margin setting in customizer', () => {
 		await expect( {
 			selector: '.ast-footer-copyright',
 			property: 'margin-top',
-		} ).cssValueToBe( `${ copyrightmargin[ 'section-footer-copyright-margin' ].mobile.top }${ copyrightmargin[ 'section-footer-copyright-margin' ][ 'mobile-unit' ] }`,
+		} ).cssValueToBe(
+			`${ copyrightmargin[ 'section-footer-copyright-margin' ].mobile.top }${ copyrightmargin[ 'section-footer-copyright-margin' ][ 'mobile-unit' ] }`,
 		);
 		await expect( {
 			selector: '.ast-footer-copyright',
 			property: 'margin-right',
-		} ).cssValueToBe( `${ copyrightmargin[ 'section-footer-copyright-margin' ].mobile.right }${ copyrightmargin[ 'section-footer-copyright-margin' ][ 'mobile-unit' ] }`,
+		} ).cssValueToBe(
+			`${ copyrightmargin[ 'section-footer-copyright-margin' ].mobile.right }${ copyrightmargin[ 'section-footer-copyright-margin' ][ 'mobile-unit' ] }`,
 		);
 		await expect( {
 			selector: '.ast-footer-copyright',
 			property: 'margin-bottom',
-		} ).cssValueToBe( `${ copyrightmargin[ 'section-footer-copyright-margin' ].mobile.bottom }${ copyrightmargin[ 'section-footer-copyright-margin' ][ 'mobile-unit' ] }`,
+		} ).cssValueToBe(
+			`${ copyrightmargin[ 'section-footer-copyright-margin' ].mobile.bottom }${ copyrightmargin[ 'section-footer-copyright-margin' ][ 'mobile-unit' ] }`,
 		);
 		await expect( {
 			selector: '.ast-footer-copyright',
 			property: 'margin-left',
-		} ).cssValueToBe( `${ copyrightmargin[ 'section-footer-copyright-margin' ].mobile.left }${ copyrightmargin[ 'section-footer-copyright-margin' ][ 'mobile-unit' ] }`,
+		} ).cssValueToBe(
+			`${ copyrightmargin[ 'section-footer-copyright-margin' ].mobile.left }${ copyrightmargin[ 'section-footer-copyright-margin' ][ 'mobile-unit' ] }`,
 		);
 	} );
 } );

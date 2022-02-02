@@ -1,4 +1,8 @@
-import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
+import {
+	createURL,
+	createNewPost,
+	publishPost,
+} from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../utils/customize';
 describe( 'breadcrumb alignment settings in the customizer', () => {
 	it( 'breadcrumb center alignment should apply corectly for after header', async () => {

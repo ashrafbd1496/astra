@@ -24,7 +24,10 @@ describe( 'Global typography H1 settings in the customizer', () => {
 			'line-height-h1': '3px',
 		};
 		await setCustomize( heading1Font );
-		await createNewPost( { postType: 'post', title: 'heading-1-typography-test' } );
+		await createNewPost( {
+			postType: 'post',
+			title: 'heading-1-typography-test',
+		} );
 		await setPostContent( TPOGRAPHY_TEST_POST_CONTENT );
 		await publishPost();
 		await page.goto( createURL( 'heading-1-typography-test' ), {
@@ -72,8 +75,6 @@ describe( 'Global typography H1 settings in the customizer', () => {
 		await expect( {
 			selector: '.entry-content h1',
 			property: 'line-height',
-		} ).cssValueToBe(
-			`${ heading1Font[ 'line-height-h1' ] }`,
-		);
+		} ).cssValueToBe( `${ heading1Font[ 'line-height-h1' ] }` );
 	} );
 } );

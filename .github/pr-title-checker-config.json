@@ -5,6 +5,6 @@
     },
     "CHECKS": {
       "regexp": "AST-[0-9]+ - |QAE-[0-9]+ - ",
-      "ignoreLabels" : ["meta", "dependencies"]
+      "ignoreLabels" : ["meta", "dependencies", "skip-title-validation"]
     }
 }

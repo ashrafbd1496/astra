@@ -1,4 +1,5 @@
 v3.8.0(Unreleased)
+- Improvement: Added a new filter 'astra_settings_metabox_register' to prevent loading of block based Astra Settings metabox. ( https://wpastra.com/docs/hide-astra-settings-for-user-roles/ )
 - Fix: W3 validation - Removed an element with the attribute tabindex for dropdown menu toggle.
 - Improvement: Site Background will be applied as background CSS for Full-Width Contained/Stretched layouts instead of Content Background.
 - Fix: W3 validation - legend HTML tag missing as fieldset tag is being used for comment section.
@@ -6,6 +7,21 @@ v3.8.0(Unreleased)
 - Fix: W3 validation - aria-label attribute is missing for cart offcanvas drawer.
 - Fix: Off-canvas - Dropdown menu displayed when flyout/fullscreen header type is selected in mobile/tablet customizer.
 - Fix: W3 validation - Builder - Account - Duplicate IDs for account icons.
+- Fix: Elementor Pro - WooCommerce Grid layout support in WooCommerce Products Archive widget.
+- Fix: Accessibility - Tab navigation does not highlight slider search Icon.
+- Fix: JS Error - Uncaught ReferenceError: bodyElement is not defined.
+- Fix: WooCommerce - Blank Flyout shopping cart appearing on checkout & cart page for mobile/tablet devices.
+- Fix: Gutenberg editor - Gutenberg Blocks jerks when users edit any of the blocks.
+- Fix: Gutenberg editor - Block Editor layout showing issue with heading block on page or post.
+
+v3.7.7
+- Improvement: Compatibility with WordPress 5.9.
+- Fix: var() colors code appearing in block editor theme palette picker.
+- Fix: There is no gap between the post edit title & first content block in the block editor.
+- Fix: Color picker's UI breaking in customizer & in block editor.
+- Fix: Gradient picker's UI breaking inside color picker.
+- Fix: Column figure blocks overlapping on one another in block editor.
+- Fix: WooCommerce - Variation product label is not align properly with WooCommerce 6.1 version.
 
 v3.7.6
 - Improvement: Added a new filter 'astra_web_stories_position' to change the position of web stories. ( https://wpastra.com/docs/change-web-stories-position/ )

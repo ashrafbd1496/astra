@@ -1501,7 +1501,8 @@
     {
         "Bevan": {
             "variants": [
-                "regular"
+                "regular",
+                "italic"
             ],
             "category": "display"
         }
@@ -3549,12 +3550,12 @@
         "Expletus Sans": {
             "variants": [
                 "regular",
-                "italic",
                 "500",
-                "500italic",
                 "600",
-                "600italic",
                 "700",
+                "italic",
+                "500italic",
+                "600italic",
                 "700italic"
             ],
             "category": "display"
@@ -5188,6 +5189,14 @@
         }
     },
     {
+        "Imperial Script": {
+            "variants": [
+                "regular"
+            ],
+            "category": "handwriting"
+        }
+    },
+    {
         "Imprima": {
             "variants": [
                 "regular"
@@ -5276,6 +5285,14 @@
         }
     },
     {
+        "Inspiration": {
+            "variants": [
+                "regular"
+            ],
+            "category": "handwriting"
+        }
+    },
+    {
         "Inter": {
             "variants": [
                 "100",
@@ -5297,6 +5314,14 @@
                 "regular"
             ],
             "category": "display"
+        }
+    },
+    {
+        "Island Moments": {
+            "variants": [
+                "regular"
+            ],
+            "category": "handwriting"
         }
     },
     {
@@ -5935,6 +5960,14 @@
         }
     },
     {
+        "Kolker Brush": {
+            "variants": [
+                "regular"
+            ],
+            "category": "handwriting"
+        }
+    },
+    {
         "Kosugi": {
             "variants": [
                 "regular"
@@ -6474,6 +6507,14 @@
         }
     },
     {
+        "Licorice": {
+            "variants": [
+                "regular"
+            ],
+            "category": "handwriting"
+        }
+    },
+    {
         "Life Savers": {
             "variants": [
                 "regular",
@@ -6648,6 +6689,14 @@
         }
     },
     {
+        "Love Light": {
+            "variants": [
+                "regular"
+            ],
+            "category": "handwriting"
+        }
+    },
+    {
         "Love Ya Like A Sister": {
             "variants": [
                 "regular"
@@ -6694,6 +6743,14 @@
                 "regular"
             ],
             "category": "serif"
+        }
+    },
+    {
+        "Luxurious Roman": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
         }
     },
     {
@@ -7099,6 +7156,14 @@
         }
     },
     {
+        "Mea Culpa": {
+            "variants": [
+                "regular"
+            ],
+            "category": "handwriting"
+        }
+    },
+    {
         "Meddon": {
             "variants": [
                 "regular"
@@ -7475,22 +7540,22 @@
         "Montserrat": {
             "variants": [
                 "100",
-                "100italic",
                 "200",
-                "200italic",
                 "300",
-                "300italic",
                 "regular",
-                "italic",
                 "500",
-                "500italic",
                 "600",
-                "600italic",
                 "700",
-                "700italic",
                 "800",
-                "800italic",
                 "900",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
                 "900italic"
             ],
             "category": "sans-serif"
@@ -7528,6 +7593,22 @@
                 "700"
             ],
             "category": "sans-serif"
+        }
+    },
+    {
+        "Moo Lah Lah": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
+        "Moon Dance": {
+            "variants": [
+                "regular"
+            ],
+            "category": "handwriting"
         }
     },
     {
@@ -7769,6 +7850,14 @@
     },
     {
         "Nanum Pen Script": {
+            "variants": [
+                "regular"
+            ],
+            "category": "handwriting"
+        }
+    },
+    {
+        "Neonderthaw": {
             "variants": [
                 "regular"
             ],
@@ -10094,6 +10183,14 @@
         }
     },
     {
+        "Ole": {
+            "variants": [
+                "regular"
+            ],
+            "category": "handwriting"
+        }
+    },
+    {
         "Oleo Script": {
             "variants": [
                 "regular",
@@ -10109,6 +10206,14 @@
                 "700"
             ],
             "category": "display"
+        }
+    },
+    {
+        "Oooh Baby": {
+            "variants": [
+                "regular"
+            ],
+            "category": "handwriting"
         }
     },
     {
@@ -11098,6 +11203,15 @@
         }
     },
     {
+        "Qwitcher Grypen": {
+            "variants": [
+                "regular",
+                "700"
+            ],
+            "category": "handwriting"
+        }
+    },
+    {
         "Racing Sans One": {
             "variants": [
                 "regular"
@@ -11546,6 +11660,14 @@
                 "regular"
             ],
             "category": "handwriting"
+        }
+    },
+    {
+        "Rock 3D": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
         }
     },
     {
@@ -12218,6 +12340,14 @@
         }
     },
     {
+        "Shizuru": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Shojumaru": {
             "variants": [
                 "regular"
@@ -12541,6 +12671,29 @@
         }
     },
     {
+        "Source Serif 4": {
+            "variants": [
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
+                "900italic"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Source Serif Pro": {
             "variants": [
                 "200",
@@ -12670,6 +12823,18 @@
                 "regular"
             ],
             "category": "display"
+        }
+    },
+    {
+        "Spline Sans": {
+            "variants": [
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700"
+            ],
+            "category": "sans-serif"
         }
     },
     {
@@ -13105,6 +13270,15 @@
         }
     },
     {
+        "The Nautigal": {
+            "variants": [
+                "regular",
+                "700"
+            ],
+            "category": "handwriting"
+        }
+    },
+    {
         "Tienne": {
             "variants": [
                 "regular",
@@ -13338,6 +13512,14 @@
                 "800"
             ],
             "category": "display"
+        }
+    },
+    {
+        "Twinkle Star": {
+            "variants": [
+                "regular"
+            ],
+            "category": "handwriting"
         }
     },
     {
@@ -13644,6 +13826,14 @@
         }
     },
     {
+        "Vujahday Script": {
+            "variants": [
+                "regular"
+            ],
+            "category": "handwriting"
+        }
+    },
+    {
         "Waiting for the Sunrise": {
             "variants": [
                 "regular"
@@ -13673,6 +13863,14 @@
                 "regular"
             ],
             "category": "display"
+        }
+    },
+    {
+        "Waterfall": {
+            "variants": [
+                "regular"
+            ],
+            "category": "handwriting"
         }
     },
     {
@@ -13852,6 +14050,22 @@
                 "regular"
             ],
             "category": "serif"
+        }
+    },
+    {
+        "Yuji Hentaigana Akari": {
+            "variants": [
+                "regular"
+            ],
+            "category": "handwriting"
+        }
+    },
+    {
+        "Yuji Hentaigana Akebono": {
+            "variants": [
+                "regular"
+            ],
+            "category": "handwriting"
         }
     },
     {

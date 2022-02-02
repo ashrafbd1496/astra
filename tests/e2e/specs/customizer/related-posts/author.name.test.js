@@ -37,11 +37,13 @@ describe( 'Related Posts correct Author Name', () => {
 			await page.$x(
 				'//*[ @id = "inspector-select-control-3" ]/option[ text() = "adminRelatedPost" ]',
 			)
-		)[ 0 ];
+		)[ 0 ]; // eslint-disable-next-line no-mixed-spaces-and-tabs
 
 		const authorNameValue = await (
 			await authorNameOption.getProperty( 'value' )
-		).jsonValue();
+		)
+			// eslint-disable-next-line no-mixed-spaces-and-tabs
+			.jsonValue();
 
 		await page.select( '#inspector-select-control-3', authorNameValue );
 

@@ -2316,6 +2316,12 @@ p.demo_store,
 	#reviews {
 		display: flex;
 	}
+
+	.variations {
+		th {
+			text-align: left;
+		}
+	}
 }
 
 .woocommerce,

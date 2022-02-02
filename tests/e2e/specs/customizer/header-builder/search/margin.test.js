@@ -17,7 +17,6 @@ describe( 'Search-icon margin in the customizer', () => {
 				above: {
 					above_left: {
 						0: 'search',
-
 					},
 				},
 			},
@@ -31,22 +30,26 @@ describe( 'Search-icon margin in the customizer', () => {
 		await expect( {
 			selector: '.ast-header-search',
 			property: 'margin-top',
-		} ).cssValueToBe( `${ searchiconMargin[ 'section-header-search-margin' ].desktop.top }${ searchiconMargin[ 'section-header-search-margin' ][ 'desktop-unit' ] }`,
+		} ).cssValueToBe(
+			`${ searchiconMargin[ 'section-header-search-margin' ].desktop.top }${ searchiconMargin[ 'section-header-search-margin' ][ 'desktop-unit' ] }`,
 		);
 		await expect( {
 			selector: '.ast-header-search',
 			property: 'margin-right',
-		} ).cssValueToBe( `${ searchiconMargin[ 'section-header-search-margin' ].desktop.right }${ searchiconMargin[ 'section-header-search-margin' ][ 'desktop-unit' ] }`,
+		} ).cssValueToBe(
+			`${ searchiconMargin[ 'section-header-search-margin' ].desktop.right }${ searchiconMargin[ 'section-header-search-margin' ][ 'desktop-unit' ] }`,
 		);
 		await expect( {
 			selector: '.ast-header-search',
 			property: 'margin-bottom',
-		} ).cssValueToBe( `${ searchiconMargin[ 'section-header-search-margin' ].desktop.bottom }${ searchiconMargin[ 'section-header-search-margin' ][ 'desktop-unit' ] }`,
+		} ).cssValueToBe(
+			`${ searchiconMargin[ 'section-header-search-margin' ].desktop.bottom }${ searchiconMargin[ 'section-header-search-margin' ][ 'desktop-unit' ] }`,
 		);
 		await expect( {
 			selector: '.ast-header-search',
 			property: 'margin-left',
-		} ).cssValueToBe( `${ searchiconMargin[ 'section-header-search-margin' ].desktop.left }${ searchiconMargin[ 'section-header-search-margin' ][ 'desktop-unit' ] }`,
+		} ).cssValueToBe(
+			`${ searchiconMargin[ 'section-header-search-margin' ].desktop.left }${ searchiconMargin[ 'section-header-search-margin' ][ 'desktop-unit' ] }`,
 		);
 	} );
 	it( 'search icon margin for tablet should apply correctly', async () => {
@@ -64,7 +67,6 @@ describe( 'Search-icon margin in the customizer', () => {
 				above: {
 					above_left: {
 						0: 'search',
-
 					},
 				},
 			},
@@ -74,27 +76,37 @@ describe( 'Search-icon margin in the customizer', () => {
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( '.ast-hfb-header .site-header-section > .ast-header-search' );
+		await page.waitForSelector(
+			'.ast-hfb-header .site-header-section > .ast-header-search',
+		);
 		await setBrowserViewport( 'medium' );
 		await expect( {
-			selector: '.ast-hfb-header .site-header-section > .ast-header-search',
+			selector:
+				'.ast-hfb-header .site-header-section > .ast-header-search',
 			property: 'margin-top',
-		} ).cssValueToBe( `${ searchiconMargin[ 'section-header-search-margin' ].tablet.top }${ searchiconMargin[ 'section-header-search-margin' ][ 'tablet-unit' ] }`,
+		} ).cssValueToBe(
+			`${ searchiconMargin[ 'section-header-search-margin' ].tablet.top }${ searchiconMargin[ 'section-header-search-margin' ][ 'tablet-unit' ] }`,
 		);
 		await expect( {
-			selector: '.ast-hfb-header .site-header-section > .ast-header-search',
+			selector:
+				'.ast-hfb-header .site-header-section > .ast-header-search',
 			property: 'margin-right',
-		} ).cssValueToBe( `${ searchiconMargin[ 'section-header-search-margin' ].tablet.right }${ searchiconMargin[ 'section-header-search-margin' ][ 'tablet-unit' ] }`,
+		} ).cssValueToBe(
+			`${ searchiconMargin[ 'section-header-search-margin' ].tablet.right }${ searchiconMargin[ 'section-header-search-margin' ][ 'tablet-unit' ] }`,
 		);
 		await expect( {
-			selector: '.ast-hfb-header .site-header-section > .ast-header-search',
+			selector:
+				'.ast-hfb-header .site-header-section > .ast-header-search',
 			property: 'margin-bottom',
-		} ).cssValueToBe( `${ searchiconMargin[ 'section-header-search-margin' ].tablet.bottom }${ searchiconMargin[ 'section-header-search-margin' ][ 'tablet-unit' ] }`,
+		} ).cssValueToBe(
+			`${ searchiconMargin[ 'section-header-search-margin' ].tablet.bottom }${ searchiconMargin[ 'section-header-search-margin' ][ 'tablet-unit' ] }`,
 		);
 		await expect( {
-			selector: '.ast-hfb-header .site-header-section > .ast-header-search',
+			selector:
+				'.ast-hfb-header .site-header-section > .ast-header-search',
 			property: 'margin-left',
-		} ).cssValueToBe( `${ searchiconMargin[ 'section-header-search-margin' ].tablet.left }${ searchiconMargin[ 'section-header-search-margin' ][ 'tablet-unit' ] }`,
+		} ).cssValueToBe(
+			`${ searchiconMargin[ 'section-header-search-margin' ].tablet.left }${ searchiconMargin[ 'section-header-search-margin' ][ 'tablet-unit' ] }`,
 		);
 	} );
 
@@ -113,7 +125,6 @@ describe( 'Search-icon margin in the customizer', () => {
 				above: {
 					above_left: {
 						0: 'search',
-
 					},
 				},
 			},
@@ -123,27 +134,37 @@ describe( 'Search-icon margin in the customizer', () => {
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( '.ast-hfb-header .site-header-section > .ast-header-search' );
+		await page.waitForSelector(
+			'.ast-hfb-header .site-header-section > .ast-header-search',
+		);
 		await setBrowserViewport( 'small' );
 		await expect( {
-			selector: '.ast-hfb-header .site-header-section > .ast-header-search',
+			selector:
+				'.ast-hfb-header .site-header-section > .ast-header-search',
 			property: 'margin-top',
-		} ).cssValueToBe( `${ searchiconMargin[ 'section-header-search-margin' ].mobile.top }${ searchiconMargin[ 'section-header-search-margin' ][ 'mobile-unit' ] }`,
+		} ).cssValueToBe(
+			`${ searchiconMargin[ 'section-header-search-margin' ].mobile.top }${ searchiconMargin[ 'section-header-search-margin' ][ 'mobile-unit' ] }`,
 		);
 		await expect( {
-			selector: '.ast-hfb-header .site-header-section > .ast-header-search',
+			selector:
+				'.ast-hfb-header .site-header-section > .ast-header-search',
 			property: 'margin-right',
-		} ).cssValueToBe( `${ searchiconMargin[ 'section-header-search-margin' ].mobile.right }${ searchiconMargin[ 'section-header-search-margin' ][ 'mobile-unit' ] }`,
+		} ).cssValueToBe(
+			`${ searchiconMargin[ 'section-header-search-margin' ].mobile.right }${ searchiconMargin[ 'section-header-search-margin' ][ 'mobile-unit' ] }`,
 		);
 		await expect( {
-			selector: '.ast-hfb-header .site-header-section > .ast-header-search',
+			selector:
+				'.ast-hfb-header .site-header-section > .ast-header-search',
 			property: 'margin-bottom',
-		} ).cssValueToBe( `${ searchiconMargin[ 'section-header-search-margin' ].mobile.bottom }${ searchiconMargin[ 'section-header-search-margin' ][ 'mobile-unit' ] }`,
+		} ).cssValueToBe(
+			`${ searchiconMargin[ 'section-header-search-margin' ].mobile.bottom }${ searchiconMargin[ 'section-header-search-margin' ][ 'mobile-unit' ] }`,
 		);
 		await expect( {
-			selector: '.ast-hfb-header .site-header-section > .ast-header-search',
+			selector:
+				'.ast-hfb-header .site-header-section > .ast-header-search',
 			property: 'margin-left',
-		} ).cssValueToBe( `${ searchiconMargin[ 'section-header-search-margin' ].mobile.left }${ searchiconMargin[ 'section-header-search-margin' ][ 'mobile-unit' ] }`,
+		} ).cssValueToBe(
+			`${ searchiconMargin[ 'section-header-search-margin' ].mobile.left }${ searchiconMargin[ 'section-header-search-margin' ][ 'mobile-unit' ] }`,
 		);
 	} );
 } );
