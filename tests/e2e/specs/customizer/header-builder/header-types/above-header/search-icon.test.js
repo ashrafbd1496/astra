@@ -62,7 +62,7 @@ describe( 'Customizing search icon in the above header section', () => {
 		} );
 		await setBrowserViewport( 'medium' );
 		await expect( {
-			selector: '.ast-icon',
+			selector: '.ast-header-search .astra-search-icon',
 			property: 'color',
 		} ).cssValueToBe(
 			`${ searchIcon[ 'header-search-icon-color' ].tablet }`,
@@ -98,7 +98,7 @@ describe( 'Customizing search icon in the above header section', () => {
 		} );
 		await setBrowserViewport( 'small' );
 		await expect( {
-			selector: '.ast-icon',
+			selector: '.ast-header-search .astra-search-icon',
 			property: 'color',
 		} ).cssValueToBe(
 			`${ searchIcon[ 'header-search-icon-color' ].mobile }`,
