@@ -4003,3 +4003,7 @@ input[type="color"]::-webkit-color-swatch {
 .ast-flex-grow-1 {
   flex-grow: 1;
 }
+
+.ast-icon.icon-search {
+  z-index: 4;
+}
