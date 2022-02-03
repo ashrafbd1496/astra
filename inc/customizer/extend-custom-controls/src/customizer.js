@@ -204,7 +204,7 @@
 			// Change description to tooltip.
 			change_description_as_tooltip(api.control(id));
 
-			if ('ast-settings-group' === data['type'] || 'ast-color-group' === data['type']) {
+			if ('ast-settings-group' === data['type'] || 'ast-color-group' === data['type'] || 'ast-sortable' === data['type']) {
 				this.addSubControl(id);
 			}
 		},

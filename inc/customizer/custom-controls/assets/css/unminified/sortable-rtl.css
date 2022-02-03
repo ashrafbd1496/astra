@@ -6,7 +6,7 @@
   cursor: pointer;
 }
 
-.customize-control-ast-sortable .sortable div:not(.ast-sortable-subcontrols) {
+.customize-control-ast-sortable .sortable .ast-sortable-item, .customize-control-ast-sortable .sortable .ast-sortable-subcontrols {
   padding: 0 12px 0 0;
   border: 1px solid #dddddd;
   color: #556068;
@@ -48,7 +48,7 @@
   transition: opacity 0.2s ease;
 }
 
-.customize-control-ast-sortable .sortable div:hover {
+.customize-control-ast-sortable .sortable .ast-sortable-item:hover {
   opacity: 0.8;
 }
 

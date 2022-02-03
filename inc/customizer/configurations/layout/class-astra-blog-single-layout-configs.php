@@ -100,11 +100,41 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 						'nested-index' 		=> array(
 							'clone' => true,
 							'is_parent' => true,
-							'title' => __( 'Custom Sortable', 'astra' )
+							'title' => __( 'Custom Sortable', 'astra' ),
+							'sub-controls' => array(
+								'dummy-sortable-color-subcontrol'
+							)
 						),
 					),
 				),
 
+				// Option: Dummy control 1.
+				array(
+					'name'      => 'dummy-sortable-color-subcontrol-1',
+					'parent'    => ASTRA_THEME_SETTINGS . '[blog-single-post-structure]',
+					'linked'	=> 'nested-index',
+					'section'   => 'section-blog-single',
+					'type'      => 'sub-control',
+					'control'   => 'ast-color',
+					'priority'  => 5,
+					'default'   => astra_get_option( 'dummy-sortable-color-subcontrol-1' ),
+					'transport' => 'postMessage',
+					'title'     => __( 'Fname', 'astra' ),
+				),
+
+				// Option: Dummy control 2.
+				array(
+					'name'      => 'dummy-sortable-color-subcontrol-2',
+					'parent'    => ASTRA_THEME_SETTINGS . '[blog-single-post-structure]',
+					'linked'	=> 'nested-index',
+					'section'   => 'section-blog-single',
+					'type'      => 'sub-control',
+					'control'   => 'ast-color',
+					'priority'  => 10,
+					'default'   => astra_get_option( 'dummy-sortable-color-subcontrol-2' ),
+					'transport' => 'postMessage',
+					'title'     => __( 'Lname', 'astra' ),
+				),
 			);
 
 			if ( ! defined( 'ASTRA_EXT_VER' ) ) {

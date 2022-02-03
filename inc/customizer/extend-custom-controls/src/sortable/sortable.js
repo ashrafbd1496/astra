@@ -24,19 +24,17 @@ const SortableComponent = props => {
 	let visibleMetaHtml = Object.values(value).map(choiceID => {
 		let html = '',
 			title = typeof choices[choiceID] == 'string' ? choices[choiceID] : choices[choiceID].title;
-		console.error( typeof choices[choiceID], title );
+
 		if (choices[choiceID]) {
 			html = <>
 				<div {...inputAttrs} key={choiceID} className='ast-sortable-item' data-value={choiceID}>
 					{ title }
 					<i className="dashicons dashicons-visibility visibility"></i>
 					{ ( 'object' == typeof choices[choiceID] && choices[choiceID].clone ) && <i className="dashicons dashicons-admin-page"></i> }
-					{ ( 'object' == typeof choices[choiceID] && choices[choiceID].is_parent ) && <i className="dashicons dashicons-arrow-down-alt2 ast-option ast-accordion"></i> }
 					{ ( 'object' == typeof choices[choiceID] && choices[choiceID].is_parent ) &&
 						<>
-							<div className="ast-sortable-subcontrols" data-index={choiceID}>
-								<span> More options </span>
-							</div>
+							<i className="dashicons dashicons-arrow-down-alt2 ast-option ast-accordion"></i>
+							<div className="ast-sortable-subcontrols" data-index={choiceID}> </div>
 						</>
 					}
 				</div>

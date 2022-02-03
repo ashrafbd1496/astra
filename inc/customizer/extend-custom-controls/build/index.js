@@ -4850,7 +4850,7 @@ CustomizerLinkComponent.propTypes = {
 
       change_description_as_tooltip(api.control(id));
 
-      if ('ast-settings-group' === data['type'] || 'ast-color-group' === data['type']) {
+      if ('ast-settings-group' === data['type'] || 'ast-color-group' === data['type'] || 'ast-sortable' === data['type']) {
         this.addSubControl(id);
       }
     },
@@ -8669,6 +8669,7 @@ const settingsGroupControl = wp.customize.astraControl.extend({
           parent_wrap.find('.ast-field-settings-modal').show();
         } else {
           var fields = control.params.ast_fields;
+          console.error(fields);
           var $modal_wrap = jQuery(astra.customizer.group_modal_tmpl);
           parent_wrap.find('.ast-field-settings-wrap').append($modal_wrap);
           parent_wrap.find('.ast-fields-wrap').attr('data-control', control.params.name);
@@ -9863,6 +9864,34 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _sortable_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./sortable.js */ "./src/sortable/sortable.js");
+/* harmony import */ var _border_border_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../border/border-component */ "./src/border/border-component.js");
+/* harmony import */ var _responsive_responsive_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../responsive/responsive-component */ "./src/responsive/responsive-component.js");
+/* harmony import */ var _responsive_slider_responsive_slider_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../responsive-slider/responsive-slider-component */ "./src/responsive-slider/responsive-slider-component.js");
+/* harmony import */ var _responsive_spacing_responsive_spacing_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../responsive-spacing/responsive-spacing-component */ "./src/responsive-spacing/responsive-spacing-component.js");
+/* harmony import */ var _slider_slider_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../slider/slider-component */ "./src/slider/slider-component.js");
+/* harmony import */ var _background_background__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../background/background */ "./src/background/background.js");
+/* harmony import */ var _responsive_background_responsive_background__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../responsive-background/responsive-background */ "./src/responsive-background/responsive-background.js");
+/* harmony import */ var _color_color_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../color/color-component */ "./src/color/color-component.js");
+/* harmony import */ var _responsive_color_responsive_color_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../responsive-color/responsive-color-component */ "./src/responsive-color/responsive-color-component.js");
+/* harmony import */ var _select_select_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../select/select-component */ "./src/select/select-component.js");
+/* harmony import */ var _divider_divider_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../divider/divider-component */ "./src/divider/divider-component.js");
+/* harmony import */ var _box_shadow_box_shadow_component_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../box-shadow/box-shadow-component.js */ "./src/box-shadow/box-shadow-component.js");
+/* harmony import */ var _selector_selector_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../selector/selector-component */ "./src/selector/selector-component.js");
+/* harmony import */ var _common_responsive_helper__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../common/responsive-helper */ "./src/common/responsive-helper.js");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 const sortableControl = wp.customize.astraControl.extend({
@@ -9890,12 +9919,279 @@ const sortableControl = wp.customize.astraControl.extend({
         jQuery(this).toggleClass('dashicons-visibility-faint').parents('div:eq(0)').toggleClass('invisible');
       });
       jQuery(this).find('i.ast-accordion').click(function () {
+        var parent_wrap = jQuery(this).closest('.ast-sortable-item'),
+            option = parent_wrap.data('value'),
+            linkedSubControls = AstraBuilderCustomizerData.js_configs.sub_controls[control.id];
+        const nestedControls = [];
+        Object.entries(linkedSubControls).map(([key, value]) => {
+          if (value.linked && option == value.linked) {
+            nestedControls[key] = value;
+          }
+        });
+
+        if (nestedControls) {
+          var modal_wrap = jQuery(astra.customizer.sortable_modal_tmpl);
+          parent_wrap.find('.ast-sortable-subcontrols').append(modal_wrap);
+          parent_wrap.find('.ast-fields-wrap').attr('data-control', control.name);
+          control.ast_render_field(parent_wrap, nestedControls, control);
+          parent_wrap.find('.ast-sortable-subfields-wrap').show();
+        }
+
         jQuery(this).toggleClass('dashicons-arrow-up-alt2').closest('.ast-sortable-item').toggleClass('show');
       });
     }).click(function () {
       // Update value on click.
       control.updateValue();
     });
+  },
+  isJsonString: function (str) {
+    try {
+      JSON.parse(str);
+    } catch (e) {
+      return false;
+    }
+
+    return true;
+  },
+  ast_render_field: function (wrap, fields, control_elem) {
+    var control = this,
+        ast_field_wrap = wrap.find('.ast-fields-wrap'),
+        fields_html = '',
+        control_types = [],
+        field_values = control.isJsonString(control_elem.params.value) ? JSON.parse(control_elem.params.value) : {},
+        result = control.generateFieldHtml(fields, field_values);
+    fields_html += result.html;
+
+    _.each(result.controls, function (control_value, control_key) {
+      control_types.push({
+        key: control_value.key,
+        value: control_value.value,
+        name: control_value.name
+      });
+    });
+
+    ast_field_wrap.html(fields_html);
+    control.renderReactControl(fields, control);
+
+    _.each(control_types, function (control_type, index) {
+      switch (control_type.key) {
+        case "ast-color":
+          (0,_common_responsive_helper__WEBPACK_IMPORTED_MODULE_15__.astraGetColor)("#customize-control-" + control_type.name);
+          break;
+
+        case "ast-background":
+          (0,_common_responsive_helper__WEBPACK_IMPORTED_MODULE_15__.astraGetBackground)("#customize-control-" + control_type.name);
+          break;
+
+        case "ast-responsive-background":
+          (0,_common_responsive_helper__WEBPACK_IMPORTED_MODULE_15__.astraGetResponsiveBgJs)(control, "#customize-control-" + control_type.name);
+          break;
+
+        case "ast-responsive-color":
+          (0,_common_responsive_helper__WEBPACK_IMPORTED_MODULE_15__.astraGetResponsiveColorJs)(control, "#customize-control-" + control_type.name);
+          break;
+
+        case "ast-responsive":
+          (0,_common_responsive_helper__WEBPACK_IMPORTED_MODULE_15__.astraGetResponsiveJs)(control);
+          break;
+
+        case "ast-responsive-slider":
+          (0,_common_responsive_helper__WEBPACK_IMPORTED_MODULE_15__.astraGetResponsiveSliderJs)(control);
+          break;
+
+        case "ast-responsive-spacing":
+          (0,_common_responsive_helper__WEBPACK_IMPORTED_MODULE_15__.astraGetResponsiveSpacingJs)(control);
+          break;
+
+        case "ast-font":
+          var googleFontsString = astra.customizer.settings.google_fonts;
+          control.container.find('.ast-font-family').html(googleFontsString);
+          control.container.find('.ast-font-family').each(function () {
+            var selectedValue = jQuery(this).data('value');
+            jQuery(this).val(selectedValue);
+            var optionName = jQuery(this).data('name'); // Set inherit option text defined in control parameters.
+
+            jQuery("select[data-name='" + optionName + "'] option[value='inherit']").text(jQuery(this).data('inherit'));
+            var fontWeightContainer = jQuery(".ast-font-weight[data-connected-control='" + optionName + "']");
+
+            var weightObject = AstTypography._getWeightObject(AstTypography._cleanGoogleFonts(selectedValue));
+
+            control.generateDropdownHtml(weightObject, fontWeightContainer);
+            fontWeightContainer.val(fontWeightContainer.data('value'));
+          });
+          control.container.find('.ast-font-family').selectWoo();
+          control.container.find('.ast-font-family').on('select2:select', function () {
+            var value = jQuery(this).val();
+
+            var weightObject = AstTypography._getWeightObject(AstTypography._cleanGoogleFonts(value));
+
+            var optionName = jQuery(this).data('name');
+            var fontWeightContainer = jQuery(".ast-font-weight[data-connected-control='" + optionName + "']");
+            control.generateDropdownHtml(weightObject, fontWeightContainer);
+            var font_control = jQuery(this).parents('.customize-control').attr('id');
+            font_control = font_control.replace('customize-control-', '');
+            control.container.trigger('ast_settings_changed', [control, jQuery(this), value, font_control]);
+            var font_weight_control = fontWeightContainer.parents('.customize-control').attr('id');
+            font_weight_control = font_weight_control.replace('customize-control-', '');
+            control.container.trigger('ast_settings_changed', [control, fontWeightContainer, fontWeightContainer.val(), font_weight_control]);
+          });
+          control.container.find('.ast-font-weight').on('change', function () {
+            var value = jQuery(this).val();
+            name = jQuery(this).parents('.customize-control').attr('id');
+            name = name.replace('customize-control-', '');
+            control.container.trigger('ast_settings_changed', [control, jQuery(this), value, name]);
+          });
+          break;
+      }
+    });
+  },
+  generateDropdownHtml: function (weightObject, element) {
+    var currentWeightTitle = element.data('inherit'),
+        weightOptions = '',
+        inheritWeightObject = ['inherit'],
+        weightObject = jQuery.merge(inheritWeightObject, weightObject),
+        weightValue = element.val() || '400',
+        selected = '';
+    astraTypo['inherit'] = currentWeightTitle;
+
+    for (var counter = 0; counter < weightObject.length; counter++) {
+      if (0 === counter && -1 === jQuery.inArray(weightValue, weightObject)) {
+        weightValue = weightObject[0];
+        selected = ' selected="selected"';
+      } else {
+        selected = weightObject[counter] == weightValue ? ' selected="selected"' : '';
+      }
+
+      if (!weightObject[counter].includes("italic")) {
+        weightOptions += '<option value="' + weightObject[counter] + '"' + selected + '>' + astraTypo[weightObject[counter]] + '</option>';
+      }
+    }
+
+    element.html(weightOptions);
+  },
+  generateFieldHtml: function (fields_data, field_values) {
+    var fields_html = '';
+    var control_types = [];
+
+    _.each(fields_data, function (attr, index) {
+      var new_value = wp.customize.control(attr.name) ? wp.customize.control(attr.name).setting.get() : '',
+          control = attr.control_type,
+          template_id = "customize-control-" + control + "-content",
+          template = wp.template(template_id);
+      var value = new_value || attr.default,
+          dataAtts = '',
+          input_attrs = '';
+      attr.value = value;
+      attr.label = attr.title; // Data attributes.
+
+      _.each(attr.data_attrs, function (value, name) {
+        dataAtts += " data-" + name + " ='" + value + "'";
+      }); // Input attributes
+
+
+      _.each(attr.input_attrs, function (value, name) {
+        input_attrs += name + '="' + value + '" ';
+      });
+
+      attr.dataAttrs = dataAtts;
+      attr.inputAttrs = input_attrs;
+      control_types.push({
+        key: control,
+        value: value,
+        name: attr.name
+      });
+
+      if ('ast-responsive' == control) {
+        var is_responsive = 'undefined' == typeof attr.responsive ? true : attr.responsive;
+        attr.responsive = is_responsive;
+      }
+
+      var control_clean_name = attr.name.replace('[', '-');
+      control_clean_name = control_clean_name.replace(']', '');
+      fields_html += "<li id='customize-control-" + control_clean_name + "' class='customize-control customize-control-" + attr.control_type + "' >";
+
+      if (jQuery('#tmpl-' + template_id).length) {
+        fields_html += template(attr);
+      }
+
+      fields_html += '</li>';
+    });
+
+    var result = new Object();
+    result.controls = control_types;
+    result.html = fields_html;
+    return result;
+  },
+  renderReactControl: function (fields, control) {
+    const reactControls = {
+      'ast-background': _background_background__WEBPACK_IMPORTED_MODULE_7__["default"],
+      'ast-responsive-background': _responsive_background_responsive_background__WEBPACK_IMPORTED_MODULE_8__["default"],
+      'ast-responsive-color': _responsive_color_responsive_color_component__WEBPACK_IMPORTED_MODULE_10__["default"],
+      'ast-color': _color_color_component__WEBPACK_IMPORTED_MODULE_9__["default"],
+      'ast-border': _border_border_component__WEBPACK_IMPORTED_MODULE_2__["default"],
+      'ast-responsive': _responsive_responsive_component__WEBPACK_IMPORTED_MODULE_3__["default"],
+      'ast-responsive-slider': _responsive_slider_responsive_slider_component__WEBPACK_IMPORTED_MODULE_4__["default"],
+      'ast-slider': _slider_slider_component__WEBPACK_IMPORTED_MODULE_6__["default"],
+      'ast-responsive-spacing': _responsive_spacing_responsive_spacing_component__WEBPACK_IMPORTED_MODULE_5__["default"],
+      'ast-select': _select_select_component__WEBPACK_IMPORTED_MODULE_11__["default"],
+      'ast-divider': _divider_divider_component__WEBPACK_IMPORTED_MODULE_12__["default"],
+      'ast-selector': _selector_selector_component__WEBPACK_IMPORTED_MODULE_14__["default"]
+    };
+
+    if (astra.customizer.is_pro) {
+      reactControls['ast-box-shadow'] = _box_shadow_box_shadow_component_js__WEBPACK_IMPORTED_MODULE_13__["default"];
+    }
+
+    _.each(fields, function (attr, index) {
+      if ('ast-font' !== attr.control_type) {
+        var control_clean_name = attr.name.replace('[', '-');
+        control_clean_name = control_clean_name.replace(']', '');
+        var selector = '#customize-control-' + control_clean_name;
+        var controlObject = wp.customize.control(attr.name);
+        controlObject = control.getFinalControlObject(attr, controlObject);
+        console.error(controlObject);
+        const ComponentName = reactControls[attr.control_type];
+        ReactDOM.render((0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ComponentName, {
+          control: controlObject,
+          customizer: wp.customize
+        }), jQuery(selector)[0]);
+      }
+    });
+  },
+  getFinalControlObject: function (attr, controlObject) {
+    if (undefined !== attr.choices && undefined === controlObject['choices']) {
+      controlObject['choices'] = attr.choices;
+    }
+
+    if (undefined !== attr.inputAttrs && undefined === controlObject['inputAttrs']) {
+      controlObject['inputAttrs'] = attr.inputAttrs;
+    }
+
+    if (undefined !== attr.link && undefined === controlObject['link']) {
+      controlObject['link'] = attr.link;
+    }
+
+    if (undefined !== attr.units && undefined === controlObject['units']) {
+      controlObject['units'] = attr.units;
+    }
+
+    if (undefined !== attr.linked_choices && undefined === controlObject['linked_choices']) {
+      controlObject['linked_choices'] = attr.linked_choices;
+    }
+
+    if (undefined !== attr.title && (undefined === controlObject['label'] || '' === controlObject['label'] || null === controlObject['label'])) {
+      controlObject['label'] = attr.title;
+    }
+
+    if (undefined !== attr.responsive && (undefined === controlObject['responsive'] || '' === controlObject['responsive'] || null === controlObject['responsive'])) {
+      controlObject['responsive'] = attr.responsive;
+    }
+
+    if (undefined !== attr.renderAs && (undefined === controlObject['renderAs'] || '' === controlObject['renderAs'] || null === controlObject['renderAs'])) {
+      controlObject['renderAs'] = attr.renderAs;
+    }
+
+    return controlObject;
   },
 
   /**
@@ -9960,7 +10256,6 @@ const SortableComponent = props => {
   let visibleMetaHtml = Object.values(value).map(choiceID => {
     let html = '',
         title = typeof choices[choiceID] == 'string' ? choices[choiceID] : choices[choiceID].title;
-    console.error(typeof choices[choiceID], title);
 
     if (choices[choiceID]) {
       html = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, inputAttrs, {
@@ -9971,12 +10266,12 @@ const SortableComponent = props => {
         className: "dashicons dashicons-visibility visibility"
       }), 'object' == typeof choices[choiceID] && choices[choiceID].clone && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("i", {
         className: "dashicons dashicons-admin-page"
-      }), 'object' == typeof choices[choiceID] && choices[choiceID].is_parent && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("i", {
+      }), 'object' == typeof choices[choiceID] && choices[choiceID].is_parent && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("i", {
         className: "dashicons dashicons-arrow-down-alt2 ast-option ast-accordion"
-      }), 'object' == typeof choices[choiceID] && choices[choiceID].is_parent && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+      }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
         className: "ast-sortable-subcontrols",
         "data-index": choiceID
-      }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("span", null, " More options ")))));
+      }, " "))));
     }
 
     return html;

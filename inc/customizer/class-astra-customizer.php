@@ -690,8 +690,8 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				'sanitize_callback' => $sanitize_callback,
 				'suffix'            => astra_get_prop( $config, 'suffix' ),
 				'control_type'      => astra_get_prop( $config, 'control' ),
+				'linked'      		=> astra_get_prop( $config, 'linked' ),
 			);
-
 
 			self::$dynamic_options['settings'][ astra_get_prop( $new_config, 'name' ) ] = array(
 				'default'           => astra_get_prop( $new_config, 'default' ),
@@ -1308,6 +1308,11 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					</ul>
 			</div>';
 
+			$sortable_subcontrol_template = '<div class="ast-sortable-subfields-wrap">
+					<ul class="ast-fields-wrap">
+					</ul>
+			</div>';
+
 			wp_localize_script(
 				'astra-customizer-controls-toggle-js',
 				'astra',
@@ -1337,6 +1342,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 								'google_fonts' => $string,
 							),
 							'group_modal_tmpl' => $template,
+							'sortable_modal_tmpl' => $sortable_subcontrol_template,
 							'is_pro'           => defined( 'ASTRA_EXT_VER' ),
 							'upgrade_link'     => htmlspecialchars_decode( astra_get_pro_url( 'https://wpastra.com/pricing/', 'customizer', 'upgrade-link', 'upgrade-to-pro' ) ),
 							'is_block_widget'  => astra_has_widgets_block_editor(),

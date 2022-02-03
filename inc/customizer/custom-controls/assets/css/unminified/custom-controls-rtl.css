@@ -4288,7 +4288,7 @@ input[type="text"].select2-search__field {
   cursor: pointer;
 }
 
-.customize-control-ast-sortable .sortable div:not(.ast-sortable-subcontrols) {
+.customize-control-ast-sortable .sortable .ast-sortable-item, .customize-control-ast-sortable .sortable .ast-sortable-subcontrols {
   padding: 0 12px 0 0;
   border: 1px solid #dddddd;
   color: #556068;
@@ -4330,7 +4330,7 @@ input[type="text"].select2-search__field {
   transition: opacity 0.2s ease;
 }
 
-.customize-control-ast-sortable .sortable div:hover {
+.customize-control-ast-sortable .sortable .ast-sortable-item:hover {
   opacity: 0.8;
 }
 
@@ -4352,7 +4352,7 @@ input[type="text"].select2-search__field {
 
 .ast-sortable-subcontrols {
 	display: none;
-	padding-top: 12px;
+	padding: 12px 0;
     margin-right: -12px !important;
     border-top: 1px solid #ddd;
 }
@@ -6156,7 +6156,7 @@ input[type="text"].select2-search__field {
   cursor: pointer;
 }
 
-.customize-control-ast-sortable .sortable div:not(.ast-sortable-subcontrols) {
+.customize-control-ast-sortable .sortable .ast-sortable-item, .customize-control-ast-sortable .sortable .ast-sortable-subcontrols {
   padding: 0 12px 0 0;
   border: 1px solid #dddddd;
   color: #556068;
@@ -6198,7 +6198,7 @@ input[type="text"].select2-search__field {
   transition: opacity 0.2s ease;
 }
 
-.customize-control-ast-sortable .sortable div:hover {
+.customize-control-ast-sortable .sortable .ast-sortable-item:hover {
   opacity: 0.8;
 }
 

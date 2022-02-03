@@ -3011,7 +3011,7 @@ input[type="text"].select2-search__field {
   cursor: pointer;
 }
 
-.customize-control-ast-sortable .sortable div:not(.ast-sortable-subcontrols) {
+.customize-control-ast-sortable .sortable .ast-sortable-item, .customize-control-ast-sortable .sortable .ast-sortable-subcontrols {
   padding: 0 0 0 12px;
   border: 1px solid #dddddd;
   color: #556068;
@@ -3053,7 +3053,7 @@ input[type="text"].select2-search__field {
   transition: opacity 0.2s ease;
 }
 
-.customize-control-ast-sortable .sortable div:hover {
+.customize-control-ast-sortable .sortable .ast-sortable-item:hover {
   opacity: 0.8;
 }
 
