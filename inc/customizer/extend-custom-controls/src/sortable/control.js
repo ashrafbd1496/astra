@@ -27,6 +27,10 @@ export const sortableControl = wp.customize.astraControl.extend( {
 				jQuery( this ).find( 'i.visibility' ).click( function() {
 					jQuery( this ).toggleClass( 'dashicons-visibility-faint' ).parents( 'div:eq(0)' ).toggleClass( 'invisible' );
 				});
+
+				jQuery( this ).find( 'i.ast-accordion' ).click( function() {
+					jQuery( this ).toggleClass( 'dashicons-arrow-up-alt2' ).closest( '.ast-sortable-item' ).toggleClass( 'show' );
+				});
 		}).click( function() {
 
 			// Update value on click.

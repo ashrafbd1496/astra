@@ -4288,7 +4288,7 @@ input[type="text"].select2-search__field {
   cursor: pointer;
 }
 
-.customize-control-ast-sortable .sortable div {
+.customize-control-ast-sortable .sortable div:not(.ast-sortable-subcontrols) {
   padding: 0 12px 0 0;
   border: 1px solid #dddddd;
   color: #556068;
@@ -4302,7 +4302,7 @@ input[type="text"].select2-search__field {
   margin: 0;
 }
 
-.customize-control-ast-sortable .sortable div .dashicons.visibility {
+.customize-control-ast-sortable .sortable div .dashicons {
   float: left;
   position: relative;
   font-size: 18px;
@@ -4332,6 +4332,37 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-sortable .sortable div:hover {
   opacity: 0.8;
+}
+
+/**
+ * Expansion specific new raw CSS.
+ */
+.ast-sortable-item.invisible,
+.ast-sortable-item:hover {
+	opacity: .8;
+}
+
+.ast-sortable-item.show:hover {
+  opacity: 1;
+}
+
+.ast-sortable-item .dashicons-admin-page, .ast-sortable-item .dashicons-arrow-down-alt2 {
+    cursor: pointer;
+}
+
+.ast-sortable-subcontrols {
+	display: none;
+	padding-top: 12px;
+    margin-right: -12px !important;
+    border-top: 1px solid #ddd;
+}
+
+.ast-sortable-subcontrols > * {
+	padding-right: 12px;
+}
+
+.show .ast-sortable-subcontrols {
+	display: block;
 }
 
 .customize-control-ast-toggle-control .components-toggle-control .components-base-control__field, .ast-togglecontrol-wrapper .components-base-control__field {
@@ -6125,7 +6156,7 @@ input[type="text"].select2-search__field {
   cursor: pointer;
 }
 
-.customize-control-ast-sortable .sortable div {
+.customize-control-ast-sortable .sortable div:not(.ast-sortable-subcontrols) {
   padding: 0 12px 0 0;
   border: 1px solid #dddddd;
   color: #556068;
@@ -6139,7 +6170,7 @@ input[type="text"].select2-search__field {
   margin: 0;
 }
 
-.customize-control-ast-sortable .sortable div .dashicons.visibility {
+.customize-control-ast-sortable .sortable div .dashicons {
   float: left;
   position: relative;
   font-size: 18px;
@@ -6169,6 +6200,37 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-sortable .sortable div:hover {
   opacity: 0.8;
+}
+
+/**
+ * Expansion specific new raw CSS.
+ */
+.ast-sortable-item.invisible,
+.ast-sortable-item:hover {
+	opacity: .8;
+}
+
+.ast-sortable-item.show:hover {
+  opacity: 1;
+}
+
+.ast-sortable-item .dashicons-admin-page, .ast-sortable-item .dashicons-arrow-down-alt2 {
+    cursor: pointer;
+}
+
+.ast-sortable-subcontrols {
+	display: none;
+	padding: 12px 0;
+    margin-right: -12px !important;
+    border-top: 1px solid #ddd;
+}
+
+.ast-sortable-subcontrols > * {
+	padding-right: 12px;
+}
+
+.show .ast-sortable-subcontrols {
+	display: block;
 }
 
 .customize-control-ast-toggle-control .components-toggle-control .components-base-control__field, .ast-togglecontrol-wrapper .components-base-control__field {
