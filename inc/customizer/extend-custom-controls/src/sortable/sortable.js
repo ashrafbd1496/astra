@@ -30,7 +30,7 @@ const SortableComponent = props => {
 				<div {...inputAttrs} key={choiceID} className='ast-sortable-item' data-value={choiceID}>
 					{ title }
 					<i className="dashicons dashicons-visibility visibility"></i>
-					{ ( 'object' == typeof choices[choiceID] && choices[choiceID].clone ) && <i className="dashicons dashicons-admin-page"></i> }
+					{ ( 'object' == typeof choices[choiceID] && choices[choiceID].clone ) && <i className="dashicons dashicons-admin-page" style={{ fontSize: '16px' }}></i> }
 					{ ( 'object' == typeof choices[choiceID] && choices[choiceID].is_parent ) &&
 						<>
 							<i className="dashicons dashicons-arrow-down-alt2 ast-option ast-accordion"></i>

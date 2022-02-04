@@ -10281,7 +10281,10 @@ const SortableComponent = props => {
       }), title, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("i", {
         className: "dashicons dashicons-visibility visibility"
       }), 'object' == typeof choices[choiceID] && choices[choiceID].clone && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("i", {
-        className: "dashicons dashicons-admin-page"
+        className: "dashicons dashicons-admin-page",
+        style: {
+          fontSize: '16px'
+        }
       }), 'object' == typeof choices[choiceID] && choices[choiceID].is_parent && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("i", {
         className: "dashicons dashicons-arrow-down-alt2 ast-option ast-accordion"
       }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
