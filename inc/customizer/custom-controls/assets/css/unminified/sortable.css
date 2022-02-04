@@ -20,7 +20,7 @@
   margin: 0;
 }
 
-.customize-control-ast-sortable .sortable div .dashicons {
+.customize-control-ast-sortable .sortable div > .dashicons {
   float: right;
   position: relative;
   font-size: 18px;
@@ -59,26 +59,43 @@
 .ast-sortable-item:hover {
 	opacity: .8;
 }
-
 .ast-sortable-item.show:hover {
   opacity: 1;
 }
-
 .ast-sortable-item .dashicons-admin-page, .ast-sortable-item .dashicons-arrow-down-alt2 {
     cursor: pointer;
 }
-
 .ast-sortable-subcontrols {
 	display: none;
 	padding: 12px 0;
     margin-left: -12px !important;
     border-top: 1px solid #ddd;
 }
-
 .ast-sortable-subcontrols > * {
-	padding-left: 12px;
+	padding-right: 12px;
+	padding-bottom: 12px;
 }
-
 .show .ast-sortable-subcontrols {
 	display: block;
+}
+.ast-sortable-subfields-wrap .customize-control {
+    box-sizing: border-box;
+    position: relative;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.ast-sortable-subfields-wrap .ast-color-btn-reset-wrap {
+    top: 0;
+}
+.customize-control-ast-sortable .ast-sortable-subfields-wrap .customize-control-title {
+    margin-bottom: 10px;
+    font-size: 13px;
+    margin-top: 3px;
+    display: block;
+}
+.ast-sortable-subfields-wrap .ast-fields-wrap {
+    margin-left: -12px;
+}
+.customize-control-content {
+    width: 100%;
 }

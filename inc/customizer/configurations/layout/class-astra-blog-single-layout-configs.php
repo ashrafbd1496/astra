@@ -102,7 +102,8 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 							'is_parent' => true,
 							'title' => __( 'Custom Sortable', 'astra' ),
 							'sub-controls' => array(
-								'dummy-sortable-color-subcontrol'
+								'dummy-sortable-color-subcontrol-1',
+								'dummy-sortable-color-subcontrol-2',
 							)
 						),
 					),
@@ -112,28 +113,39 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 				array(
 					'name'      => 'dummy-sortable-color-subcontrol-1',
 					'parent'    => ASTRA_THEME_SETTINGS . '[blog-single-post-structure]',
-					'linked'	=> 'nested-index',
-					'section'   => 'section-blog-single',
-					'type'      => 'sub-control',
-					'control'   => 'ast-color',
-					'priority'  => 5,
 					'default'   => astra_get_option( 'dummy-sortable-color-subcontrol-1' ),
-					'transport' => 'postMessage',
-					'title'     => __( 'Fname', 'astra' ),
+					'type'     => 'sub-control',
+					'control'  => 'ast-select',
+					'section'   => 'section-blog-single',
+					'priority' => 10,
+					'linked'	=> 'nested-index',
+					'title'    => __( 'Select', 'astra' ),
+					'choices'  => array(
+						'default' => __( 'Default', 'astra' ),
+						'opt1'    => __( 'Option 1', 'astra' ),
+						'opt2'  => __( 'Option 2', 'astra' ),
+						'opt3' => __( 'Option 3', 'astra' ),
+					),
 				),
 
 				// Option: Dummy control 2.
 				array(
 					'name'      => 'dummy-sortable-color-subcontrol-2',
 					'parent'    => ASTRA_THEME_SETTINGS . '[blog-single-post-structure]',
-					'linked'	=> 'nested-index',
-					'section'   => 'section-blog-single',
-					'type'      => 'sub-control',
-					'control'   => 'ast-color',
-					'priority'  => 10,
 					'default'   => astra_get_option( 'dummy-sortable-color-subcontrol-2' ),
-					'transport' => 'postMessage',
-					'title'     => __( 'Lname', 'astra' ),
+					'linked'	=> 'nested-index',
+					'type'       => 'sub-control',
+					'control'    => 'ast-selector',
+					'section'    => 'section-blog-single',
+					'priority'   => 5,
+					'title'      => __( 'Type', 'astra' ),
+					'choices'    => array(
+						'default' => __( 'Default', 'astra' ),
+						'custom'  => __( 'Custom', 'astra' ),
+					),
+					'transport'  => 'postMessage',
+					'responsive' => false,
+					'renderAs'   => 'text',
 				),
 			);
 

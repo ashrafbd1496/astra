@@ -34,7 +34,7 @@ const SortableComponent = props => {
 					{ ( 'object' == typeof choices[choiceID] && choices[choiceID].is_parent ) &&
 						<>
 							<i className="dashicons dashicons-arrow-down-alt2 ast-option ast-accordion"></i>
-							<div className="ast-sortable-subcontrols" data-index={choiceID}> </div>
+							<div className="ast-sortable-subcontrols" data-index={choiceID}></div>
 						</>
 					}
 				</div>

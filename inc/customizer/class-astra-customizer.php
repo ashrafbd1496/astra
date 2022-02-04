@@ -579,6 +579,11 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				case 'ast-sortable':
 					$configuration['value'] = $val;
 
+					if ( isset( self::$group_configs[ $configuration['name'] ] ) ) {
+						$config = wp_list_sort( self::$group_configs[ $configuration['name'] ], 'priority' );
+						$configuration['ast_fields'] = $config;
+					}
+
 					break;
 
 			} // Switch End.

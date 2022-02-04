@@ -54,24 +54,36 @@ export const sortableControl = wp.customize.astraControl.extend( {
 				jQuery( this ).find( 'i.ast-accordion' ).click( function() {
 					var parent_wrap = jQuery( this ).closest( '.ast-sortable-item' ),
 						option = parent_wrap.data( 'value' ),
-						linkedSubControls = AstraBuilderCustomizerData.js_configs.sub_controls[ control.id ];
+						is_loaded = parent_wrap.find( '.ast-sortable-subcontrols' ).data('loaded'),
+						fields = control.params.ast_fields,
+						parent_section = parent_wrap.parents('.control-section');
 
-					const nestedControls = [];
-
-					Object.entries( linkedSubControls ).map( ( [ key, value ] ) => {
-						if( value.linked && option == value.linked ) {
-							nestedControls[ key ] = value;
-						}
-					});
-
-					if( nestedControls ) {
-						var modal_wrap = jQuery( astra.customizer.sortable_modal_tmpl );
-
-						parent_wrap.find( '.ast-sortable-subcontrols' ).append( modal_wrap );
-						parent_wrap.find( '.ast-fields-wrap' ).attr( 'data-control', control.name );
-						control.ast_render_field( parent_wrap, nestedControls, control );
-
+					if( is_loaded ) {
 						parent_wrap.find( '.ast-sortable-subfields-wrap' ).show();
+					} else {
+						/* Close popup when another popup is clicked to open */
+						var get_opened_subcontrol = parent_section.find('.ast-sortable-item.show');
+						if( get_opened_subcontrol.length > 0 ) {
+							get_opened_subcontrol.toggleClass( 'show' );
+						}
+
+						const nestedControls = [];
+
+						Object.entries( fields ).map( ( [ key, value ] ) => {
+							if( value.linked && option == value.linked ) {
+								nestedControls[ key ] = value;
+							}
+						});
+
+						if( nestedControls ) {
+							var modal_wrap = jQuery( astra.customizer.sortable_modal_tmpl );
+
+							parent_wrap.find( '.ast-sortable-subcontrols' ).append( modal_wrap );
+							parent_wrap.find( '.ast-fields-wrap' ).attr( 'data-control', control.name );
+							control.ast_render_field( parent_wrap, nestedControls, control );
+
+							parent_wrap.find( '.ast-sortable-subfields-wrap' ).show();
+						}
 					}
 
 					jQuery( this ).toggleClass( 'dashicons-arrow-up-alt2' ).closest( '.ast-sortable-item' ).toggleClass( 'show' );
@@ -118,7 +130,6 @@ export const sortableControl = wp.customize.astraControl.extend( {
 
 		_.each( control_types, function( control_type, index ) {
 			switch( control_type.key ) {
-
 				case "ast-color":
 					astraGetColor( "#customize-control-" + control_type.name )
 					break;
@@ -196,6 +207,8 @@ export const sortableControl = wp.customize.astraControl.extend( {
 				break;
 			}
 		});
+
+		wrap.find( '.ast-sortable-subcontrols' ).data( 'loaded', true );
 	},
 
 	generateDropdownHtml: function( weightObject, element ) {
@@ -233,7 +246,7 @@ export const sortableControl = wp.customize.astraControl.extend( {
 		_.each(fields_data, function (attr, index) {
 
 			var new_value = ( wp.customize.control( attr.name ) ? wp.customize.control( attr.name ).setting.get() : '' ),
-				control = attr.control_type,
+				control = attr.control,
 				template_id = "customize-control-" + control + "-content",
 				template = wp.template( template_id );
 
@@ -268,10 +281,10 @@ export const sortableControl = wp.customize.astraControl.extend( {
 				attr.responsive = is_responsive;
 			}
 
-			var control_clean_name = attr.name.replace('[', '-');
-			control_clean_name = control_clean_name.replace(']', '');
+			var control_full_name = attr.name.replace('[', '-');
+			control_full_name = control_full_name.replace(']', '');
 
-			fields_html += "<li id='customize-control-" + control_clean_name + "' class='customize-control customize-control-" + attr.control_type + "' >";
+			fields_html += "<li id='customize-control-" + control_full_name + "' class='customize-control customize-control-" + attr.control + "' >";
 
 			if( jQuery( '#tmpl-' + template_id ).length ) {
 				fields_html += template(attr);
@@ -309,15 +322,16 @@ export const sortableControl = wp.customize.astraControl.extend( {
 			reactControls['ast-box-shadow'] = BoxShadowComponent;
 		}
 
+		console.error( fields );
 		_.each(fields, function (attr, index) {
-			if ( 'ast-font' !== attr.control_type ) {
+			if ( 'ast-font' !== attr.control ) {
 				var control_clean_name = attr.name.replace('[', '-');
 				control_clean_name = control_clean_name.replace(']', '');
 				var selector = '#customize-control-' + control_clean_name;
-				var controlObject = wp.customize.control( attr.name );
+
+				var controlObject = wp.customize.control( 'astra-settings['+attr.name+']' );
 				controlObject = control.getFinalControlObject( attr, controlObject );
-				console.error( controlObject );
-				const ComponentName = reactControls[ attr.control_type ];
+				const ComponentName = reactControls[ attr.control ];
 
 				ReactDOM.render(
 					<ComponentName control={controlObject} customizer={ wp.customize }/>,
@@ -329,29 +343,29 @@ export const sortableControl = wp.customize.astraControl.extend( {
 
 	getFinalControlObject: function ( attr, controlObject ) {
 
-		if ( undefined !== attr.choices && undefined === controlObject['choices'] ) {
-			controlObject['choices'] = attr.choices;
+		if ( undefined !== attr.choices && undefined === controlObject.params['choices'] ) {
+			controlObject.params['choices'] = attr.choices;
 		}
-		if ( undefined !== attr.inputAttrs && undefined === controlObject['inputAttrs'] ) {
-			controlObject['inputAttrs'] = attr.inputAttrs;
+		if ( undefined !== attr.inputAttrs && undefined === controlObject.params['inputAttrs'] ) {
+			controlObject.params['inputAttrs'] = attr.inputAttrs;
 		}
-		if ( undefined !== attr.link && undefined === controlObject['link'] ) {
-			controlObject['link'] = attr.link;
+		if ( undefined !== attr.link && undefined === controlObject.params['link'] ) {
+			controlObject.params['link'] = attr.link;
 		}
-		if ( undefined !== attr.units && undefined === controlObject['units'] ) {
-			controlObject['units'] = attr.units;
+		if ( undefined !== attr.units && undefined === controlObject.params['units'] ) {
+			controlObject.params['units'] = attr.units;
 		}
-		if ( undefined !== attr.linked_choices && undefined === controlObject['linked_choices'] ) {
-			controlObject['linked_choices'] = attr.linked_choices;
+		if ( undefined !== attr.linked_choices && undefined === controlObject.params['linked_choices'] ) {
+			controlObject.params['linked_choices'] = attr.linked_choices;
 		}
-		if ( undefined !== attr.title && ( undefined === controlObject['label'] || '' === controlObject['label'] || null === controlObject['label'] ) ) {
-			controlObject['label'] = attr.title;
+		if ( undefined !== attr.title && ( undefined === controlObject.params['label'] || '' === controlObject.params['label'] || null === controlObject.params['label'] ) ) {
+			controlObject.params['label'] = attr.title;
 		}
-		if ( undefined !== attr.responsive && ( undefined === controlObject['responsive'] || '' === controlObject['responsive'] || null === controlObject['responsive'] ) ) {
-			controlObject['responsive'] = attr.responsive;
+		if ( undefined !== attr.responsive && ( undefined === controlObject.params['responsive'] || '' === controlObject.params['responsive'] || null === controlObject.params['responsive'] ) ) {
+			controlObject.params['responsive'] = attr.responsive;
 		}
-		if ( undefined !== attr.renderAs && ( undefined === controlObject['renderAs'] || '' === controlObject['renderAs'] || null === controlObject['renderAs'] ) ) {
-			controlObject['renderAs'] = attr.renderAs;
+		if ( undefined !== attr.renderAs && ( undefined === controlObject.params['renderAs'] || '' === controlObject.params['renderAs'] || null === controlObject.params['renderAs'] ) ) {
+			controlObject.params['renderAs'] = attr.renderAs;
 		}
 
 		return controlObject;

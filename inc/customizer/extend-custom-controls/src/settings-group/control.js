@@ -106,7 +106,6 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 					parent_wrap.find( '.ast-field-settings-modal' ).show();
 				} else {
 					var fields = control.params.ast_fields;
-					console.error( fields );
 
 					var $modal_wrap = jQuery( astra.customizer.group_modal_tmpl );
 
