@@ -81,7 +81,6 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 					'divider'     => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
-
 				/**
 				 * Option: Display Post Structure
 				 */
@@ -101,9 +100,9 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 							'clone' => true,
 							'is_parent' => true,
 							'title' => __( 'Custom Sortable', 'astra' ),
-							'sub-controls' => array(
-								'dummy-sortable-color-subcontrol-1',
-								'dummy-sortable-color-subcontrol-2',
+							'fields' => array(
+								'dummy-sortable-color-subcontrol-one',
+								'dummy-sortable-color-subcontrol-two',
 							)
 						),
 					),
@@ -111,9 +110,9 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 
 				// Option: Dummy control 1.
 				array(
-					'name'      => 'dummy-sortable-color-subcontrol-1',
+					'name'      => 'dummy-sortable-color-subcontrol-one',
 					'parent'    => ASTRA_THEME_SETTINGS . '[blog-single-post-structure]',
-					'default'   => astra_get_option( 'dummy-sortable-color-subcontrol-1' ),
+					'default'   => astra_get_option( 'dummy-sortable-color-subcontrol-one' ),
 					'type'     => 'sub-control',
 					'control'  => 'ast-select',
 					'section'   => 'section-blog-single',
@@ -130,9 +129,9 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 
 				// Option: Dummy control 2.
 				array(
-					'name'      => 'dummy-sortable-color-subcontrol-2',
+					'name'      => 'dummy-sortable-color-subcontrol-two',
 					'parent'    => ASTRA_THEME_SETTINGS . '[blog-single-post-structure]',
-					'default'   => astra_get_option( 'dummy-sortable-color-subcontrol-2' ),
+					'default'   => astra_get_option( 'dummy-sortable-color-subcontrol-two' ),
 					'linked'	=> 'nested-index',
 					'type'       => 'sub-control',
 					'control'    => 'ast-selector',

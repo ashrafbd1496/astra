@@ -27,7 +27,7 @@ const SortableComponent = props => {
 
 		if (choices[choiceID]) {
 			html = <>
-				<div {...inputAttrs} key={choiceID} className='ast-sortable-item' data-value={choiceID}>
+				<div {...inputAttrs} key={choiceID} className='ast-sortable-item' data-value={choiceID} data-title={title}>
 					{ title }
 					<i className="dashicons dashicons-visibility visibility"></i>
 					{ ( 'object' == typeof choices[choiceID] && choices[choiceID].clone ) && <i className="dashicons dashicons-admin-page" style={{ fontSize: '16px' }}></i> }

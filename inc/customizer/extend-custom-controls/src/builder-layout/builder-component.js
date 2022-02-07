@@ -246,7 +246,7 @@ const BuilderComponent = props => {
 		}
 
 		let component_count = component_track.get(),
-			cloneData = Object.assign({},choices[item] ),
+			cloneData = Object.assign( {},choices[item] ),
 			cloneSection = cloneData.section.replace(/[0-9]+/g, ''), // Remove random numeric with empty string.
 			cloneIndex,
 			removedBuilderItems = component_count['removed-items'],
@@ -365,11 +365,11 @@ const BuilderComponent = props => {
 		prevItems['restrictZone'] = restrictZone;
 
 		for ( const [rowKey, value] of Object.entries(staleValue) ) {
-						
+
 			for ( const [zoneKey, zoneValue] of Object.entries(value) ) {
-				
+
 				for( let zoneItem of zoneValue ) {
-					
+
 					if ( zoneItem === item.id ) {
 						prevItems['row'] = rowKey;
 						prevItems['zone'] = zoneKey;
@@ -405,8 +405,8 @@ const BuilderComponent = props => {
 						...prevState,
 						prevItems: prevItems
 					}));
-				} 
-				
+				}
+
 				updateItems.push(item.id);
 			});
 		}
