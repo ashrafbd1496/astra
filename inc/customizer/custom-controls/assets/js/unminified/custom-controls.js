@@ -6633,7 +6633,6 @@ const InputWithDropdown = props => {
   const [propValue, setPropValue] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useState)(props.control.setting.get());
   const {
     label,
-    name,
     choices
   } = props.control.params;
 
@@ -6644,6 +6643,7 @@ const InputWithDropdown = props => {
 
   const onDropDownSelect = value => {
     setPropValue(propValue + value);
+    props.control.setting.set(propValue + value);
   };
 
   let htmlLabel = null;

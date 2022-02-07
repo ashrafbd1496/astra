@@ -2885,18 +2885,22 @@ input[type="text"].select2-search__field {
     color: #fff;
 }
 
+.customize-control-ast-input-with-dropdown .components-dropdown-menu .components-dropdown-menu__toggle .components-button:not(:disabled):not([aria-disabled="true"]):not(.is-secondary):not(.is-primary):not(.is-tertiary):not(.is-link):not(.components-color-picker__saturation-pointer):hover {
+    color: #fff;
+}
 
-.customize-control-ast-input-with-dropdown .components-popover__content .components-button:focus:not(:disabled) {
+
+.customize-control-ast-input-with-dropdown .components-button:focus:not(:disabled) {
     box-shadow: none;
     outline: none;
 }
 
-.customize-control-ast-input-with-dropdown .components-popover__content .components-button:hover {
+.customize-control-ast-input-with-dropdown .components-popover__content .components-button:not(:disabled):not([aria-disabled="true"]):not(.is-secondary):not(.is-primary):not(.is-tertiary):not(.is-link):not(.components-color-picker__saturation-pointer):hover {
     color: var(--wp-admin-theme-color);
 }
 
 .customize-control-ast-input-with-dropdown .ast-input-with-dropdown-wrapper input.components-text-control__input {
-    padding-left: 30px;
+    padding-left: 40px;
 }
 .ast-link-open-in-new-tab-wrapper {
   margin: 25px 0;
@@ -4770,12 +4774,11 @@ input[type="text"].select2-search__field {
     color: #fff;
 }
 
-.customize-control-ast-input-with-dropdown .components-dropdown-menu .components-dropdown-menu__toggle .components-button:not(:disabled):not([aria-disabled="true"]):not(.is-secondary):not(.is-primary):not(.is-tertiary):not(.is-link):not(.components-color-picker__saturation-pointer):hover {
+.customize-control-ast-input-with-dropdown .components-dropdown-menu .components-dropdown-menu__toggle:not(:disabled):not([aria-disabled="true"]):not(.is-secondary):not(.is-primary):not(.is-tertiary):not(.is-link):not(.components-color-picker__saturation-pointer):hover {
     color: #fff;
 }
 
-
-.customize-control-ast-input-with-dropdown .components-popover__content .components-button:focus:not(:disabled) {
+.customize-control-ast-input-with-dropdown .components-button:focus:not(:disabled) {
     box-shadow: none;
     outline: none;
 }
@@ -4785,7 +4788,7 @@ input[type="text"].select2-search__field {
 }
 
 .customize-control-ast-input-with-dropdown .ast-input-with-dropdown-wrapper input.components-text-control__input {
-    padding-left: 30px;
+    padding-left: 40px;
 }
 .ast-link-open-in-new-tab-wrapper {
   margin: 25px 0;

@@ -21,7 +21,7 @@ const InputWithDropdown = props => {
 
 	const onDropDownSelect = (value) => {
 		setPropValue(propValue + value);
-		props.control.setting.set(propValue);
+		props.control.setting.set(propValue + value);
 	}
 
 	let htmlLabel = null;
