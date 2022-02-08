@@ -71,10 +71,10 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				'title'             => __( 'Cart Label', 'astra' ),
 				'control'           => 'ast-input-with-dropdown',
 				'choices'           => array(
-					'{cart_total_currency_symbol}' => __( 'Total + Currency symbol', 'astra' ),
-					'{cart_currency_symbol}'       => __( 'Currency Symbol', 'astra' ),
 					'{cart_currency_name}'         => __( 'Currency Name', 'astra' ),
 					'{cart_total}'                 => __( 'Total amount', 'astra' ),
+					'{cart_currency_symbol}'       => __( 'Currency Symbol', 'astra' ),
+					'{cart_total_currency_symbol}' => __( 'Total + Currency symbol', 'astra' ),
 				),
 				'context'           => Astra_Builder_Helper::$general_tab,
 			),
