@@ -82,6 +82,20 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 				),
 
 				/**
+				 * Header Clone Component Track.
+				 */
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[nested-index-clonned-track]',
+					'section'   => 'section-blog-single',
+					'type'      => 'control',
+					'control'   => 'ast-hidden',
+					'priority'  => 2,
+					'transport' => 'postMessage',
+					'partial'   => false,
+					'default'   => astra_get_option( 'nested-index-clonned-track', 1 ),
+				),
+
+				/**
 				 * Option: Display Post Structure
 				 */
 				array(
@@ -96,9 +110,11 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 					'choices'           => array(
 						'single-image'      => __( 'Featured Image', 'astra' ),
 						'single-title-meta' => __( 'Title & Blog Meta', 'astra' ),
+						// 'nested-index' => __( 'Title & Blog Meta', 'astra' ),
 						'nested-index' 		=> array(
 							'clone' => true,
 							'is_parent' => true,
+							'clone-counter' => ASTRA_THEME_SETTINGS . '[nested-index-clonned-track]',
 							'title' => __( 'Custom Sortable', 'astra' ),
 							'fields' => array(
 								'dummy-sortable-color-subcontrol-one',

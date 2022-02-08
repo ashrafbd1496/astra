@@ -9920,63 +9920,96 @@ const sortableControl = wp.customize.astraControl.extend({
       jQuery(this).on('click', 'i.ast-accordion', function (e) {
         e.preventDefault();
         e.stopPropagation();
-        var parent_wrap = jQuery(this).closest('.ast-sortable-item'),
-            option = parent_wrap.data('value'),
-            is_loaded = parent_wrap.find('.ast-sortable-subcontrols').data('loaded'),
-            fields = control.params.ast_fields,
-            parent_section = parent_wrap.parents('.control-section');
-
-        if (is_loaded) {
-          parent_wrap.find('.ast-sortable-subfields-wrap').show();
-        } else {
-          /* Close popup when another popup is clicked to open */
-          var get_opened_subcontrol = parent_section.find('.ast-sortable-item.show');
-
-          if (get_opened_subcontrol.length > 0) {
-            get_opened_subcontrol.toggleClass('show');
-          }
-
-          const nestedControls = [];
-          Object.entries(fields).map(([key, value]) => {
-            if (value.linked && option == value.linked) {
-              nestedControls[key] = value;
-            }
-          });
-
-          if (nestedControls) {
-            var modal_wrap = jQuery(astra.customizer.sortable_modal_tmpl);
-            parent_wrap.find('.ast-sortable-subcontrols').append(modal_wrap);
-            parent_wrap.find('.ast-fields-wrap').attr('data-control', control.name);
-            control.ast_render_field(parent_wrap, nestedControls, control);
-            parent_wrap.find('.ast-sortable-subfields-wrap').show();
-          }
-        }
-
-        jQuery(this).toggleClass('dashicons-arrow-up-alt2').closest('.ast-sortable-item').toggleClass('show');
+        control.expandSortableAccorditem(this, control);
       });
       jQuery(this).on('click', 'i.dashicons-admin-page', function (e) {
         e.preventDefault();
         e.stopPropagation();
-        console.error('click trigger');
-        var parent_wrap = jQuery(this).closest('.ast-sortable-item'),
-            option = parent_wrap.data('value'),
-            newKey = option + '-1',
-            clonningChoice = control.params.choices[option],
-            clonningFields = clonningChoice['fields'],
-            updatedFields = clonningChoice;
-        updatedFields['fields'] = [];
-
-        _.each(clonningFields, function (value, key) {
-          updatedFields['fields'].push(value + '-1');
-        });
-
-        control.params.choices[newKey] = updatedFields;
-        control.addClonedControl(option, control);
+        control.cloneSortableItem(this, control);
       });
     }).click(function () {
       // Update value on click.
       control.updateValue();
     });
+  },
+  expandSortableAccorditem: function (instance, control) {
+    var parent_wrap = jQuery(instance).closest('.ast-sortable-item'),
+        option = parent_wrap.data('value'),
+        is_loaded = parent_wrap.find('.ast-sortable-subcontrols').data('loaded'),
+        fields = control.params.ast_fields,
+        parent_section = parent_wrap.parents('.control-section');
+
+    if (is_loaded) {
+      parent_wrap.find('.ast-sortable-subfields-wrap').show();
+    } else {
+      /* Close popup when another popup is clicked to open */
+      var get_opened_subcontrol = parent_section.find('.ast-sortable-item.show');
+
+      if (get_opened_subcontrol.length > 0) {
+        get_opened_subcontrol.toggleClass('show');
+      }
+
+      const nestedControls = [];
+      Object.entries(fields).map(([key, value]) => {
+        if (value.linked && option == value.linked) {
+          nestedControls[key] = value;
+        }
+      });
+
+      if (nestedControls) {
+        var modal_wrap = jQuery(astra.customizer.sortable_modal_tmpl);
+        parent_wrap.find('.ast-sortable-subcontrols').append(modal_wrap);
+        parent_wrap.find('.ast-fields-wrap').attr('data-control', control.name);
+        control.ast_render_field(parent_wrap, nestedControls, control);
+        parent_wrap.find('.ast-sortable-subfields-wrap').show();
+      }
+    }
+
+    jQuery(instance).toggleClass('dashicons-arrow-up-alt2').closest('.ast-sortable-item').toggleClass('show');
+  },
+  cloneSortableItem: function (instance, control) {
+    var parent_wrap = jQuery(instance).closest('.ast-sortable-item'),
+        option = parent_wrap.data('value'),
+        newKey = option + '-1',
+        clonningChoice = control.params.choices[option],
+        clonningFields = clonningChoice['fields'],
+        updatedFields = clonningChoice; // Track clonned counter here.
+
+    var cloneTrack = wp.customize(control.params.choices[option]['clone-counter']).get(),
+        incrementedCounter = parseInt(cloneTrack) + 1;
+    wp.customize(control.params.choices[option]['clone-counter']).set(incrementedCounter);
+    updatedFields['fields'] = [];
+
+    _.each(clonningFields, function (value, key) {
+      updatedFields['fields'].push(value + '-1');
+    });
+
+    control.params.choices[newKey] = updatedFields;
+    control.addClonedControl(option, control);
+    control.addListeners(control);
+  },
+  addListeners: function (control) {
+    let cloneTriggers = document.getElementsByClassName('clonned-sortable-item'),
+        accordionTriggers = document.getElementsByClassName('clonned-sortable-accordion'),
+        visibilityTriggers = document.getElementsByClassName('clonned-sortable-visibility');
+
+    for (var i = 0; i < cloneTriggers.length; i++) {
+      cloneTriggers[i].onclick = function () {
+        control.cloneSortableItem(this, control);
+      };
+    }
+
+    for (var i = 0; i < accordionTriggers.length; i++) {
+      accordionTriggers[i].onclick = function () {
+        control.expandSortableAccorditem(this, control);
+      };
+    }
+
+    for (var i = 0; i < visibilityTriggers.length; i++) {
+      visibilityTriggers[i].onclick = function () {
+        jQuery(this).toggleClass('dashicons-visibility-faint').parents('div:eq(0)').toggleClass('invisible');
+      };
+    }
   },
   addClonedControl: function (option, control) {
     var Constructor = wp.customize.controlConstructor[control.type] || wp.customize.Control,
@@ -10001,14 +10034,14 @@ const sortableControl = wp.customize.astraControl.extend({
         title = clonnedFrom.data('title'),
         sortableNewID = '',
         newChoiceID = key + '-1';
-    sortableNewID = '<div class="ast-sortable-item ui-sortable-handle" data-value="' + newChoiceID + '" data-title="' + title + '"> ' + title + ' <i class="dashicons dashicons-visibility visibility"></i>';
+    sortableNewID = '<div class="ast-sortable-item ui-sortable-handle" data-value="' + newChoiceID + '" data-title="' + title + '"> ' + title + ' <i class="dashicons dashicons-visibility visibility clonned-sortable-visibility"></i>';
 
     if ('object' == typeof control.params.choices[newChoiceID] && control.params.choices[newChoiceID].clone) {
-      sortableNewID += '<i class="dashicons dashicons-admin-page" style="font-size:16px;"></i>';
+      sortableNewID += '<i class="dashicons dashicons-admin-page clonned-sortable-item" style="font-size:16px;"></i>';
     }
 
     if ('object' == typeof control.params.choices[newChoiceID] && control.params.choices[newChoiceID].is_parent) {
-      sortableNewID += '<i class="dashicons dashicons-arrow-down-alt2 ast-option ast-accordion"></i> <div class="ast-sortable-subcontrols" data-index="' + newChoiceID + '"></div';
+      sortableNewID += '<i class="dashicons clonned-sortable-accordion dashicons-arrow-down-alt2 ast-option ast-accordion"></i> <div class="ast-sortable-subcontrols" data-index="' + newChoiceID + '"></div';
     }
 
     clonnedFrom.after(sortableNewID);

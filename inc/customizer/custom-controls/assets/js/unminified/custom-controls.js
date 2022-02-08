@@ -16095,45 +16095,134 @@ const sortableControl = wp.customize.astraControl.extend({
       jQuery(this).find('i.visibility').click(function () {
         jQuery(this).toggleClass('dashicons-visibility-faint').parents('div:eq(0)').toggleClass('invisible');
       });
-      jQuery(this).find('i.ast-accordion').click(function () {
-        var parent_wrap = jQuery(this).closest('.ast-sortable-item'),
-            option = parent_wrap.data('value'),
-            is_loaded = parent_wrap.find('.ast-sortable-subcontrols').data('loaded'),
-            fields = control.params.ast_fields,
-            parent_section = parent_wrap.parents('.control-section');
-
-        if (is_loaded) {
-          parent_wrap.find('.ast-sortable-subfields-wrap').show();
-        } else {
-          /* Close popup when another popup is clicked to open */
-          var get_opened_subcontrol = parent_section.find('.ast-sortable-item.show');
-
-          if (get_opened_subcontrol.length > 0) {
-            get_opened_subcontrol.toggleClass('show');
-          }
-
-          const nestedControls = [];
-          Object.entries(fields).map(([key, value]) => {
-            if (value.linked && option == value.linked) {
-              nestedControls[key] = value;
-            }
-          });
-
-          if (nestedControls) {
-            var modal_wrap = jQuery(astra.customizer.sortable_modal_tmpl);
-            parent_wrap.find('.ast-sortable-subcontrols').append(modal_wrap);
-            parent_wrap.find('.ast-fields-wrap').attr('data-control', control.name);
-            control.ast_render_field(parent_wrap, nestedControls, control);
-            parent_wrap.find('.ast-sortable-subfields-wrap').show();
-          }
-        }
-
-        jQuery(this).toggleClass('dashicons-arrow-up-alt2').closest('.ast-sortable-item').toggleClass('show');
+      jQuery(this).on('click', 'i.ast-accordion', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        control.expandSortableAccorditem(this, control);
+      });
+      jQuery(this).on('click', 'i.dashicons-admin-page', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        control.cloneSortableItem(this, control);
       });
     }).click(function () {
       // Update value on click.
       control.updateValue();
     });
+  },
+  expandSortableAccorditem: function (instance, control) {
+    var parent_wrap = jQuery(instance).closest('.ast-sortable-item'),
+        option = parent_wrap.data('value'),
+        is_loaded = parent_wrap.find('.ast-sortable-subcontrols').data('loaded'),
+        fields = control.params.ast_fields,
+        parent_section = parent_wrap.parents('.control-section');
+
+    if (is_loaded) {
+      parent_wrap.find('.ast-sortable-subfields-wrap').show();
+    } else {
+      /* Close popup when another popup is clicked to open */
+      var get_opened_subcontrol = parent_section.find('.ast-sortable-item.show');
+
+      if (get_opened_subcontrol.length > 0) {
+        get_opened_subcontrol.toggleClass('show');
+      }
+
+      const nestedControls = [];
+      Object.entries(fields).map(([key, value]) => {
+        if (value.linked && option == value.linked) {
+          nestedControls[key] = value;
+        }
+      });
+
+      if (nestedControls) {
+        var modal_wrap = jQuery(astra.customizer.sortable_modal_tmpl);
+        parent_wrap.find('.ast-sortable-subcontrols').append(modal_wrap);
+        parent_wrap.find('.ast-fields-wrap').attr('data-control', control.name);
+        control.ast_render_field(parent_wrap, nestedControls, control);
+        parent_wrap.find('.ast-sortable-subfields-wrap').show();
+      }
+    }
+
+    jQuery(instance).toggleClass('dashicons-arrow-up-alt2').closest('.ast-sortable-item').toggleClass('show');
+  },
+  cloneSortableItem: function (instance, control) {
+    var parent_wrap = jQuery(instance).closest('.ast-sortable-item'),
+        option = parent_wrap.data('value'),
+        newKey = option + '-1',
+        clonningChoice = control.params.choices[option],
+        clonningFields = clonningChoice['fields'],
+        updatedFields = clonningChoice; // Track clonned counter here.
+
+    var cloneTrack = wp.customize(control.params.choices[option]['clone-counter']).get(),
+        incrementedCounter = parseInt(cloneTrack) + 1;
+    wp.customize(control.params.choices[option]['clone-counter']).set(incrementedCounter);
+    updatedFields['fields'] = [];
+
+    _.each(clonningFields, function (value, key) {
+      updatedFields['fields'].push(value + '-1');
+    });
+
+    control.params.choices[newKey] = updatedFields;
+    control.addClonedControl(option, control);
+    control.addListeners(control);
+  },
+  addListeners: function (control) {
+    let cloneTriggers = document.getElementsByClassName('clonned-sortable-item'),
+        accordionTriggers = document.getElementsByClassName('clonned-sortable-accordion'),
+        visibilityTriggers = document.getElementsByClassName('clonned-sortable-visibility');
+
+    for (var i = 0; i < cloneTriggers.length; i++) {
+      cloneTriggers[i].onclick = function () {
+        control.cloneSortableItem(this, control);
+      };
+    }
+
+    for (var i = 0; i < accordionTriggers.length; i++) {
+      accordionTriggers[i].onclick = function () {
+        control.expandSortableAccorditem(this, control);
+      };
+    }
+
+    for (var i = 0; i < visibilityTriggers.length; i++) {
+      visibilityTriggers[i].onclick = function () {
+        jQuery(this).toggleClass('dashicons-visibility-faint').parents('div:eq(0)').toggleClass('invisible');
+      };
+    }
+  },
+  addClonedControl: function (option, control) {
+    var Constructor = wp.customize.controlConstructor[control.type] || wp.customize.Control,
+        options,
+        astFields = control.params.ast_fields || [];
+    options = _.extend({
+      params: control
+    }, control);
+
+    _.each(astFields, function (control_value) {
+      var controlAstraID = 'astra-settings[' + control_value['name'] + ']'; // Return if control already exists.
+
+      if (!wp.customize.control(controlAstraID)) {
+        wp.customize.control.add(new Constructor(controlAstraID, options));
+      }
+    });
+
+    control.addSortableVisibleInstance(option, control);
+  },
+  addSortableVisibleInstance: function (key, control) {
+    var clonnedFrom = jQuery('.ast-sortable-item[data-value="' + key + '"]'),
+        title = clonnedFrom.data('title'),
+        sortableNewID = '',
+        newChoiceID = key + '-1';
+    sortableNewID = '<div class="ast-sortable-item ui-sortable-handle" data-value="' + newChoiceID + '" data-title="' + title + '"> ' + title + ' <i class="dashicons dashicons-visibility visibility clonned-sortable-visibility"></i>';
+
+    if ('object' == typeof control.params.choices[newChoiceID] && control.params.choices[newChoiceID].clone) {
+      sortableNewID += '<i class="dashicons dashicons-admin-page clonned-sortable-item" style="font-size:16px;"></i>';
+    }
+
+    if ('object' == typeof control.params.choices[newChoiceID] && control.params.choices[newChoiceID].is_parent) {
+      sortableNewID += '<i class="dashicons clonned-sortable-accordion dashicons-arrow-down-alt2 ast-option ast-accordion"></i> <div class="ast-sortable-subcontrols" data-index="' + newChoiceID + '"></div';
+    }
+
+    clonnedFrom.after(sortableNewID);
   },
   isJsonString: function (str) {
     try {
@@ -16335,8 +16424,6 @@ const sortableControl = wp.customize.astraControl.extend({
       reactControls['ast-box-shadow'] = _box_shadow_box_shadow_component_js__WEBPACK_IMPORTED_MODULE_13__["default"];
     }
 
-    console.error(fields);
-
     _.each(fields, function (attr, index) {
       if ('ast-font' !== attr.control) {
         var control_clean_name = attr.name.replace('[', '-');
@@ -16455,11 +16542,15 @@ const SortableComponent = props => {
       html = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, inputAttrs, {
         key: choiceID,
         className: "ast-sortable-item",
-        "data-value": choiceID
+        "data-value": choiceID,
+        "data-title": title
       }), title, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("i", {
         className: "dashicons dashicons-visibility visibility"
       }), 'object' == typeof choices[choiceID] && choices[choiceID].clone && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("i", {
-        className: "dashicons dashicons-admin-page"
+        className: "dashicons dashicons-admin-page",
+        style: {
+          fontSize: '16px'
+        }
       }), 'object' == typeof choices[choiceID] && choices[choiceID].is_parent && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("i", {
         className: "dashicons dashicons-arrow-down-alt2 ast-option ast-accordion"
       }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
