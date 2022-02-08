@@ -3290,11 +3290,11 @@ function astra_display_cart_total_title_compatibility() {
 
 	// Set the Display Cart Label toggle values with shortcodes.
 	if ( ( isset( $theme_options['woo-header-cart-total-display'] ) && true === $theme_options['woo-header-cart-total-display'] ) && ( isset( $theme_options['woo-header-cart-title-display'] ) && true === $theme_options['woo-header-cart-title-display'] ) ) {
-		$theme_options['woo-header-cart-label-display'] = '{cart_title} / {cart_total_currency_symbol}';
+		$theme_options['woo-header-cart-label-display'] = __( 'Cart', 'astra' ) . '/{cart_total_currency_symbol}';
 	} elseif ( isset( $theme_options['woo-header-cart-total-display'] ) && true === $theme_options['woo-header-cart-total-display'] ) {
 		$theme_options['woo-header-cart-label-display'] = '{cart_total_currency_symbol}';
 	} elseif ( isset( $theme_options['woo-header-cart-title-display'] ) && true === $theme_options['woo-header-cart-title-display'] ) {
-		$theme_options['woo-header-cart-label-display'] = '{cart_title}';
+		$theme_options['woo-header-cart-label-display'] = __( 'Cart', 'astra' );
 	}
 
 	update_option( 'astra-settings', $theme_options );
