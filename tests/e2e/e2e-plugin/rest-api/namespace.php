@@ -145,7 +145,7 @@ function rest_route() : void {
 					if ( isset( $response['settings']['returnURL'] ) && true === $response['settings']['returnURL'] ) {
 						return rest_ensure_response(
 							array(
-								'success'      => true,
+								'success'       => true,
 								'attachedMedia' => wp_get_attachment_image_url( $attach_id ),
 							)
 						);
@@ -153,7 +153,7 @@ function rest_route() : void {
 
 					return rest_ensure_response(
 						array(
-							'success'      => true,
+							'success'       => true,
 							'attachedMedia' => $attach_id,
 						)
 					);

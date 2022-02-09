@@ -580,7 +580,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					$configuration['value'] = $val;
 
 					if ( isset( self::$group_configs[ $configuration['name'] ] ) ) {
-						$config = wp_list_sort( self::$group_configs[ $configuration['name'] ], 'priority' );
+						$config                      = wp_list_sort( self::$group_configs[ $configuration['name'] ], 'priority' );
 						$configuration['ast_fields'] = $config;
 					}
 
@@ -695,7 +695,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				'sanitize_callback' => $sanitize_callback,
 				'suffix'            => astra_get_prop( $config, 'suffix' ),
 				'control_type'      => astra_get_prop( $config, 'control' ),
-				'linked'      		=> astra_get_prop( $config, 'linked' ),
+				'linked'            => astra_get_prop( $config, 'linked' ),
 			);
 
 			self::$dynamic_options['settings'][ astra_get_prop( $new_config, 'name' ) ] = array(
@@ -1325,7 +1325,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					'astra_theme_customizer_js_localize',
 					array(
 						'customizer' => array(
-							'settings'         => array(
+							'settings'            => array(
 								'sidebars'     => array(
 									'single'  => array(
 										'single-post-sidebar-layout',
@@ -1346,11 +1346,11 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 								),
 								'google_fonts' => $string,
 							),
-							'group_modal_tmpl' => $template,
+							'group_modal_tmpl'    => $template,
 							'sortable_modal_tmpl' => $sortable_subcontrol_template,
-							'is_pro'           => defined( 'ASTRA_EXT_VER' ),
-							'upgrade_link'     => htmlspecialchars_decode( astra_get_pro_url( 'https://wpastra.com/pricing/', 'customizer', 'upgrade-link', 'upgrade-to-pro' ) ),
-							'is_block_widget'  => astra_has_widgets_block_editor(),
+							'is_pro'              => defined( 'ASTRA_EXT_VER' ),
+							'upgrade_link'        => htmlspecialchars_decode( astra_get_pro_url( 'https://wpastra.com/pricing/', 'customizer', 'upgrade-link', 'upgrade-to-pro' ) ),
+							'is_block_widget'     => astra_has_widgets_block_editor(),
 						),
 						'theme'      => array(
 							'option' => ASTRA_THEME_SETTINGS,
