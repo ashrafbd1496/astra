@@ -45,6 +45,11 @@ const pageEvents = [];
 // The Jest timeout is increased because these tests are a bit slow
 jest.setTimeout( PUPPETEER_TIMEOUT || 300000 );
 
+// Retry failed tests at most 3 times in CI.
+if ( process.env.CI ) {
+	jest.retryTimes( 3 );
+}
+
 /**
  * Adds an event listener to the page to handle additions of page event
  * handlers, to assure that they are removed at test teardown.
