@@ -99,3 +99,9 @@
 .customize-control-content {
     width: 100%;
 }
+/**
+ * Hide clone & accordion dashicons for invisible items.
+ */
+.ast-sortable-item.invisible > .dashicons-admin-page, .ast-sortable-item.invisible > .ast-accordion {
+    display: none;
+}
