@@ -14,6 +14,13 @@
     "wp-coding-standards/wpcs": "^2.1.0",
     "wptrt/wpthemereview": "^0.2.0"
   },
+  "config": {
+    "allow-plugins": {
+      "composer/installers": true,
+      "composer/package-versions-deprecated": true,
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
+  },
   "extra": {
     "hooks": {
       "pre-commit": [
@@ -31,9 +38,9 @@
     "post-install-cmd": "vendor/bin/cghooks add --ignore-lock",
     "post-update-cmd": "vendor/bin/cghooks update",
     "format": "vendor/bin/phpcbf --standard=phpcs.xml.dist --report-summary --report-source",
+    "gen-stubs": "vendor/bin/generate-stubs astra/ --out=tests/php/static-analysis-stubs/astra-stubs.php",
     "lint": "vendor/bin/phpcs --standard=phpcs.xml.dist --report-summary --report-source",
     "psalm": "./vendor/bin/psalm",
-    "gen-stubs": "vendor/bin/generate-stubs astra/ --out=tests/php/static-analysis-stubs/astra-stubs.php",
     "update-stubs": "rm -f tests/php/static-analysis-stubs/astra-stubs.php && grunt release-no-clean && composer gen-stubs"
   }
 }
