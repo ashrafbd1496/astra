@@ -45,9 +45,9 @@ const pageEvents = [];
 // The Jest timeout is increased because these tests are a bit slow
 jest.setTimeout( PUPPETEER_TIMEOUT || 300000 );
 
-// Retry failed tests at most 3 times in CI.
+// Retry failed tests at most 4 times in CI.
 if ( process.env.CI ) {
-	jest.retryTimes( 3 );
+	jest.retryTimes( 4 );
 }
 
 /**
