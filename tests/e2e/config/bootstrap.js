@@ -223,8 +223,8 @@ beforeAll( async () => {
 	await trashAllPosts();
 	await trashAllPosts( 'page' );
 	await siteReset();
-	await page.setDefaultNavigationTimeout( 30000 );
-	await page.setDefaultTimeout( 30000 );
+	await page.setDefaultNavigationTimeout( 50000 );
+	await page.setDefaultTimeout( 50000 );
 } );
 
 // eslint-disable-next-line jest/require-top-level-describe
