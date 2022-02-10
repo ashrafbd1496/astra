@@ -32,7 +32,7 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 
 			$clone_limit = 3;
 			$to_clone    = true;
-			if ( $clone_limit === absint( astra_get_option( 'nested-index-clonned-track', 1 ) ) ) {
+			if ( absint( astra_get_option( 'nested-index-clonned-track', 1 ) ) === $clone_limit ) {
 				$to_clone = false;
 			}
 
@@ -135,7 +135,7 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 							'single-image'      => __( 'Featured Image', 'astra' ),
 							'single-title-meta' => __( 'Title & Blog Meta', 'astra' ),
 						),
-						$clonning_attr 
+						$clonning_attr
 					),
 				),
 			);
