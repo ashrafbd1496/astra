@@ -1681,6 +1681,7 @@ input[type="text"].select2-search__field {
 .customize-control-ast-input-with-dropdown .ast-input-with-dropdown-wrapper input.components-text-control__input {
     padding-right: 40px;
     max-height: 30px;
+    min-height: 30px;
 }
 .ast-link-open-in-new-tab-wrapper {
   margin: 25px 0;
