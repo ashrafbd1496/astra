@@ -580,7 +580,9 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					$configuration['value'] = $val;
 
 					if ( isset( self::$group_configs[ $configuration['name'] ] ) ) {
-						$config                      = wp_list_sort( self::$group_configs[ $configuration['name'] ], 'priority' );
+						/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+						$config = wp_list_sort( self::$group_configs[ $configuration['name'] ], 'priority' );
+						/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 						$configuration['ast_fields'] = $config;
 					}
 
