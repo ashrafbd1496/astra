@@ -35,4 +35,5 @@
 
 .customize-control-ast-input-with-dropdown .ast-input-with-dropdown-wrapper input.components-text-control__input {
     padding-left: 40px;
+    max-height: 30px;
 }

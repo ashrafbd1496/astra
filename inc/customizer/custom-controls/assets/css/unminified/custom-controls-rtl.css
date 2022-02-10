@@ -2894,6 +2894,10 @@ input[type="text"].select2-search__field {
     outline: none;
 }
 
+.customize-control-ast-input-with-dropdown .components-popover__content {
+    min-width: 170px;
+}
+
 .customize-control-ast-input-with-dropdown .components-popover__content .components-button:not(:disabled):not([aria-disabled="true"]):not(.is-secondary):not(.is-primary):not(.is-tertiary):not(.is-link):not(.components-color-picker__saturation-pointer):hover {
     color: var(--wp-admin-theme-color);
 }
@@ -4792,6 +4796,7 @@ input[type="text"].select2-search__field {
 
 .customize-control-ast-input-with-dropdown .ast-input-with-dropdown-wrapper input.components-text-control__input {
     padding-left: 40px;
+    max-height: 30px;
 }
 .ast-link-open-in-new-tab-wrapper {
   margin: 25px 0;
