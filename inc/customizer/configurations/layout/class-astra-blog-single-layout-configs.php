@@ -130,7 +130,7 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 				),
 
 				/**
-				 * Header Clone Component Track.
+				 * Sortable Clone Component Track.
 				 */
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[sortable-nested-index-clonned-track]',
