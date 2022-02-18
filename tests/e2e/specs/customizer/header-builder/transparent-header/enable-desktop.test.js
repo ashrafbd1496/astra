@@ -1,10 +1,10 @@
 import {
 	createNewPost,
 	createURL,
-	publishPost,
 	setBrowserViewport,
 } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
+import { publishPost } from '../../../../utils/publish-post';
 describe( 'transparent header enable setting in the customizer', () => {
 	it( 'transparent header should be enabled on desktop', async () => {
 		const transparentHeaderEnable = {
@@ -12,8 +12,16 @@ describe( 'transparent header enable setting in the customizer', () => {
 			'transparent-header-on-devices': 'desktop',
 		};
 		await setCustomize( transparentHeaderEnable );
-		await createNewPost( { postType: 'page', title: 'transparent page' } );
-		await publishPost();
+
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( {
+				postType: 'page',
+				title: 'transparent page',
+			} );
+			ppStatus = await publishPost();
+		}
+		// await publishPost();
 		await page.goto( createURL( '/transparent page' ), {
 			waitUntil: 'networkidle0',
 		} );

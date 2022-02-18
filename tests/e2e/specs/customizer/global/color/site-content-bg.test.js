@@ -1,11 +1,8 @@
 import { setCustomize } from '../../../../utils/customize';
-import {
-	createURL,
-	createNewPost,
-	publishPost,
-} from '@wordpress/e2e-test-utils';
+import { createURL, createNewPost } from '@wordpress/e2e-test-utils';
+import { publishPost } from '../../../../utils/publish-post';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
-describe( 'Testing site background and content background color setting under the customizer', () => {
+describe( 'testing site background and content background color setting under the customizer', () => {
 	it( 'site background color should apply correctly', async () => {
 		const sitebgColors = {
 			'site-layout-outside-bg-obj-responsive': {
@@ -21,12 +18,17 @@ describe( 'Testing site background and content background color setting under th
 			},
 		};
 		await setCustomize( sitebgColors );
-		await createNewPost( {
-			postType: 'post',
-			title: 'background-color-test',
-			content: 'this is the background color test',
-		} );
-		await publishPost();
+
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( {
+				postType: 'post',
+				title: 'background-color-test',
+				content: 'this is the background color test',
+			} );
+			ppStatus = await publishPost();
+		}
+		// await publishPost();
 		await page.goto( createURL( 'background-color-test' ), {
 			waitUntil: 'networkidle0',
 		} );

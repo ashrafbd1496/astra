@@ -1,7 +1,7 @@
 import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../../utils/customize';
 
-describe( 'Site Identity margin settings in the customizer', () => {
+describe( 'site Identity margin settings in the customizer', () => {
 	it( 'spacing should apply corectly', async () => {
 		const siteTaglineSpacing = {
 			'title_tagline-margin': {

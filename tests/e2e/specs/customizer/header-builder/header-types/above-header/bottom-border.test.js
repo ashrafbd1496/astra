@@ -1,6 +1,6 @@
 import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../../utils/customize';
-describe( 'Above header bottom border size and color setting in customizer', () => {
+describe( 'above header bottom border size and color setting in customizer', () => {
 	it( 'bottom border size and bottom border color should apply correctly', async () => {
 		const bottomBorder = {
 			'hba-header-separator': '10',

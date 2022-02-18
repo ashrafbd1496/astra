@@ -1,7 +1,7 @@
 import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
-describe( 'Search-icon margin in the customizer', () => {
+describe( 'search-icon margin in the customizer', () => {
 	it( 'search-icon margin for desktop should apply correctly', async () => {
 		const searchiconMargin = {
 			'section-header-search-margin': {

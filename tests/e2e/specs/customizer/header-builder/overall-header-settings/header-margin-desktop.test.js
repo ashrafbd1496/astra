@@ -1,10 +1,7 @@
-import {
-	createURL,
-	createNewPost,
-	publishPost,
-} from '@wordpress/e2e-test-utils';
+import { createURL, createNewPost } from '@wordpress/e2e-test-utils';
+import { publishPost } from '../../../../utils/publish-post';
 import { setCustomize } from '../../../../utils/customize';
-describe( 'Header margin settings in the customizer', () => {
+describe( 'header margin settings in the customizer', () => {
 	it( 'header margin settings should be applied correctly in desktop view', async () => {
 		const headerWidthAndMargin = {
 			'section-header-builder-layout-margin': {
@@ -18,12 +15,17 @@ describe( 'Header margin settings in the customizer', () => {
 			},
 		};
 		await setCustomize( headerWidthAndMargin );
-		await createNewPost( {
-			postType: 'page',
-			title: 'Home',
-			content: 'This is a home page',
-		} );
-		await publishPost();
+
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( {
+				postType: 'page',
+				title: 'Home',
+				content: 'This is a home page',
+			} );
+			ppStatus = await publishPost();
+		}
+		// await publishPost();
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );

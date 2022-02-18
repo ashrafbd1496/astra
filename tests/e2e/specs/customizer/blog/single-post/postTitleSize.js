@@ -1,8 +1,5 @@
-import {
-	createURL,
-	createNewPost,
-	publishPost,
-} from '@wordpress/e2e-test-utils';
+import { createURL, createNewPost } from '@wordpress/e2e-test-utils';
+import { publishPost } from '../../../../utils/publish-post';
 import { setCustomize } from '../../../../utils/customize';
 describe( 'post title size in the customizer', () => {
 	it( 'page title size should apply corectly', async () => {
@@ -17,8 +14,13 @@ describe( 'post title size in the customizer', () => {
 			},
 		};
 		await setCustomize( postTitle );
-		await createNewPost( { postType: 'post', title: 'hello world' } );
-		await publishPost();
+
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( { postType: 'post', title: 'hello world' } );
+			ppStatus = await publishPost();
+		}
+		// await publishPost();
 		await page.goto( createURL( '/hello-world/' ), {
 			waitUntil: 'networkidle0',
 		} );

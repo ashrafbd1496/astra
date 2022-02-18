@@ -1,6 +1,6 @@
 import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../utils/customize';
-describe( 'Google fonts enable and disable locally', () => {
+describe( 'google fonts enable and disable locally', () => {
 	it( 'local link for google fonts should be loaded successfully', async () => {
 		const loadGoogleFontsLocally = {
 			'body-font-family': 'Righteous',

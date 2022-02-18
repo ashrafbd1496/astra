@@ -2,7 +2,7 @@ import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 import { scrollToElement } from '../../../../utils/scroll-to-element';
-describe( 'Copyright Margin setting in customizer', () => {
+describe( 'copyright Margin setting in customizer', () => {
 	it( 'copyright margin for desktop should apply correctly', async () => {
 		const copyrightmargin = {
 			'section-footer-copyright-margin': {

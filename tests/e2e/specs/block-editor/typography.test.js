@@ -2,7 +2,7 @@ import { createNewPost, setPostContent } from '@wordpress/e2e-test-utils';
 import { TPOGRAPHY_TEST_POST_CONTENT } from '../../utils/post';
 import { setCustomize } from '../../utils/customize';
 
-describe( 'Typography in the block editor', () => {
+describe( 'typography in the block editor', () => {
 	it( 'should work as set in the customizer for h1-h6', async () => {
 		const headingTypography = {
 			'headings-font-family': "'Alex Brush', handwriting",

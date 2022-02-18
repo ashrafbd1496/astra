@@ -1,7 +1,7 @@
 import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../../utils/customize';
 import { setBrowserViewport } from '../../../../../utils/set-browser-viewport';
-describe( 'Below header height setting in customizer', () => {
+describe( 'below header height setting in customizer', () => {
 	it( 'height should apply correctly', async () => {
 		const belowHeaderHeight = {
 			'header-desktop-items': {

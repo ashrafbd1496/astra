@@ -6,7 +6,7 @@ import {
 } from '../../../../../utils/customize';
 import { setBrowserViewport } from '../../../../../utils/set-browser-viewport';
 
-describe( 'Site logo settings in the customizer', () => {
+describe( 'site logo settings in the customizer', () => {
 	it( 'site logo width should apply correctly', async () => {
 		const fileDetails = {
 			fileName: 'Logo-Image.jpg',

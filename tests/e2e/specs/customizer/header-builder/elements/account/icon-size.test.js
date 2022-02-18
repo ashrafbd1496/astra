@@ -2,7 +2,7 @@ import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../../utils/customize';
 import { setBrowserViewport } from '../../../../../utils/set-browser-viewport';
 
-describe( 'Account icon in the customizer', () => {
+describe( 'account icon in the customizer', () => {
 	it( 'account icon size for desktop should apply correctly', async () => {
 		const accountIconSize = {
 			'header-account-icon-size': {

@@ -1,9 +1,6 @@
-import {
-	createURL,
-	createNewPost,
-	publishPost,
-} from '@wordpress/e2e-test-utils';
+import { createURL, createNewPost } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../utils/customize';
+import { publishPost } from '../../../utils/publish-post';
 describe( 'breadcrumb alignment settings in the customizer', () => {
 	it( 'breadcrumb center alignment should apply corectly for inside position', async () => {
 		const insideAlignmentCenter = {
@@ -11,11 +8,16 @@ describe( 'breadcrumb alignment settings in the customizer', () => {
 			'breadcrumb-alignment': 'center',
 		};
 		await setCustomize( insideAlignmentCenter );
-		await createNewPost( {
-			postType: 'page',
-			title: 'breadcrumb',
-		} );
-		await publishPost();
+
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( {
+				postType: 'page',
+				title: 'breadcrumb',
+			} );
+			ppStatus = await publishPost();
+		}
+		// await publishPost();
 		await page.goto( createURL( '/breadcrumb' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -33,11 +35,16 @@ describe( 'breadcrumb alignment settings in the customizer', () => {
 			'breadcrumb-alignment': 'left',
 		};
 		await setCustomize( insideAlignmentLeft );
-		await createNewPost( {
-			postType: 'page',
-			title: 'breadcrumb',
-		} );
-		await publishPost();
+
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( {
+				postType: 'page',
+				title: 'breadcrumb',
+			} );
+			ppStatus = await publishPost();
+		}
+		// await publishPost();
 		await page.goto( createURL( '/breadcrumb' ), {
 			waitUntil: 'networkidle0',
 		} );

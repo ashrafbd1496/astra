@@ -1,6 +1,6 @@
 import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../../utils/customize';
-describe( 'Drag widget1 in the above header section and check it on frontend', () => {
+describe( 'drag widget1 in the above header section and check it on frontend', () => {
 	it( 'check whether the widget1 is dragged in the above header section', async () => {
 		const dragWidget1 = {
 			'header-desktop-items': {

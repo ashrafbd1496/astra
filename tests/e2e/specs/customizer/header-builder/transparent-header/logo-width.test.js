@@ -1,8 +1,5 @@
-import {
-	createURL,
-	createNewPost,
-	publishPost,
-} from '@wordpress/e2e-test-utils';
+import { createURL, createNewPost } from '@wordpress/e2e-test-utils';
+import { publishPost } from '../../../../utils/publish-post';
 import { setCustomize, uploadImage } from '../../../../utils/customize';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 
@@ -30,11 +27,16 @@ describe( 'transparent header logo settings in the customizer', () => {
 			'transparent-header-disable-latest-posts-index': false,
 		};
 		await setCustomize( logoWidth );
-		await createNewPost( {
-			postType: 'page',
-			title: 'transparent',
-		} );
-		await publishPost();
+
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( {
+				postType: 'page',
+				title: 'transparent',
+			} );
+			ppStatus = await publishPost();
+		}
+		// await publishPost();
 		await page.goto( createURL( '/transparent' ), {
 			waitUntil: 'networkidle0',
 		} );

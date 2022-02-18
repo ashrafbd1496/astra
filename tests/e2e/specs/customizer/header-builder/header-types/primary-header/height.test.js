@@ -1,7 +1,7 @@
 import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../../utils/customize';
 import { setBrowserViewport } from '../../../../../utils/set-browser-viewport';
-describe( 'Primary header height setting in customizer', () => {
+describe( 'primary header height setting in customizer', () => {
 	it( 'height should apply correctly', async () => {
 		const primaryheaderHeight = {
 			'hb-header-height': {

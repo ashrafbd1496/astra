@@ -1,7 +1,7 @@
 import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../../utils/customize';
 import { setBrowserViewport } from '../../../../../utils/set-browser-viewport';
-describe( 'Above header background color setting in customizer', () => {
+describe( 'above header background color setting in customizer', () => {
 	it( 'background color should apply correctly', async () => {
 		const aboveHeaderBgColor = {
 			'header-desktop-items': {

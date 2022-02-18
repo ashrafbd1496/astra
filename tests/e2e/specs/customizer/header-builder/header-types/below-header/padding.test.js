@@ -1,7 +1,7 @@
 import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../../utils/customize';
 import { setBrowserViewport } from '../../../../../utils/set-browser-viewport';
-describe( 'Below header padding setting in customizer', () => {
+describe( 'below header padding setting in customizer', () => {
 	it( 'padding for below header section should apply correctly', async () => {
 		const belowHeaderPadding = {
 			'header-desktop-items': {

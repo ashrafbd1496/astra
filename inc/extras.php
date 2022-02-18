@@ -119,7 +119,7 @@ if ( ! function_exists( 'astra_get_content_layout' ) ) {
 	 * Return current content layout
 	 *
 	 * @since 1.0.0
-	 * @return boolean  content layout.
+	 * @return mixed content layout.
 	 */
 	function astra_get_content_layout() {
 

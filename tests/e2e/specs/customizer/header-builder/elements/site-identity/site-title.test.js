@@ -3,7 +3,7 @@ import { setCustomize } from '../../../../../utils/customize';
 import { responsiveFontSize } from '../../../../../utils/responsive-utils';
 import { setBrowserViewport } from '../../../../../utils/set-browser-viewport';
 
-describe( 'Site Title Typography settings and color settings in the customizer', () => {
+describe( 'site Title Typography settings and color settings in the customizer', () => {
 	it( 'site title typography and color should apply corectly', async () => {
 		const sitetitleTypography = {
 			'body-font-family': 'Raleway, sans-serif',

@@ -2,14 +2,14 @@ import {
 	createURL,
 	createNewPost,
 	setPostContent,
-	publishPost,
 } from '@wordpress/e2e-test-utils';
+import { publishPost } from '../../../../utils/publish-post';
 import { setCustomize } from '../../../../utils/customize';
 import { TPOGRAPHY_TEST_POST_CONTENT } from '../../../../utils/post';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 import { responsiveFontSize } from '../../../../utils/responsive-utils';
 
-describe( 'Global typography heading 6 settings in the customizer', () => {
+describe( 'global typography heading 6 settings in the customizer', () => {
 	it( 'heading 6 font family settings should be applied correctly', async () => {
 		const heading6Font = {
 			'font-family-h6': "'Patrick Hand SC', handwriting",
@@ -28,12 +28,17 @@ describe( 'Global typography heading 6 settings in the customizer', () => {
 
 		await setCustomize( heading6Font );
 
-		await createNewPost( {
-			postType: 'post',
-			title: 'heading-6-typography-test',
-		} );
-		await setPostContent( TPOGRAPHY_TEST_POST_CONTENT );
-		await publishPost();
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( {
+				postType: 'post',
+				title: 'heading-6-typography-test',
+			} );
+			await setPostContent( TPOGRAPHY_TEST_POST_CONTENT );
+			await page.waitForTimeout( 10000 );
+			ppStatus = await publishPost();
+		}
+		// await publishPost();
 		await page.goto( createURL( 'heading-6-typography-test' ), {
 			waitUntil: 'networkidle0',
 		} );

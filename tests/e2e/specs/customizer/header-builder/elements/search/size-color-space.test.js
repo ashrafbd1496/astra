@@ -1,7 +1,7 @@
 import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../../utils/customize';
 import { setBrowserViewport } from '../../../../../utils/set-browser-viewport';
-describe( 'Customizing search icon in the above header section', () => {
+describe( 'customizing search icon in the above header section', () => {
 	it( 'search icon size, space, color for desktop should apply correctly', async () => {
 		const searchIcon = {
 			'header-desktop-items': {

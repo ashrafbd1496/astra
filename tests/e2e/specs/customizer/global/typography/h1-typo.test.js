@@ -2,12 +2,12 @@ import {
 	createURL,
 	createNewPost,
 	setPostContent,
-	publishPost,
 } from '@wordpress/e2e-test-utils';
+import { publishPost } from '../../../../utils/publish-post';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 import { setCustomize } from '../../../../utils/customize';
 import { TPOGRAPHY_TEST_POST_CONTENT } from '../../../../utils/post';
-describe( 'Global typography H1 settings in the customizer', () => {
+describe( 'global typography H1 settings in the customizer', () => {
 	it( 'heading 1 font family settings should be applied correctly', async () => {
 		const heading1Font = {
 			'font-family-h1': "'Eagle Lake', handwriting",
@@ -24,12 +24,18 @@ describe( 'Global typography H1 settings in the customizer', () => {
 			'line-height-h1': '3px',
 		};
 		await setCustomize( heading1Font );
-		await createNewPost( {
-			postType: 'post',
-			title: 'heading-1-typography-test',
-		} );
-		await setPostContent( TPOGRAPHY_TEST_POST_CONTENT );
-		await publishPost();
+
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( {
+				postType: 'post',
+				title: 'heading-1-typography-test',
+			} );
+			await setPostContent( TPOGRAPHY_TEST_POST_CONTENT );
+			await page.waitForTimeout( 10000 );
+			ppStatus = await publishPost();
+		}
+		// await publishPost();
 		await page.goto( createURL( 'heading-1-typography-test' ), {
 			waitUntil: 'networkidle0',
 		} );

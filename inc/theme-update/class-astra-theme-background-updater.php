@@ -285,6 +285,8 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 			$fallback = false;
 
 			$is_db_version_updated = $this->is_db_version_updated();
+
+			/** @psalm-suppress DocblockTypeContradiction */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			if ( ! $is_db_version_updated ) {
 
 				$db_migrated = get_transient( 'astra-theme-db-migrated' );

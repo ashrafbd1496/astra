@@ -1,21 +1,24 @@
-import {
-	createURL,
-	createNewPost,
-	publishPost,
-} from '@wordpress/e2e-test-utils';
+import { createURL, createNewPost } from '@wordpress/e2e-test-utils';
+import { publishPost } from '../../../../utils/publish-post';
 import { setCustomize } from '../../../../utils/customize';
-describe( 'Custom content width setting for blog/Archive in customizer', () => {
+describe( 'custom content width setting for blog/Archive in customizer', () => {
 	it( 'width should apply correctly', async () => {
 		const blogWidth = {
 			'blog-width': 'custom',
 			'blog-max-width': 669,
 		};
 		await setCustomize( blogWidth );
-		await createNewPost( {
-			postType: 'post',
-			title: 'blog',
-		} );
-		await publishPost();
+
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( {
+				postType: 'post',
+				title: 'blog',
+			} );
+			await page.waitForTimeout( 10000 );
+			ppStatus = await publishPost();
+		}
+		// await publishPost();
 		await page.goto( createURL( '/author/admin' ), {
 			waitUntil: 'networkidle0',
 		} );

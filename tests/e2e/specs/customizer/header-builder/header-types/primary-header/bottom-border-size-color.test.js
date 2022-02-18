@@ -1,6 +1,6 @@
 import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../../utils/customize';
-describe( 'Primary header bottom border size & color setting in customizer', () => {
+describe( 'primary header bottom border size & color setting in customizer', () => {
 	it( 'border size & color should apply correctly', async () => {
 		const borderSizeColor = {
 			'hb-header-main-sep': '10',

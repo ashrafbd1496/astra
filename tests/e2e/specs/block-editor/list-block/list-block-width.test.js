@@ -1,5 +1,5 @@
 import { insertBlock, createNewPost } from '@wordpress/e2e-test-utils';
-describe( 'List in gutenberg editor', () => {
+describe( 'list in gutenberg editor', () => {
 	it( 'assert wide width of the list in the block editor', async () => {
 		await createNewPost( {
 			postType: 'post',

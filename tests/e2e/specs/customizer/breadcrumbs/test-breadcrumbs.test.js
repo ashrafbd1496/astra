@@ -1,9 +1,6 @@
-import {
-	createURL,
-	createNewPost,
-	publishPost,
-} from '@wordpress/e2e-test-utils';
+import { createURL, createNewPost } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../utils/customize';
+import { publishPost } from '../../../utils/publish-post';
 import { responsiveFontSize } from '../../../utils/responsive-utils';
 import { setBrowserViewport } from '../../../utils/set-browser-viewport';
 describe( 'breadcrumb Typography settings in the customizer', () => {
@@ -73,11 +70,16 @@ describe( 'breadcrumb Typography settings in the customizer', () => {
 			},
 		};
 		await setCustomize( breadcrumbTypography );
-		await createNewPost( {
-			postType: 'page',
-			title: 'breadcrumb',
-		} );
-		await publishPost();
+
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( {
+				postType: 'page',
+				title: 'breadcrumb',
+			} );
+			ppStatus = await publishPost();
+		}
+		// await publishPost();
 		await page.goto( createURL( '/breadcrumb' ), {
 			waitUntil: 'networkidle0',
 		} );

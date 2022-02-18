@@ -2,12 +2,12 @@ import {
 	createURL,
 	createNewPost,
 	setPostContent,
-	publishPost,
 } from '@wordpress/e2e-test-utils';
+import { publishPost } from '../../../utils/publish-post';
 import { setCustomize } from '../../../utils/customize';
 import { TPOGRAPHY_TEST_POST_CONTENT } from '../../../utils/post';
 
-describe( 'Global Typography settings in the customizer', () => {
+describe( 'global Typography settings in the customizer', () => {
 	it( 'body typography should be applied correctly', async () => {
 		const globalTypegraphy = {
 			'body-font-family': "'Open Sans', sans-serif",
@@ -28,9 +28,16 @@ describe( 'Global Typography settings in the customizer', () => {
 
 		await setCustomize( globalTypegraphy );
 
-		await createNewPost( { postType: 'post', title: 'Typography Test' } );
-		await setPostContent( TPOGRAPHY_TEST_POST_CONTENT );
-		await publishPost();
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( {
+				postType: 'post',
+				title: 'Typography Test',
+			} );
+			await setPostContent( TPOGRAPHY_TEST_POST_CONTENT );
+			ppStatus = await publishPost();
+		}
+		// await publishPost();
 		await page.goto( createURL( '/typography-test/' ), {
 			waitUntil: 'networkidle0',
 		} );

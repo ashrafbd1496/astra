@@ -1,9 +1,6 @@
-import {
-	createURL,
-	createNewPost,
-	publishPost,
-} from '@wordpress/e2e-test-utils';
+import { createURL, createNewPost } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../../utils/customize';
+import { publishPost } from '../../../../../utils/publish-post';
 import { setBrowserViewport } from '../../../../../utils/set-browser-viewport';
 describe( 'off canvas menu design settings in the customizer', () => {
 	it( 'off canvas menu design settings should apply corectly for after header', async () => {
@@ -99,16 +96,26 @@ describe( 'off canvas menu design settings in the customizer', () => {
 		};
 
 		await setCustomize( offCanvasMenuDesign );
-		await createNewPost( {
-			postType: 'page',
-			title: 'mobile header',
-		} );
-		await publishPost();
-		await createNewPost( {
-			postType: 'page',
-			title: 'off canvas menu',
-		} );
-		await publishPost();
+
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( {
+				postType: 'page',
+				title: 'mobile header',
+			} );
+			ppStatus = await publishPost();
+		}
+		// await publishPost();
+
+		ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( {
+				postType: 'page',
+				title: 'off canvas menu',
+			} );
+			ppStatus = await publishPost();
+		}
+		// await publishPost();
 		await page.goto( createURL( '/off-canvas-menu' ), {
 			waitUntil: 'networkidle0',
 		} );

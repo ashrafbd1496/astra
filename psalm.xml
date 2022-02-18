@@ -42,7 +42,7 @@
         </InvalidReturnType>
         <UnresolvableInclude>
             <errorLevel type="suppress">
-                <file name="functions.php"/>
+                <directory name="."/>
             </errorLevel>
         </UnresolvableInclude>
         <MissingPropertyType>

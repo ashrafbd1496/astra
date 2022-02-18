@@ -6,7 +6,9 @@ describe( 'group in gutenberg editor', () => {
 			title: 'test group',
 		} );
 		await insertBlock( 'Group' );
-		await page.waitForSelector( '.editor-styles-wrapper > .block-editor-block-list__layout' );
+		await page.waitForSelector(
+			'.editor-styles-wrapper > .block-editor-block-list__layout',
+		);
 		await expect( {
 			selector:
 				'.editor-styles-wrapper > .block-editor-block-list__layout',

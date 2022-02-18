@@ -1,7 +1,7 @@
 import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
-describe( 'Below header margin setting in customizer', () => {
+describe( 'below header margin setting in customizer', () => {
 	it( 'margin should apply correctly', async () => {
 		const belowHeaderMargin = {
 			'header-desktop-items': {

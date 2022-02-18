@@ -3,7 +3,7 @@ import { setCustomize } from '../../../../../utils/customize';
 import { responsiveFontSize } from '../../../../../utils/responsive-utils';
 import { setBrowserViewport } from '../../../../../utils/set-browser-viewport';
 
-describe( 'Site Tagline Typography settings and color settings in the customizer', () => {
+describe( 'site Tagline Typography settings and color settings in the customizer', () => {
 	it( 'site tagline typography and color should apply corectly', async () => {
 		const siteTagline = {
 			'display-site-tagline-responsive': {

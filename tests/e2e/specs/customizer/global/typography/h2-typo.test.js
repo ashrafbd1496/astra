@@ -2,12 +2,12 @@ import {
 	createURL,
 	createNewPost,
 	setPostContent,
-	publishPost,
 } from '@wordpress/e2e-test-utils';
+import { publishPost } from '../../../../utils/publish-post';
 import { setCustomize } from '../../../../utils/customize';
 import { TPOGRAPHY_TEST_POST_CONTENT } from '../../../../utils/post';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
-describe( 'H2 global typography settings in the customizer', () => {
+describe( 'h2 global typography settings in the customizer', () => {
 	it( 'heading 2 typography style should be applied correctly', async () => {
 		const h2Typography = {
 			'font-family-h2': "'Akaya Kanadaka,display'",
@@ -26,12 +26,17 @@ describe( 'H2 global typography settings in the customizer', () => {
 
 		await setCustomize( h2Typography );
 
-		await createNewPost( {
-			postType: 'post',
-			title: 'heading-2-typography-test',
-		} );
-		await setPostContent( TPOGRAPHY_TEST_POST_CONTENT );
-		await publishPost();
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( {
+				postType: 'post',
+				title: 'heading-2-typography-test',
+			} );
+			await setPostContent( TPOGRAPHY_TEST_POST_CONTENT );
+			await page.waitForTimeout( 10000 );
+			ppStatus = await publishPost();
+		}
+		// await publishPost();
 		await page.goto( createURL( 'heading-2-typography-test' ), {
 			waitUntil: 'networkidle0',
 		} );
