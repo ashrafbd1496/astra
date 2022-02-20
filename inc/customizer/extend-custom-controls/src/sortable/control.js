@@ -13,6 +13,7 @@ import DividerComponent from '../divider/divider-component';
 import BoxShadowComponent from '../box-shadow/box-shadow-component.js';
 import SelectorComponent from '../selector/selector-component';
 import ToggleControl from '../toggle-control/toggle-control-component';
+import TextInputControl from '../text-input/text-input-component';
 
 import {
 	astraGetBackground,
@@ -415,7 +416,8 @@ export const sortableControl = wp.customize.astraControl.extend( {
 			'ast-select' : SelectComponent,
 			'ast-divider' : DividerComponent,
 			'ast-selector' : SelectorComponent,
-			'ast-toggle': ToggleControl
+			'ast-toggle': ToggleControl,
+			'ast-text-input': TextInputControl
 		};
 
 		if( astra.customizer.is_pro ) {

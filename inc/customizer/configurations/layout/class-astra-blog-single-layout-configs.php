@@ -51,7 +51,7 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 				),
 			);
 
-			
+
 			$clonning_attr['nested-index-1'] = array(
 				'clone'         => $to_clone,
 				'is_parent'     => true,
@@ -186,6 +186,21 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 					'transport'  => 'postMessage',
 					'responsive' => false,
 					'renderAs'   => 'text',
+				);
+
+				$_configs[] = array(
+					'name'      => 'new-text-input-control' . $control_suffix,
+					'parent'    => ASTRA_THEME_SETTINGS . '[blog-single-post-structure]',
+					'default'   => astra_get_option( 'new-text-input-control' . $control_suffix, '' ),
+					'linked'    => 'nested-index' . $control_suffix,
+					'type'      => 'sub-control',
+					'control'   => 'ast-text-input',
+					'section'   => 'section-blog-single',
+					'priority'  => 25,
+					'transport' => 'postMessage',
+					'title'     => 'Payment Title',
+					'text'      => __( 'Test Text Is Here Eminem.', 'astra' ),
+					'settings'  => array(),
 				);
 
 				$_configs[] = array(
