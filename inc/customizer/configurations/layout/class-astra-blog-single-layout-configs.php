@@ -191,7 +191,7 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 				$_configs[] = array(
 					'name'      => 'new-text-input-control' . $control_suffix,
 					'parent'    => ASTRA_THEME_SETTINGS . '[blog-single-post-structure]',
-					'default'   => astra_get_option( 'new-text-input-control' . $control_suffix, '' ),
+					'default'   => astra_get_option( 'new-text-input-control' . $control_suffix, 'Test Text' ),
 					'linked'    => 'nested-index' . $control_suffix,
 					'type'      => 'sub-control',
 					'control'   => 'ast-text-input',
@@ -199,7 +199,6 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 					'priority'  => 25,
 					'transport' => 'postMessage',
 					'title'     => 'Payment Title',
-					'text'      => __( 'Test Text Is Here Eminem.', 'astra' ),
 					'settings'  => array(),
 				);
 
