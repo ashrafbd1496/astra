@@ -99,6 +99,25 @@ class Astra_Social_Icon_Component_Configs {
 					'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-new-social-icons-' . $index . ']',
+					'section'   => $_section,
+					'type'      => 'control',
+					'control'   => 'ast-list-icons',
+					'title'     => __( 'Social Icons', 'astra' ),
+					'transport' => 'postMessage',
+					'priority'  => 1,
+					'default'   => astra_get_option( $builder_type . '-new-social-icons-' . $index ),
+					'partial'   => array(
+						'selector'            => '.ast-' . $builder_type . '-social-' . $index . '-wrap',
+						'container_inclusive' => true,
+						'render_callback'     => array( $class_obj, $builder_type . '_social_' . $index ),
+						'fallback_refresh'    => false,
+					),
+					'context'   => Astra_Builder_Helper::$general_tab,
+					'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
+				),
+
 				// Show label Toggle.
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-social-' . $index . '-label-toggle]',

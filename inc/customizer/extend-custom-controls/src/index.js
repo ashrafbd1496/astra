@@ -26,6 +26,7 @@ import { responsiveSelectControl } from './responsive-select/control';
 import { BuilderHeaderControl } from './builder-layout/builder-header-control'
 import { BuilderControl } from './builder-layout/control';
 import { SocialControl } from './social-icons/control';
+import { ListIconsControl } from './list-icons/control';
 import { EditorControl } from './html-editor/control';
 import { DraggableControl } from './draggable/control';
 import { HeaderTypeButtonControl } from './header-type-button/control';
@@ -66,6 +67,7 @@ wp.customize.controlConstructor['ast-responsive-color'] = responsiveColorControl
 wp.customize.controlConstructor['ast-responsive-background'] = responsiveBackgroundControl;
 wp.customize.controlConstructor['ast-background'] = backgroundControl;
 wp.customize.controlConstructor['ast-social-icons'] = SocialControl;
+wp.customize.controlConstructor['ast-list-icons'] = ListIconsControl;
 wp.customize.controlConstructor['ast-html-editor'] = EditorControl;
 wp.customize.controlConstructor['ast-builder'] = BuilderControl;
 wp.customize.controlConstructor['ast-draggable-items'] = DraggableControl;

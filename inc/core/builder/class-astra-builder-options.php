@@ -1389,6 +1389,33 @@ function astra_prepare_social_icon_defaults( $defaults, $index ) {
 			),
 	);
 
+	$defaults[ 'header-new-social-icons-' . $index ]               = array(
+		'items' =>
+			array(
+				array(
+					'id'         => 'item-1',
+					'enabled'    => true,
+					'source'     => 'icon',
+					'icon'       => 'check-circle',
+					'label'      => 'No-Risk Money Back Guarantee!',
+				),
+				array(
+					'id'         => 'item-2',
+					'enabled'    => true,
+					'source'     => 'icon',
+					'icon'       => 'check-circle',
+					'label'      => 'Safe and Secure Shopping',
+				),
+				array(
+					'id'         => 'item-3',
+					'enabled'    => true,
+					'source'     => 'icon',
+					'icon'       => 'check-circle',
+					'label'      => '100% Purchase Protection',
+				),
+			),
+	);
+
 	$defaults[ 'section-hb-social-icons-' . $index . '-margin' ] = Astra_Builder_Helper::$default_responsive_spacing;
 
 
