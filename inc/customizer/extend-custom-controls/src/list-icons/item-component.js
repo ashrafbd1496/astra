@@ -26,7 +26,8 @@ const ItemComponent = props => {
 	}, []);
 
 	return <div className="ahfb-sorter-item" data-id={props.item.id} key={props.item.id}>
-		<div className="ahfb-sorter-item-panel-header" onClick={() => {
+		<div className="ahfb-sorter-item-panel-header" onClick={e => {
+			e.stopPropagation();
 			setState((prevState => ({
 				...prevState,
 				open: state.open ? false : true
@@ -54,7 +55,8 @@ const ItemComponent = props => {
 					}}>
 				<Dashicon icon="visibility"/>
 			</Button>
-			<Button className="ahfb-sorter-item-remove" isDestructive onClick={() => {
+			<Button className="ahfb-sorter-item-remove" isDestructive onClick={e => {
+				e.stopPropagation();
 				props.removeItem(props.index);
 			}}>
 				<Dashicon icon="no-alt"/>

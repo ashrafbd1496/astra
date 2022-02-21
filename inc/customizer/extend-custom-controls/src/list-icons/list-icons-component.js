@@ -254,11 +254,7 @@ const ListIconsComponent = props => {
 
 	return <div className="ahfb-control-field ahfb-sorter-items">
 		<div className="ahfb-sorter-row">
-			<ReactSortable animation={100} onStart={() => onDragStop()} onEnd={() => onDragStop()}
-						   group={controlParams.group}
-						   className={`ahfb-sorter-drop ahfb-sorter-sortable-panel ahfb-sorter-drop-${controlParams.group}`}
-						   handle={'.ahfb-sorter-item-panel-header'} list={theItems}
-						   setList={newState => onDragEnd(newState)}>
+			<div className={`ahfb-sorter-drop ahfb-sorter-sortable-panel ahfb-sorter-drop-${controlParams.group}`}>
 				{currentList.length > 0 && currentList.map((item, index) => {
 					return <ItemComponent removeItem={remove => removeItem(remove)}
 										  toggleEnabled={(enable, itemIndex) => toggleEnableItem(enable, itemIndex)}
@@ -268,7 +264,7 @@ const ListIconsComponent = props => {
 										  key={item.id} index={index} item={item} controlParams={controlParams}/>;
 
 				})}
-			</ReactSortable>
+			</div>
 		</div>
 	</div>;
 
