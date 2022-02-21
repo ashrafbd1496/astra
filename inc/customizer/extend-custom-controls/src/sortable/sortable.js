@@ -33,8 +33,7 @@ const SortableComponent = props => {
 			}
 
 		if (choices[choiceID]) {
-			html = <>
-				<div {...inputAttrs} key={choiceID} className='ast-sortable-item' data-clone_tracker={ dataCloneIndex } data-value={choiceID} data-index={indexValue} data-title={title}>
+			html = <div {...inputAttrs} key={choiceID} className='ast-sortable-item' data-clone_tracker={ dataCloneIndex } data-value={choiceID} data-index={indexValue} data-title={title}>
 					{ title }
 					<i className="dashicons dashicons-visibility visibility"></i>
 					{ ( 'object' == typeof choices[choiceID] && choices[choiceID].clone ) && <i className="dashicons dashicons-admin-page" style={{ fontSize: '16px' }}></i> }
@@ -44,8 +43,7 @@ const SortableComponent = props => {
 							<div className="ast-sortable-subcontrols" data-index={choiceID}></div>
 						</>
 					}
-				</div>
-			</>;
+			</div>;
 		}
 		return html;
 	});
@@ -78,14 +76,16 @@ const SortableComponent = props => {
 		return html;
 	});
 
-	return <label className='ast-sortable'>
-		{labelHtml}
-		{descriptionHtml}
-		<div className="sortable">
-			{visibleMetaHtml}
-			{invisibleMetaHtml}
-		</div>
-	</label>;
+	return <>
+			<label className='ast-sortable'>
+				{labelHtml}
+				{descriptionHtml}
+			</label>
+			<div className="sortable">
+				{visibleMetaHtml}
+				{invisibleMetaHtml}
+			</div>
+		</>;
 
 };
 
