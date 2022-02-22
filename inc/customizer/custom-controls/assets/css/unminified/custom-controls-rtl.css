@@ -4370,7 +4370,45 @@ input[type="text"].select2-search__field {
     box-sizing: border-box;
     position: relative;
     padding-right: 15px;
-    padding-left: 15px;
+    padding-left: 5px;
+}
+/**
+ * ast-list-icons inside sortable compatibility CSS.
+ */
+.ast-sortable-subfields-wrap .customize-control-ast-list-icons .components-button {
+    padding: 6px 6px;
+	height: 38px;
+}
+.ast-sortable-subfields-wrap .customize-control-ast-list-icons .dashicons-admin-page {
+    color: #556068;
+}
+.customize-control-ast-sortable .ast-sortable-subfields-wrap .customize-control-ast-list-icons .ahfb-sorter-item-panel-header {
+    border: 1px solid #ddd;
+}
+.ast-sortable-subfields-wrap .customize-control-ast-list-icons .ahfb-sorter-visiblity svg {
+    height: 14px;
+    width: 14px;
+	fill: #556068;
+}
+.ast-sortable-subfields-wrap .customize-control-ast-list-icons .ast-sorter-item-expand {
+	border-right: 1px solid #ddd;
+}
+.ast-sortable-subfields-wrap .customize-control-ast-list-icons .ahfb-sorter-visiblity {
+	border-left: 1px solid #ddd;
+}
+.ast-sortable-subfields-wrap .customize-control-ast-list-icons .ahfb-sorter-item {
+	border: 1px solid #ddd;
+    border-top: 0;
+}
+.ast-sortable-subfields-wrap .customize-control-ast-list-icons .rfipdropdown--open {
+	width: 200px !important;
+    position: static;
+}
+.ast-sortable-subfields-wrap .customize-control-ast-list-icons .rfipdropdown--open .rfipicons__ibox:hover>* {
+    transform: scale(1.3) !important;
+}
+.ast-sortable-subfields-wrap .customize-control-ast-list-icons .rfipdropdown--open .rfipicons__ibox {
+    height: 32px !important;
 }
 .ast-sortable-subfields-wrap .ast-color-btn-reset-wrap {
     top: 0;
@@ -6270,7 +6308,45 @@ input[type="text"].select2-search__field {
     box-sizing: border-box;
     position: relative;
     padding-right: 15px;
-    padding-left: 15px;
+    padding-left: 5px;
+}
+/**
+ * ast-list-icons inside sortable compatibility CSS.
+ */
+.ast-sortable-subfields-wrap .customize-control-ast-list-icons .components-button {
+    padding: 6px 6px;
+	height: 38px;
+}
+.ast-sortable-subfields-wrap .customize-control-ast-list-icons .dashicons-admin-page {
+    color: #556068;
+}
+.customize-control-ast-sortable .ast-sortable-subfields-wrap .customize-control-ast-list-icons .ahfb-sorter-item-panel-header {
+    border: 1px solid #ddd;
+}
+.ast-sortable-subfields-wrap .customize-control-ast-list-icons .ahfb-sorter-visiblity svg {
+    height: 14px;
+    width: 14px;
+	fill: #556068;
+}
+.ast-sortable-subfields-wrap .customize-control-ast-list-icons .ast-sorter-item-expand {
+	border-right: 1px solid #ddd;
+}
+.ast-sortable-subfields-wrap .customize-control-ast-list-icons .ahfb-sorter-visiblity {
+	border-left: 1px solid #ddd;
+}
+.ast-sortable-subfields-wrap .customize-control-ast-list-icons .ahfb-sorter-item {
+	border: 1px solid #ddd;
+    border-top: 0;
+}
+.ast-sortable-subfields-wrap .customize-control-ast-list-icons .rfipdropdown--open {
+	width: 200px !important;
+    position: static;
+}
+.ast-sortable-subfields-wrap .customize-control-ast-list-icons .rfipdropdown--open .rfipicons__ibox:hover>* {
+    transform: scale(1.3) !important;
+}
+.ast-sortable-subfields-wrap .customize-control-ast-list-icons .rfipdropdown--open .rfipicons__ibox {
+    height: 32px !important;
 }
 .ast-sortable-subfields-wrap .ast-color-btn-reset-wrap {
     top: 0;
