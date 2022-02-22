@@ -598,7 +598,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				),
 				array(
 					'key'   => 'header-main-stick-meta',
-					'label' => __( 'Disable Primary Header', 'astra' ),
+					'label' => __( 'Stick Primary Header', 'astra' ),
 				),
 				array(
 					'key'   => 'header-below-stick-meta',
