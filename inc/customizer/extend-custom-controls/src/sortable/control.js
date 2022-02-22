@@ -68,6 +68,14 @@ export const sortableControl = wp.customize.astraControl.extend( {
 					control.cloneSortableItem( this, control );
 				});
 
+				jQuery( this ).on( 'click', 'i.remove-sortable-item', function( e ) {
+
+					e.preventDefault();
+					e.stopPropagation();
+
+					control.removeSortableItem( this, control );
+				});
+
 		}).click( function() {
 
 			// Update value on click.
@@ -138,14 +146,37 @@ export const sortableControl = wp.customize.astraControl.extend( {
 		control.updateValue();
 	},
 
+	removeSortableItem: function( instance, control ) {
+
+		var parent_wrap = jQuery( instance ).closest( '.ast-sortable-item' ),
+			originalItem = parent_wrap.data( 'index' );
+
+		var mainIndexClonner = control.sortableContainer.find( '.ast-sortable-item[data-value="' + originalItem + '"]' ).find( '.dashicons-admin-page' );
+
+		if( mainIndexClonner.length ) {
+			mainIndexClonner.show();
+		} else {
+			control.sortableContainer.find( '.ast-sortable-item[data-value="' + originalItem + '"]' ).find( '.dashicons-visibility' ).after( '<i class="dashicons dashicons-admin-page" style="font-size: 16px"></i>' );
+		}
+
+		var sortableItems = control.sortableContainer.find( '.ast-sortable-item[data-index="' + originalItem + '"]' );
+		if( sortableItems.length && 1 < sortableItems.length ) {
+			parent_wrap.remove();
+		}
+
+		control.addListeners( control );
+
+		control.updateValue();
+	},
+
 	addListeners: function( control ) {
-		let cloneTriggers = document.getElementsByClassName( 'clonned-sortable-item' ),
+		let removeTriggers = document.getElementsByClassName( 'remove-sortable-item' ),
 			accordionTriggers = document.getElementsByClassName( 'clonned-sortable-accordion' ),
 			visibilityTriggers = document.getElementsByClassName( 'clonned-sortable-visibility' );
 
-		for( var i=0; i < cloneTriggers.length; i++ ) {
-			cloneTriggers[i].onclick = function() {
-				control.cloneSortableItem( this, control );
+		for( var i=0; i < removeTriggers.length; i++ ) {
+			removeTriggers[i].onclick = function() {
+				control.removeSortableItem( this, control );
 			}
 		}
 
@@ -181,16 +212,22 @@ export const sortableControl = wp.customize.astraControl.extend( {
 			limit = control.params.choices[ originalItem ].clone_limit;
 
 		sortableNewID = '<div class="ast-sortable-item ui-sortable-handle" data-index="' + originalItem + '" data-clonned-item="' + toBeClonedCounter + '" data-value="' + newChoiceID + '" data-title="' + title + '"> ' + title + ' <i class="dashicons dashicons-visibility visibility clonned-sortable-visibility"></i>';
-		sortableNewID += '<i class="dashicons dashicons-admin-page clonned-sortable-item" style="font-size:16px;"></i>';
+		sortableNewID += '<i class="dashicons dashicons-remove remove-sortable-item"></i>';
 		sortableNewID += '<i class="dashicons clonned-sortable-accordion dashicons-arrow-down-alt2 ast-option ast-accordion"></i> <div class="ast-sortable-subcontrols" data-index="' + newChoiceID + '"></div';
 
 		clonnedFrom.after( sortableNewID );
 
 		var clonedSortableSameItems = control.sortableContainer.find( '.ast-sortable-item[data-index="' + originalItem + '"]' );
-		if( clonedSortableSameItems.length && limit === clonedSortableSameItems.length ) {
-			clonedSortableSameItems.each( function() {
-				jQuery( this ).find( '.dashicons-admin-page' ).hide();
-			});
+		if( clonedSortableSameItems.length ) {
+			if( limit === clonedSortableSameItems.length ) {
+				clonedSortableSameItems.each( function() {
+					jQuery( this ).find( '.dashicons-admin-page' ).hide();
+				});
+			} else {
+				clonedSortableSameItems.each( function() {
+					jQuery( this ).find( '.dashicons-admin-page' ).show();
+				});
+			}
 		}
 	},
 
@@ -485,6 +522,8 @@ export const sortableControl = wp.customize.astraControl.extend( {
 		this.sortableContainer.find( '.ast-sortable-item:not(.invisible)' ).each( function() {
 			newValue.push( jQuery( this ).data( 'value' ) );
 		});
+
+		newValue = [ ...new Set( newValue ) ];
 
 		this.sortableContainer.find( '.ast-sortable-item[data-clone_tracker]' ).each( function() {
 			var astraCloneOptionTracker = jQuery( this ).data( 'clone_tracker' ),

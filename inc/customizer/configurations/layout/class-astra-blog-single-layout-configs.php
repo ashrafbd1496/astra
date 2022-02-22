@@ -45,12 +45,7 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 				'clone_limit'   => $clone_limit,
 				'clone_tracker' => ASTRA_THEME_SETTINGS . '[sortable-nested-index-clonned-track]',
 				'title'         => __( 'Custom Sortable', 'astra' ),
-				'fields'        => array(
-					'dummy-sortable-color-subcontrol-one',
-					'dummy-sortable-color-subcontrol-two',
-				),
 			);
-
 
 			$clonning_attr['nested-index-1'] = array(
 				'clone'         => $to_clone,
@@ -59,10 +54,6 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 				'clone_limit'   => $clone_limit,
 				'clone_tracker' => ASTRA_THEME_SETTINGS . '[sortable-nested-index-clonned-track]',
 				'title'         => __( 'Custom Sortable', 'astra' ),
-				'fields'        => array(
-					'dummy-sortable-color-subcontrol-one-1',
-					'dummy-sortable-color-subcontrol-two-1',
-				),
 			);
 
 			$clonning_attr['nested-index-2'] = array(
@@ -72,10 +63,6 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 				'clone_limit'   => $clone_limit,
 				'clone_tracker' => ASTRA_THEME_SETTINGS . '[sortable-nested-index-clonned-track]',
 				'title'         => __( 'Custom Sortable', 'astra' ),
-				'fields'        => array(
-					'dummy-sortable-color-subcontrol-one-2',
-					'dummy-sortable-color-subcontrol-two-2',
-				),
 			);
 
 			$_configs = array(

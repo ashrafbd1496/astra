@@ -4294,9 +4294,15 @@ input[type="text"].select2-search__field {
   color: #556068;
   background: #ffffff;
   cursor: move;
+  font-size: 12px;
   line-height: 38px;
   margin: 0 0 10px;
   border-radius: 3px;
+}
+.customize-control-ast-sortable .sortable .ast-sortable-subcontrols {
+    border: none;
+    border-top: 1px solid #ddd;
+    border-radius: 0 0 3px 3px;
 }
 .customize-control-ast-sortable .sortable div:last-child {
   margin: 0;
@@ -4305,8 +4311,8 @@ input[type="text"].select2-search__field {
 .customize-control-ast-sortable .sortable div > .dashicons {
   float: left;
   position: relative;
-  font-size: 18px;
-  padding: 9px 12px;
+  font-size: 16px;
+  padding: 9px;
   line-height: 20px;
   border-right: 1px solid #ddd;
 }
@@ -4319,10 +4325,10 @@ input[type="text"].select2-search__field {
   opacity: 1;
   position: absolute;
   content: '';
-  width: 20px;
+  width: 18px;
   height: 2px;
   top: 18px;
-  right: 12px;
+  right: 11px;
   background: #656565;
   border-radius: 5px;
   transform: rotate(45deg);
@@ -4344,7 +4350,7 @@ input[type="text"].select2-search__field {
 .ast-sortable-item.show:hover {
   opacity: 1;
 }
-.ast-sortable-item .dashicons-admin-page, .ast-sortable-item .dashicons-arrow-down-alt2 {
+.ast-sortable-item .dashicons-admin-page, .ast-sortable-item .dashicons-arrow-down-alt2, .ast-sortable-item .dashicons-remove {
     cursor: pointer;
 }
 .ast-sortable-subcontrols {
@@ -4384,7 +4390,10 @@ input[type="text"].select2-search__field {
 /**
  * Hide clone & accordion dashicons for invisible items.
  */
-.ast-sortable-item.invisible > .dashicons-admin-page, .ast-sortable-item.invisible > .ast-accordion {
+.ast-sortable-item.invisible > .dashicons-admin-page, .ast-sortable-item.invisible > .ast-accordion, .ast-sortable-item.invisible > .dashicons-remove {
+    display: none;
+}
+.ast-sortable-item.invisible .ast-sortable-subcontrols {
     display: none;
 }
 
@@ -6185,9 +6194,15 @@ input[type="text"].select2-search__field {
   color: #556068;
   background: #ffffff;
   cursor: move;
+  font-size: 12px;
   line-height: 38px;
   margin: 0 0 10px;
   border-radius: 3px;
+}
+.customize-control-ast-sortable .sortable .ast-sortable-subcontrols {
+    border: none;
+    border-top: 1px solid #ddd;
+    border-radius: 0 0 3px 3px;
 }
 .customize-control-ast-sortable .sortable div:last-child {
   margin: 0;
@@ -6196,8 +6211,8 @@ input[type="text"].select2-search__field {
 .customize-control-ast-sortable .sortable div > .dashicons {
   float: left;
   position: relative;
-  font-size: 18px;
-  padding: 9px 12px;
+  font-size: 16px;
+  padding: 9px;
   line-height: 20px;
   border-right: 1px solid #ddd;
 }
@@ -6210,10 +6225,10 @@ input[type="text"].select2-search__field {
   opacity: 1;
   position: absolute;
   content: '';
-  width: 20px;
+  width: 18px;
   height: 2px;
   top: 18px;
-  right: 12px;
+  right: 11px;
   background: #656565;
   border-radius: 5px;
   transform: rotate(45deg);
@@ -6235,7 +6250,7 @@ input[type="text"].select2-search__field {
 .ast-sortable-item.show:hover {
   opacity: 1;
 }
-.ast-sortable-item .dashicons-admin-page, .ast-sortable-item .dashicons-arrow-down-alt2 {
+.ast-sortable-item .dashicons-admin-page, .ast-sortable-item .dashicons-arrow-down-alt2, .ast-sortable-item .dashicons-remove {
     cursor: pointer;
 }
 .ast-sortable-subcontrols {
@@ -6275,7 +6290,10 @@ input[type="text"].select2-search__field {
 /**
  * Hide clone & accordion dashicons for invisible items.
  */
-.ast-sortable-item.invisible > .dashicons-admin-page, .ast-sortable-item.invisible > .ast-accordion {
+.ast-sortable-item.invisible > .dashicons-admin-page, .ast-sortable-item.invisible > .ast-accordion, .ast-sortable-item.invisible > .dashicons-remove {
+    display: none;
+}
+.ast-sortable-item.invisible .ast-sortable-subcontrols {
     display: none;
 }
 
