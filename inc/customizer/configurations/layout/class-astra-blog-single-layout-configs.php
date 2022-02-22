@@ -192,33 +192,34 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 				$_configs[] = array(
 					'name'      => 'new-list-icons-control' . $control_suffix,
 					'parent'    => ASTRA_THEME_SETTINGS . '[blog-single-post-structure]',
-					'default'   => astra_get_option( 'new-list-icons-control' . $control_suffix,
-					array(
-						'items' =>
-							array(
+					'default'   => astra_get_option(
+						'new-list-icons-control' . $control_suffix,
+						array(
+							'items' =>
 								array(
-									'id'         => 'item-1',
-									'enabled'    => true,
-									'source'     => 'icon',
-									'icon'       => 'check-circle',
-									'label'      => 'No-Risk Money Back Guarantee!',
+									array(
+										'id'      => 'item-1',
+										'enabled' => true,
+										'source'  => 'icon',
+										'icon'    => 'check-circle',
+										'label'   => 'No-Risk Money Back Guarantee!',
+									),
+									array(
+										'id'      => 'item-2',
+										'enabled' => true,
+										'source'  => 'icon',
+										'icon'    => 'check-circle',
+										'label'   => 'Safe and Secure Shopping',
+									),
+									array(
+										'id'      => 'item-3',
+										'enabled' => true,
+										'source'  => 'icon',
+										'icon'    => 'check-circle',
+										'label'   => '100% Purchase Protection',
+									),
 								),
-								array(
-									'id'         => 'item-2',
-									'enabled'    => true,
-									'source'     => 'icon',
-									'icon'       => 'check-circle',
-									'label'      => 'Safe and Secure Shopping',
-								),
-								array(
-									'id'         => 'item-3',
-									'enabled'    => true,
-									'source'     => 'icon',
-									'icon'       => 'check-circle',
-									'label'      => '100% Purchase Protection',
-								),
-							),
-						),
+						)
 					),
 					'linked'    => 'nested-index' . $control_suffix,
 					'type'      => 'sub-control',
