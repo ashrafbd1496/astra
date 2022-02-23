@@ -47,7 +47,7 @@
     "minimist": ">=1.2.3",
     "node-sass": "^7.0.1",
     "postcss-flexibility": "git+https://github.com/Nikschavan/postcss-flexibility.git#fix-145-build",
-    "puppeteer": "^10.4.0"
+    "puppeteer": "^13.4.0"
   },
   "scripts": {
     "pree2etests": "npm run env run cli rewrite structure %postname% --hard --quiet",
