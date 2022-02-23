@@ -1782,6 +1782,7 @@ button.components-button.ahfb-sorter-item-expand {
 	fill: #556068;
 	width: 28px;
 	height: 28px;
+	vertical-align: middle;
 }
 
 .ahfb-sorter-drop-social_item_group .ahfb-sorter-item-panel-header .ahfb-sorter-visiblity.item-is-hidden {

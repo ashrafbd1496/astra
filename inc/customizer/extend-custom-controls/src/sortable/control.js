@@ -157,7 +157,7 @@ export const sortableControl = wp.customize.astraControl.extend( {
 		if( mainIndexClonner.length ) {
 			mainIndexClonner.show();
 		} else {
-			control.sortableContainer.find( '.ast-sortable-item[data-value="' + originalItem + '"]' ).find( '.dashicons-visibility' ).after( '<i class="dashicons dashicons-admin-page" style="font-size: 16px"></i>' );
+			control.sortableContainer.find( '.ast-sortable-item[data-value="' + originalItem + '"]' ).find( '.dashicons-visibility' ).after( '<i class="dashicons dashicons-admin-page"></i>' );
 		}
 
 		var sortableItems = control.sortableContainer.find( '.ast-sortable-item[data-index="' + originalItem + '"]' );
@@ -531,7 +531,7 @@ export const sortableControl = wp.customize.astraControl.extend( {
 			var astraCloneOptionTracker = jQuery( this ).data( 'clone_tracker' ),
 				indexKey = jQuery( this ).data( 'index' );
 			if( '' != astraCloneOptionTracker ) {
-				var clonedSortableSameItems = control.sortableContainer.find( '.ast-sortable-item[data-index="' + indexKey + '"]' );
+				var clonedSortableSameItems = control.sortableContainer.find( '.ast-sortable-item:not(.invisible)[data-index="' + indexKey + '"]' );
 				wp.customize.control( astraCloneOptionTracker ).setting.set( clonedSortableSameItems.length );
 			}
 		});

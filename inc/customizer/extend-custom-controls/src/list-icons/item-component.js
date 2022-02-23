@@ -35,9 +35,9 @@ const ItemComponent = props => {
 		}}>
 			<Tooltip text={__('Toggle Item Visiblity', 'astra')}>
 				<Button className="ahfb-sorter-visiblity">
-							<span dangerouslySetInnerHTML={{
-								__html: selectedIcon
-							}}/>
+					<span dangerouslySetInnerHTML={{
+						__html: selectedIcon
+					}}/>
 				</Button>
 			</Tooltip>
 			<span className="ahfb-sorter-title">{ __('Feature Item', 'astra') }</span>
@@ -45,21 +45,29 @@ const ItemComponent = props => {
 					onClick={e => {
 						e.stopPropagation();
 						props.cloneItem(props.item);
+
+						let featuredItems = jQuery( e.target ).closest( '.ahfb-sorter-drop-social_item_group' ).find( '.ahfb-sorter-item' );
+						featuredItems.find( '.ahfb-sorter-item-remove.hide' ).toggleClass( 'hide' );
 					}}>
 				<Dashicon icon="admin-page"/>
 			</Button>
-			<Button className={`ahfb-sorter-item-expand ${props.item.enabled ? 'item-is-visible' : 'item-is-hidden'}`}
+			<Button className={`ahfb-sorter-item-remove ${props.item.enabled ? 'item-is-visible' : 'item-is-hidden'}`} isDestructive onClick={e => {
+				e.stopPropagation();
+				props.removeItem(props.index);
+
+				let featuredItems = jQuery( e.target ).closest( '.ahfb-sorter-drop-social_item_group' ).find( '.ahfb-sorter-item' );
+				if( ( parseInt( featuredItems.length ) - 1 ) == 1 ) {
+					featuredItems.find( '.ahfb-sorter-item-remove' ).toggleClass( 'hide' );
+				}
+			}}>
+				<Dashicon icon="no-alt"/>
+			</Button>
+			<Button className={`ahfb-sorter-item-expand visibility-item ${props.item.enabled ? 'item-is-visible' : 'item-is-hidden'}`}
 					onClick={e => {
 						e.stopPropagation();
 						props.toggleEnabled(props.item.enabled ? false : true, props.index);
 					}}>
 				<Dashicon icon="visibility"/>
-			</Button>
-			<Button className="ahfb-sorter-item-remove" isDestructive onClick={e => {
-				e.stopPropagation();
-				props.removeItem(props.index);
-			}}>
-				<Dashicon icon="no-alt"/>
 			</Button>
 		</div>
 		{ state.open && <div className="ahfb-sorter-item-panel-content">

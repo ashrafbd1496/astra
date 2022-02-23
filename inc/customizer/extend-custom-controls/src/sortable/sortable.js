@@ -37,7 +37,7 @@ const SortableComponent = props => {
 			html = <div {...inputAttrs} key={choiceID} className='ast-sortable-item' data-clone_tracker={ dataCloneIndex } data-value={choiceID} data-index={indexValue} data-title={title}>
 					{ title }
 					<i className="dashicons dashicons-visibility visibility"></i>
-					{ ( showClonning && choiceID == choices[choiceID].main_index ) && <i className="dashicons dashicons-admin-page" style={{ fontSize: '16px' }}></i> }
+					{ ( showClonning && choiceID == choices[choiceID].main_index ) && <i className="dashicons dashicons-admin-page"></i> }
 					{ ( 'object' == typeof choices[choiceID] && choiceID != choices[choiceID].main_index ) && <i className="dashicons dashicons-remove remove-sortable-item"></i> }
 					{ ( 'object' == typeof choices[choiceID] && choices[choiceID].is_parent ) &&
 						<>
@@ -54,21 +54,21 @@ const SortableComponent = props => {
 		let html = '',
 			title = ( 'object' == typeof choices[choiceID] && undefined != choices[choiceID] ) ? choices[choiceID].title : choices[choiceID],
 			dataCloneIndex = ( 'object' == typeof choices[choiceID] && undefined != choices[choiceID] ) ? choices[choiceID]['clone_tracker'] : '',
-			clonableCondition = ( false == dataCloneIndex || choiceID == choices[choiceID].main_index ) ? true : false,
 			lastChar = parseInt( choiceID.slice(-1) ),
+			showClonning = ( 'object' == typeof choices[choiceID] && true == choices[choiceID].clone && choiceID == choices[choiceID].main_index && choices[choiceID].clone_limit > wp.customize.control( choices[choiceID].clone_tracker ).setting.get() ) ? true : false,
 			indexValue = choiceID;
 
 		if( lastChar ) {
 			indexValue = choiceID.slice(0, -2);
 		}
 
-		if (Array.isArray(value) && -1 === value.indexOf(choiceID) && clonableCondition ) {
+		if ( ( 'object' != typeof choices[choiceID] && Array.isArray(value) && -1 === value.indexOf(choiceID) ) || ( showClonning && -1 === value.indexOf(choiceID) ) ) {
 			html = <div {...inputAttrs} key={choiceID} className='ast-sortable-item invisible' data-clone_tracker={ dataCloneIndex } data-index={indexValue} data-value={choiceID} data-title={title}>
 				{ title }
 				<i className="dashicons dashicons-visibility visibility"></i>
-				{ clonableCondition && <i className="dashicons dashicons-admin-page" style={{ fontSize: '16px' }}></i> }
-				{ clonableCondition && <i className="dashicons dashicons-remove remove-sortable-item"></i> }
-				{ clonableCondition &&
+				{ ( showClonning ) && <i className="dashicons dashicons-admin-page"></i> }
+				{ ( 'object' == typeof choices[choiceID] && true == choices[choiceID].clone && choiceID != choices[choiceID].main_index ) && <i className="dashicons dashicons-remove remove-sortable-item"></i> }
+				{ showClonning &&
 					<>
 						<i className="dashicons dashicons-arrow-down-alt2 ast-option ast-accordion"></i>
 						<div className="ast-sortable-subcontrols" data-index={choiceID}></div>
