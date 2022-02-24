@@ -145,6 +145,7 @@
 }
 .ast-sortable-subfields-wrap .ast-fields-wrap {
     margin-right: -12px;
+	padding-bottom: 10px;
 }
 .customize-control-content {
     width: 100%;

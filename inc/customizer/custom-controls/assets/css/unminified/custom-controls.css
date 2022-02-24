@@ -3150,6 +3150,7 @@ input[type="text"].select2-search__field {
 }
 .ast-sortable-subfields-wrap .ast-fields-wrap {
     margin-left: -12px;
+	padding-bottom: 10px;
 }
 .customize-control-content {
     width: 100%;
