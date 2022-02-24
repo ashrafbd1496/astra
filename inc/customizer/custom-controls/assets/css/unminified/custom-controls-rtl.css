@@ -4336,10 +4336,6 @@ input[type="text"].select2-search__field {
   transition: opacity 0.2s ease;
 }
 
-.customize-control-ast-sortable .sortable .ast-sortable-item:hover {
-  opacity: 0.8;
-}
-
 /**
  * Expansion specific new raw CSS.
  */
@@ -6318,10 +6314,9 @@ input[type="text"].select2-search__field {
 	display: block;
 }
 .ast-sortable-subfields-wrap .customize-control {
-    box-sizing: border-box;
+	box-sizing: border-box;
     position: relative;
-    padding-right: 15px;
-    padding-left: 5px;
+    padding-right: 12px;
 }
 /**
  * ast-list-icons inside sortable compatibility CSS.
@@ -6353,9 +6348,15 @@ input[type="text"].select2-search__field {
 	border: 1px solid #ddd;
     border-top: 0;
 }
+.ast-sortable-subfields-wrap .customize-control-ast-list-icons .rfipdropdown {
+    width: 225px !important;
+    right: -10px;
+	box-shadow: 0 5px 15px rgb(0 0 0 / 22%), 0 0px 5px rgb(0 0 0 / 30%);
+}
 .ast-sortable-subfields-wrap .customize-control-ast-list-icons .rfipdropdown--open {
-	width: 200px !important;
-    position: static;
+    height: 300px;
+    overflow: hidden;
+    position: absolute;
 }
 .ast-sortable-item .ahfb-sorter-item-panel-content {
     border-top: 1px solid #ddd;
@@ -6376,7 +6377,7 @@ input[type="text"].select2-search__field {
     display: block;
 }
 .ast-sortable-subfields-wrap .ast-fields-wrap {
-    margin-right: -12px;
+    /* margin-left: -12px; */
 }
 .customize-control-content {
     width: 100%;
@@ -6401,6 +6402,9 @@ input[type="text"].select2-search__field {
 }
 .ast-sortable-item .components-button.item-is-hidden:not(.visibility-item), .ahfb-sorter-item:first-child .ahfb-sorter-item-remove {
     display: none;
+}
+.customize-control-ast-sortable .sortable .rfip .rfipbtn__button {
+    margin-right: auto;
 }
 
 .customize-control-ast-toggle-control .components-toggle-control .components-base-control__field, .ast-togglecontrol-wrapper .components-base-control__field {
