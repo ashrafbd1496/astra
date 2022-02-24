@@ -30,41 +30,6 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
-			$clone_limit = 3;
-			$to_clone    = true;
-			if ( absint( astra_get_option( 'sortable-nested-index-clonned-track', 1 ) ) === $clone_limit ) {
-				$to_clone = false;
-			}
-
-			$clonning_attr = array();
-
-			$clonning_attr['nested-index'] = array(
-				'clone'         => $to_clone,
-				'is_parent'     => true,
-				'main_index'    => 'nested-index',
-				'clone_limit'   => $clone_limit,
-				'clone_tracker' => ASTRA_THEME_SETTINGS . '[sortable-nested-index-clonned-track]',
-				'title'         => __( 'Custom Sortable', 'astra' ),
-			);
-
-			$clonning_attr['nested-index-1'] = array(
-				'clone'         => $to_clone,
-				'is_parent'     => true,
-				'main_index'    => 'nested-index',
-				'clone_limit'   => $clone_limit,
-				'clone_tracker' => ASTRA_THEME_SETTINGS . '[sortable-nested-index-clonned-track]',
-				'title'         => __( 'Custom Sortable', 'astra' ),
-			);
-
-			$clonning_attr['nested-index-2'] = array(
-				'clone'         => $to_clone,
-				'is_parent'     => true,
-				'main_index'    => 'nested-index',
-				'clone_limit'   => $clone_limit,
-				'clone_tracker' => ASTRA_THEME_SETTINGS . '[sortable-nested-index-clonned-track]',
-				'title'         => __( 'Custom Sortable', 'astra' ),
-			);
-
 			$_configs = array(
 
 				/**
@@ -116,19 +81,6 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 					'divider'     => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
-				/**
-				 * Sortable Clone Component Track.
-				 */
-				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[sortable-nested-index-clonned-track]',
-					'section'   => 'section-blog-single',
-					'type'      => 'control',
-					'control'   => 'ast-hidden',
-					'priority'  => 2,
-					'transport' => 'postMessage',
-					'partial'   => false,
-					'default'   => astra_get_option( 'sortable-nested-index-clonned-track', 1 ),
-				),
 
 				/**
 				 * Option: Display Post Structure
@@ -142,112 +94,13 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 					'default'           => astra_get_option( 'blog-single-post-structure' ),
 					'priority'          => 5,
 					'title'             => __( 'Structure', 'astra' ),
-					'choices'           => array_merge(
-						array(
-							'single-image'      => __( 'Featured Image', 'astra' ),
-							'single-title-meta' => __( 'Title & Blog Meta', 'astra' ),
-						),
-						$clonning_attr
+					'choices'           => array(
+						'single-image'      => __( 'Featured Image', 'astra' ),
+						'single-title-meta' => __( 'Title & Blog Meta', 'astra' ),
 					),
 				),
+
 			);
-
-			for ( $index = 1; $index <= $clone_limit; $index++ ) {
-
-				$control_suffix = ( 1 === $index ) ? '' : '-' . ( $index - 1 );
-
-				$_configs[] = array(
-					'name'       => 'dummy-sortable-color-subcontrol-one' . $control_suffix,
-					'parent'     => ASTRA_THEME_SETTINGS . '[blog-single-post-structure]',
-					'default'    => astra_get_option( 'dummy-sortable-color-subcontrol-one' . $control_suffix ),
-					'linked'     => 'nested-index' . $control_suffix,
-					'type'       => 'sub-control',
-					'control'    => 'ast-selector',
-					'section'    => 'section-blog-single',
-					'priority'   => 5,
-					'title'      => __( 'Type', 'astra' ),
-					'choices'    => array(
-						'default' => __( 'Default', 'astra' ),
-						'custom'  => __( 'Custom', 'astra' ),
-					),
-					'transport'  => 'postMessage',
-					'responsive' => false,
-					'renderAs'   => 'text',
-				);
-
-				$_configs[] = array(
-					'name'      => 'new-text-input-control' . $control_suffix,
-					'parent'    => ASTRA_THEME_SETTINGS . '[blog-single-post-structure]',
-					'default'   => astra_get_option( 'new-text-input-control' . $control_suffix, 'Test Text' ),
-					'linked'    => 'nested-index' . $control_suffix,
-					'type'      => 'sub-control',
-					'control'   => 'ast-text-input',
-					'section'   => 'section-blog-single',
-					'priority'  => 25,
-					'transport' => 'postMessage',
-					'title'     => 'Payment Title',
-					'settings'  => array(),
-				);
-
-				$_configs[] = array(
-					'name'      => 'new-list-icons-control' . $control_suffix,
-					'parent'    => ASTRA_THEME_SETTINGS . '[blog-single-post-structure]',
-					'default'   => astra_get_option(
-						'new-list-icons-control' . $control_suffix,
-						array(
-							'items' =>
-								array(
-									array(
-										'id'      => 'item-1',
-										'enabled' => true,
-										'source'  => 'icon',
-										'icon'    => 'check-circle',
-										'label'   => 'No-Risk Money Back Guarantee!',
-									),
-									array(
-										'id'      => 'item-2',
-										'enabled' => true,
-										'source'  => 'icon',
-										'icon'    => 'check-circle',
-										'label'   => 'Safe and Secure Shopping',
-									),
-									array(
-										'id'      => 'item-3',
-										'enabled' => true,
-										'source'  => 'icon',
-										'icon'    => 'check-circle',
-										'label'   => '100% Purchase Protection',
-									),
-								),
-						)
-					),
-					'linked'    => 'nested-index' . $control_suffix,
-					'type'      => 'sub-control',
-					'control'   => 'ast-list-icons',
-					'section'   => 'section-blog-single',
-					'priority'  => 35,
-					'transport' => 'postMessage',
-					'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
-				);
-
-				$_configs[] = array(
-					'name'     => 'dummy-sortable-color-subcontrol-two' . $control_suffix,
-					'parent'   => ASTRA_THEME_SETTINGS . '[blog-single-post-structure]',
-					'default'  => astra_get_option( 'dummy-sortable-color-subcontrol-two' . $control_suffix ),
-					'type'     => 'sub-control',
-					'control'  => 'ast-select',
-					'section'  => 'section-blog-single',
-					'priority' => 10,
-					'linked'   => 'nested-index' . $control_suffix,
-					'title'    => __( 'Select', 'astra' ),
-					'choices'  => array(
-						'default' => __( 'Default', 'astra' ),
-						'opt1'    => __( 'Option 1', 'astra' ),
-						'opt2'    => __( 'Option 2', 'astra' ),
-						'opt3'    => __( 'Option 3', 'astra' ),
-					),
-				);
-			}
 
 			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
 				$_configs[] = array(
