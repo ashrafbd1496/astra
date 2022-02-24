@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import { DropdownMenu, TextControl } from '@wordpress/components';
 import { plus } from '@wordpress/icons';
 import { useState } from '@wordpress/element';
+import {__} from '@wordpress/i18n';
 
 const InputWithDropdown = props => {
 
@@ -42,7 +43,7 @@ const InputWithDropdown = props => {
 			<TextControl type="text" value={ propValue } onChange={ onInputChange } />
 			<DropdownMenu
 				icon={ plus }
-				label="Select Shortcodes"
+				label={__('Select Shortcodes', 'astra')}
 				controls={ [dropDownControlOptions] }
 			/>
 		</div>
