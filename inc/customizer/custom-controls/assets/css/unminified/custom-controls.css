@@ -3149,7 +3149,7 @@ input[type="text"].select2-search__field {
     display: block;
 }
 .ast-sortable-subfields-wrap .ast-fields-wrap {
-    /* margin-left: -12px; */
+    margin-left: -12px;
 }
 .customize-control-content {
     width: 100%;

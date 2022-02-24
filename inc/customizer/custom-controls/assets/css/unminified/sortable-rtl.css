@@ -144,7 +144,7 @@
     display: block;
 }
 .ast-sortable-subfields-wrap .ast-fields-wrap {
-    /* margin-left: -12px; */
+    margin-right: -12px;
 }
 .customize-control-content {
     width: 100%;

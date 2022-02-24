@@ -61,7 +61,7 @@ export const sortableControl = wp.customize.astraControl.extend( {
 					control.expandSortableAccorditem( this, control );
 				});
 
-				jQuery( this ).on( 'click', 'i.dashicons-admin-page', function( e ) {
+				jQuery( this ).on( 'click', 'i.sortable-clonner', function( e ) {
 
 					e.preventDefault();
 					e.stopPropagation();
@@ -152,12 +152,12 @@ export const sortableControl = wp.customize.astraControl.extend( {
 		var parent_wrap = jQuery( instance ).closest( '.ast-sortable-item' ),
 			originalItem = parent_wrap.data( 'index' );
 
-		var mainIndexClonner = control.sortableContainer.find( '.ast-sortable-item[data-value="' + originalItem + '"]' ).find( '.dashicons-admin-page' );
+		var mainIndexClonner = control.sortableContainer.find( '.ast-sortable-item[data-value="' + originalItem + '"]' ).find( '.sortable-clonner' );
 
 		if( mainIndexClonner.length ) {
 			mainIndexClonner.show();
 		} else {
-			control.sortableContainer.find( '.ast-sortable-item[data-value="' + originalItem + '"]' ).find( '.dashicons-visibility' ).after( '<i class="dashicons dashicons-admin-page"></i>' );
+			control.sortableContainer.find( '.ast-sortable-item[data-value="' + originalItem + '"]' ).find( '.dashicons-visibility' ).after( '<i class="dashicons sortable-clonner dashicons-admin-page"></i>' );
 		}
 
 		var sortableItems = control.sortableContainer.find( '.ast-sortable-item[data-index="' + originalItem + '"]' );
@@ -222,11 +222,11 @@ export const sortableControl = wp.customize.astraControl.extend( {
 		if( clonedSortableSameItems.length ) {
 			if( limit === clonedSortableSameItems.length ) {
 				clonedSortableSameItems.each( function() {
-					jQuery( this ).find( '.dashicons-admin-page' ).hide();
+					jQuery( this ).find( '.sortable-clonner' ).hide();
 				});
 			} else {
 				clonedSortableSameItems.each( function() {
-					jQuery( this ).find( '.dashicons-admin-page' ).show();
+					jQuery( this ).find( '.sortable-clonner' ).show();
 				});
 			}
 		}

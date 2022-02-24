@@ -37,7 +37,7 @@ const SortableComponent = props => {
 			html = <div {...inputAttrs} key={choiceID} className='ast-sortable-item' data-clone_tracker={ dataCloneIndex } data-value={choiceID} data-index={indexValue} data-title={title}>
 					{ title }
 					<i className="dashicons dashicons-visibility visibility"></i>
-					{ ( isClonning && choiceID == choices[choiceID].main_index ) && <i className="dashicons dashicons-admin-page"></i> }
+					{ ( isClonning && choiceID == choices[choiceID].main_index ) && <i className="dashicons sortable-clonner dashicons-admin-page"></i> }
 					{ ( 'object' == typeof choices[choiceID] && choiceID != choices[choiceID].main_index ) && <i className="dashicons dashicons-remove remove-sortable-item"></i> }
 					{ ( 'object' == typeof choices[choiceID] && choices[choiceID].is_parent ) &&
 						<>
@@ -67,7 +67,7 @@ const SortableComponent = props => {
 			html = <div {...inputAttrs} key={choiceID} className='ast-sortable-item invisible' data-clone_tracker={ dataCloneIndex } data-index={indexValue} data-value={choiceID} data-title={title}>
 				{ title }
 				<i className="dashicons dashicons-visibility visibility"></i>
-				{ ( isClonning ) && <i className="dashicons dashicons-admin-page"></i> }
+				{ ( isClonning ) && <i className="dashicons sortable-clonner dashicons-admin-page"></i> }
 				{ ( 'object' == typeof choices[choiceID] && true == choices[choiceID].clone && choiceID != choices[choiceID].main_index ) && <i className="dashicons dashicons-remove remove-sortable-item"></i> }
 				{ ( 'object' == typeof choices[choiceID] && choices[choiceID].is_parent ) &&
 					<>
