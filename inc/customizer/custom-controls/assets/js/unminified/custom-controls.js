@@ -17034,7 +17034,7 @@ const SortableComponent = props => {
         dataCloneIndex = 'object' == typeof choices[choiceID] && undefined != choices[choiceID] ? choices[choiceID]['clone_tracker'] : '',
         lastChar = parseInt(choiceID.slice(-1)),
         indexValue = choiceID,
-        showClonning = 'object' == typeof choices[choiceID] && undefined != choices[choiceID].clone && choices[choiceID].clone_limit > wp.customize.control(choices[choiceID].clone_tracker).setting.get() ? true : false;
+        isClonning = 'object' == typeof choices[choiceID] && undefined != choices[choiceID].clone && choices[choiceID].clone_limit > wp.customize.control(choices[choiceID].clone_tracker).setting.get() ? true : false;
 
     if (lastChar) {
       indexValue = choiceID.slice(0, -2);
@@ -17050,7 +17050,7 @@ const SortableComponent = props => {
         "data-title": title
       }), title, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("i", {
         className: "dashicons dashicons-visibility visibility"
-      }), showClonning && choiceID == choices[choiceID].main_index && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("i", {
+      }), isClonning && choiceID == choices[choiceID].main_index && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("i", {
         className: "dashicons dashicons-admin-page"
       }), 'object' == typeof choices[choiceID] && choiceID != choices[choiceID].main_index && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("i", {
         className: "dashicons dashicons-remove remove-sortable-item"
@@ -17069,14 +17069,14 @@ const SortableComponent = props => {
         title = 'object' == typeof choices[choiceID] && undefined != choices[choiceID] ? choices[choiceID].title : choices[choiceID],
         dataCloneIndex = 'object' == typeof choices[choiceID] && undefined != choices[choiceID] ? choices[choiceID]['clone_tracker'] : '',
         lastChar = parseInt(choiceID.slice(-1)),
-        showClonning = 'object' == typeof choices[choiceID] && true == choices[choiceID].clone && choiceID == choices[choiceID].main_index && choices[choiceID].clone_limit > wp.customize.control(choices[choiceID].clone_tracker).setting.get() ? true : false,
+        isClonning = 'object' == typeof choices[choiceID] && true == choices[choiceID].clone && choiceID == choices[choiceID].main_index && choices[choiceID].clone_limit > wp.customize.control(choices[choiceID].clone_tracker).setting.get() ? true : false,
         indexValue = choiceID;
 
     if (lastChar) {
       indexValue = choiceID.slice(0, -2);
     }
 
-    if ('object' != typeof choices[choiceID] && Array.isArray(value) && -1 === value.indexOf(choiceID) || showClonning && -1 === value.indexOf(choiceID)) {
+    if ('object' != typeof choices[choiceID] && Array.isArray(value) && -1 === value.indexOf(choiceID) || 'object' == typeof choices[choiceID] && -1 === value.indexOf(choiceID) && (isClonning || false == choices[choiceID].clone)) {
       html = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, inputAttrs, {
         key: choiceID,
         className: "ast-sortable-item invisible",
@@ -17086,11 +17086,11 @@ const SortableComponent = props => {
         "data-title": title
       }), title, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("i", {
         className: "dashicons dashicons-visibility visibility"
-      }), showClonning && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("i", {
+      }), isClonning && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("i", {
         className: "dashicons dashicons-admin-page"
       }), 'object' == typeof choices[choiceID] && true == choices[choiceID].clone && choiceID != choices[choiceID].main_index && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("i", {
         className: "dashicons dashicons-remove remove-sortable-item"
-      }), showClonning && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("i", {
+      }), 'object' == typeof choices[choiceID] && choices[choiceID].is_parent && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("i", {
         className: "dashicons dashicons-arrow-down-alt2 ast-option ast-accordion"
       }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
         className: "ast-sortable-subcontrols",

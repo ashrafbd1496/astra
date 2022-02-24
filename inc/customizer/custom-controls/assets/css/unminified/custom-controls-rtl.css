@@ -6291,10 +6291,6 @@ input[type="text"].select2-search__field {
   transition: opacity 0.2s ease;
 }
 
-.customize-control-ast-sortable .sortable .ast-sortable-item:hover {
-  opacity: 0.8;
-}
-
 /**
  * Expansion specific new raw CSS.
  */
