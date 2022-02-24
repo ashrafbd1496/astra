@@ -20,7 +20,7 @@
     "@wordpress/env": "^4.2.1",
     "@wordpress/eslint-plugin": "^10.0.1",
     "@wordpress/jest-puppeteer-axe": "^4.0.1",
-    "@wordpress/scripts": "^21.0.2",
+    "@wordpress/scripts": "^22.0.1",
     "autoprefixer": "^10.4.0",
     "cross-env": "^7.0.3",
     "eslint-plugin-eslint-comments": "^3.2.0",
