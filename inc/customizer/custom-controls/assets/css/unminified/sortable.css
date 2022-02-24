@@ -121,7 +121,7 @@
 	box-shadow: 0 5px 15px rgb(0 0 0 / 22%), 0 0px 5px rgb(0 0 0 / 30%);
 }
 .ast-sortable-subfields-wrap .customize-control-ast-list-icons .rfipdropdown--open {
-    height: 300px;
+    height: 285px;
     overflow: hidden;
     position: absolute;
 }

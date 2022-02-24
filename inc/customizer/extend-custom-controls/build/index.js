@@ -10856,7 +10856,7 @@ const SortableComponent = props => {
         dataCloneIndex = 'object' == typeof choices[choiceID] && undefined != choices[choiceID] ? choices[choiceID]['clone_tracker'] : '',
         lastChar = parseInt(choiceID.slice(-1)),
         indexValue = choiceID,
-        isClonning = 'object' == typeof choices[choiceID] && undefined != choices[choiceID].clone && choices[choiceID].clone_limit > wp.customize.control(choices[choiceID].clone_tracker).setting.get() ? true : false;
+        isClonning = 'object' == typeof choices[choiceID] && true == choices[choiceID].clone && choices[choiceID].clone_limit > wp.customize.control(choices[choiceID].clone_tracker).setting.get() ? true : false;
 
     if (lastChar) {
       indexValue = choiceID.slice(0, -2);
