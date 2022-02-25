@@ -165,6 +165,8 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			if ( 'inherit' == $h2_font_family ) {
 				$h2_font_family = $headings_font_family;
 			}
+			error_log( $font_weight_prop );
+			error_log( $h2_font_weight );
 			if ( $font_weight_prop === $h2_font_weight ) {
 				$h2_font_weight = $headings_font_weight;
 			}

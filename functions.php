@@ -62,6 +62,7 @@ require_once ASTRA_THEME_DIR . 'inc/dynamic-css/block-editor-compatibility.php';
 require_once ASTRA_THEME_DIR . 'inc/core/class-astra-walker-page.php';
 require_once ASTRA_THEME_DIR . 'inc/core/class-astra-enqueue-scripts.php';
 require_once ASTRA_THEME_DIR . 'inc/core/class-gutenberg-editor-css.php';
+require_once ASTRA_THEME_DIR . 'inc/core/class-astra-wp-editor-css.php';
 require_once ASTRA_THEME_DIR . 'inc/dynamic-css/inline-on-mobile.php';
 require_once ASTRA_THEME_DIR . 'inc/dynamic-css/content-background.php';
 require_once ASTRA_THEME_DIR . 'inc/class-astra-dynamic-css.php';

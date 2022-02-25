@@ -129,8 +129,8 @@ module.exports = function (grunt) {
                     /* Editor Style */
                     {
                         'assets/css/unminified/editor-style.css': 'sass/editor-style.scss',
-                        // 'inc/customizer/custom-controls/assets/unminified/custom-controls.css': 'inc/customizer/custom-controls/custom-controls.scss',
                         'inc/assets/css/block-editor-styles.css': 'sass/admin/block-editor-styles.scss',
+                        'inc/assets/css/wp-editor-styles.css': 'sass/admin/wp-editor-styles.scss',
                     },
 
                     /* Common Style */
