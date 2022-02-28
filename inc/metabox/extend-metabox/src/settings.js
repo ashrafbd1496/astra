@@ -5,6 +5,7 @@ import { PluginSidebar, PluginSidebarMoreMenuItem } from '@wordpress/edit-post';
 import { compose } from '@wordpress/compose';
 import { withSelect, withDispatch } from '@wordpress/data';
 import AstCheckboxControl from './ast-checkbox.js';
+import AstRadioImageControl from './ast-radio-image.js';
 import svgIcons from '../../../../assets/svg/svgs.json';
 import { SelectControl } from '@wordpress/components';
 import parse from 'html-react-parser';
@@ -90,13 +91,11 @@ const MetaSettings = props => {
 						}}
 					/>
 					<div className="ast-sidebar-layout-meta-wrap components-base-control__field">
-						<p className="ast-sidebar-control-title post-attributes-label-wrapper">
-							<strong className="customize-control-title">{ astMetaParams.sidebar_title }</strong>
-						</p>
-
-						<SelectControl
-							value={ ( undefined !== props.meta['site-sidebar-layout'] && ''!== props.meta['site-sidebar-layout'] ? props.meta['site-sidebar-layout'] : 'default' ) }
-							options={ sidebarOptions }
+						<AstRadioImageControl
+							label = { astMetaParams.sidebar_title }
+							metavalue = { ( undefined !== props.meta['site-sidebar-layout'] && ''!== props.meta['site-sidebar-layout'] ? props.meta['site-sidebar-layout'] : 'default' ) }
+							choices = { sidebarOptions }
+							id = { 'site-sidebar-layout' }
 							onChange={ ( val ) => {
 								props.setMetaFieldValue( val, 'site-sidebar-layout' );
 							} }
