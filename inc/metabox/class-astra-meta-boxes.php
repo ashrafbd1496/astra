@@ -529,10 +529,6 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 					'label' => __( 'Disable Mobile Header', 'astra' ),
 				),
 				array(
-					'key'   => 'site-post-title',
-					'label' => __( 'Disable Title', 'astra' ),
-				),
-				array(
 					'key'   => 'ast-breadcrumbs-content',
 					'label' => __( 'Disable Breadcrumb', 'astra' ),
 				),

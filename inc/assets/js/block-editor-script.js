@@ -34,19 +34,61 @@ function astra_onload_function() {
 				}
 			});
 
-		var titleCheckbox = document.getElementById('site-post-title'),
-			titleBlock = document.querySelector('.editor-post-title__block');
+		var titleCheckbox = document.getElementById('site-post-title');
 
 		if( null === titleCheckbox ) {
 			titleCheckbox = document.querySelector('.site-post-title input');
 		}
 
-		titleCheckbox.addEventListener('change',function() {
+		if( null !== titleCheckbox ) {
+			titleCheckbox.addEventListener('change',function() {
+				var titleBlock = document.querySelector('.editor-post-title__block');
+				if( null !== titleBlock ) {
+					if( titleCheckbox.checked ){
+						titleBlock.style.opacity = '0.2';
+					} else {
+						titleBlock.style.opacity = '1.0';
+					}
+				}
+			});
+		}
 
-			if( titleCheckbox.checked ){
-				titleBlock.style.opacity = '0.2';
-			} else {
-				titleBlock.style.opacity = '1.0';
+		// Title visibility with new editor compatibility update.
+		var titleVisibilityTrigger = '';
+		if( 'disabled' === wp.data.select( 'core/editor' ).getEditedPostAttribute( 'meta' )['site-post-title'] ) {
+			titleVisibilityTrigger = '<span class="dashicons dashicons-visibility title-visibility"></span>';
+			var titleBlock = document.querySelector( '.edit-post-visual-editor__post-title-wrapper' );
+			titleBlock.classList.toggle( 'invisible' );
+		} else {
+			titleVisibilityTrigger = '<span class="dashicons dashicons-hidden title-visibility"></span>';
+		}
+
+		document.querySelector( '.edit-post-visual-editor__post-title-wrapper' ).insertAdjacentHTML( 'beforeend', titleVisibilityTrigger );
+
+		document.querySelector( '.title-visibility' ).addEventListener( 'click',function() {
+			var titleBlock = document.querySelector( '.edit-post-visual-editor__post-title-wrapper' );
+			titleBlock.classList.toggle( 'invisible' );
+
+			if( this.classList.contains( 'dashicons-visibility' ) ) {
+				this.classList.add( 'dashicons-hidden' );
+				this.classList.remove( 'dashicons-visibility' );
+				wp.data.dispatch( 'core/editor' ).editPost(
+					{
+						meta: {
+							'site-post-title': '',
+						}
+					}
+					);
+				} else {
+					this.classList.add( 'dashicons-visibility' );
+					this.classList.remove( 'dashicons-hidden' );
+					wp.data.dispatch( 'core/editor' ).editPost(
+						{
+							meta: {
+							'site-post-title': 'disabled',
+						}
+					}
+				);
 			}
 		});
 	}
